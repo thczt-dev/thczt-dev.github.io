@@ -7,7 +7,7 @@ Portafolio de Diego (thc.dev): hub Y2K underground/sk8 con demos de negocios, pr
 ## Qué hay aquí
 
 - `index.html` — hub (textos ya horneados desde `textos.txt`).
-- `ThcFoto.png` — retrato de la portada.
+- `ThcFoto.webp` — retrato de la portada (WebP optimizado).
 - `Ayni/`, `Carta Censurada/`, `Restaurante/`, `barberia/`, `kds.clothesco/` — demos.
 
 `Sabor & Punto` y `NAVAJA NEGRA` son negocios ficticios; sus datos son de ejemplo y solo demostrativos.

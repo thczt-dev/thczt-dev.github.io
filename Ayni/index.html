@@ -2,9 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=153a7b56-1831-46d8-8867-7897bf54a3ec
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AYNI English Library — IE Nuestra Señora del Pilar</title>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -548,27 +545,7 @@ async function fetchVisitCount() {
   countEl.textContent = '...';
   countEl.style.opacity = '0.5';
 
-  // Use Netlify Function (works on Netlify, falls back gracefully)
-  try {
-    const res = await fetch('/.netlify/functions/visit-count');
-    console.log('Visit count response:', res.status, res.statusText);
-    if (res.ok) {
-      const data = await res.json();
-      console.log('Visit count data:', data);
-      countEl.textContent = data.count.toLocaleString();
-      countEl.style.opacity = '1';
-      countEl.style.animation = 'countPop 0.4s cubic-bezier(.34,1.56,.64,1)';
-      if (data.source) countEl.title = `Fuente: ${data.source}`;
-      return;
-    } else {
-      const err = await res.json().catch(() => ({}));
-      console.warn('Netlify function error:', err);
-    }
-  } catch (e) {
-    console.debug('Netlify visit-count function unavailable:', e);
-  }
-
-  // Fallback: try countapi.xyz (external API)
+  // Intenta countapi.xyz; si falla, se usa un contador local.
   try {
     const res = await fetch('https://api.countapi.xyz/hit/ayni-english-library/visits', { mode: 'cors' });
     if (res.ok) {
@@ -824,4 +801,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-<script async src=".netlify/scripts/hud%3Fvariant=public" data-nf-variant="public" data-netlify-site-id="153a7b56-1831-46d8-8867-7897bf54a3ec" data-app-host="app.netlify.com" data-account-tier="free"></script>

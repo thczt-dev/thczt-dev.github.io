@@ -23,12 +23,9 @@ Sitio web personal con estética **gótica** en azul y negro y textos informalme
 
 ## Cómo abrirlo
 
-```bash
-cd ~/Documentos/Portafolio\ ThcDev/Carta\ Censurada
-./abrir.sh
-```
+Publicado en `https://thczt-dev.github.io/Carta%20Censurada/`.
 
-O manualmente:
+Para verlo en local, desde esta carpeta:
 
 ```bash
 python3 -m http.server 8000
