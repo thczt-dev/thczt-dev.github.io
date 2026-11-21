@@ -363,6 +363,31 @@
     .modal__facts .wip-row dt { color: var(--pink); }
     .empty { grid-column: 1/-1; padding: 40px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
 
+    /* ---------- servicios ---------- */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .service-card {
+      position: relative; min-width: 0; padding: 26px 22px 24px;
+      border: 1px solid var(--line); border-radius: 10px;
+      background: linear-gradient(180deg, rgba(169,199,245,.07), rgba(10,14,20,.5));
+    }
+    .service-card::before {
+      content: ""; position: absolute; inset: 0 0 auto; height: 2px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      border-radius: 10px 10px 0 0;
+    }
+    .service-card__num {
+      color: var(--gold); font: 400 1rem/1 "VT323", monospace;
+      letter-spacing: .14em;
+    }
+    .service-card h3 {
+      margin: 14px 0 10px; color: var(--text);
+      font: 700 1.02rem/1.25 "Space Grotesk", sans-serif;
+      letter-spacing: .07em;
+    }
+    .service-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .services__foot { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+    .services__foot p { margin: 0; color: var(--muted); font: 400 1rem/1 "VT323", monospace; }
+
     /* ---------- sobre mí ---------- */
     .about { display: grid; grid-template-columns: 1.5fr .9fr; gap: 22px; align-items: start; }
     .about__body { padding: 28px; }
@@ -509,6 +534,7 @@
 
     @media (max-width: 900px) {
       .about, .contact__box { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
       .hero__grid { grid-template-columns: 1fr; gap: 26px; }
       .hero__portrait { order: -1; }
       .photo-polaroid--hero { width: min(66%, 270px); }
@@ -547,7 +573,8 @@
       .hero__counter { font-size: .82rem; }
 
       .section { padding: 48px 0; }
-      .section__head h2, .about h2, .contact h2 { font-size: clamp(2rem, 9vw, 2.9rem); }
+      .section__head h2, .about h2, .contact h2, .servicios h2 { font-size: clamp(2rem, 9vw, 2.9rem); }
+      .service-card { padding: 20px; }
       .filters {
         flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
         margin-right: -20px; padding: 2px 20px 8px 0;
@@ -618,6 +645,7 @@
       </a>
       <nav class="nav" aria-label="Menú principal">
         <a href="#proyectos">proyectos</a>
+        <a href="#servicios">servicios</a>
         <a href="#sobre-mi">sobre mí</a>
         <a href="#terminal">terminal</a>
         <a href="#contacto">contacto</a>
@@ -633,15 +661,17 @@
           <span class="hero__badge" data-texto="hero.badge">DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL</span>
           <p class="hero__kicker" data-texto="hero.kicker">Hola, soy Diego</p>
           <h1 class="chrome"><span data-texto="hero.titulo1">CONSTRUYO</span><br /><span data-texto="hero.titulo2">LO QUE TU</span><br /><em data-texto="hero.titulo3">REALMENTE NECESITAS</em></h1>
-          <p class="hero__lead" data-texto="hero.lead">Soy de <strong>Bucaramanga</strong>, desarrollo a nivel medio y le pongo todo mi esfuerzo. Hago páginas para <strong>negocios</strong> —una panadería, un restaurante, una tienda— y también pequeños mundos que solo existen porque se me ocurrió construirlos.</p>
+          <p class="hero__lead" data-texto="hero.lead">Soy de <strong>Bucaramanga</strong> y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#proyectos" data-texto="hero.btn1">VER PROYECTOS ↓</a>
             <button class="btn btn--ghost" id="aboutBtn" type="button" data-texto="hero.btn2">¿QUIÉN ES ESTE RANDOM? ✕</button>
           </div>
           <div class="hero__meta">
-            <span><b>05</b> <span data-texto="hero.meta1">trabajos publicados</span></span>
-            <span><b>01</b> <span data-texto="hero.meta2">app en camino</span></span>
-            <span><b>∞</b> <span data-texto="hero.meta3">ganas de pulir todo</span></span>
+            <span><b>06</b> <span data-texto="hero.meta1">proyectos y experimentos</span></span>
+            <span><b>03</b> <span data-texto="hero.meta2">demostraciones comerciales</span></span>
+            <span><b>01</b> <span data-texto="hero.meta3">proyecto educativo</span></span>
+            <span><b>01</b> <span data-texto="hero.meta4">proyecto personal</span></span>
+            <span><b>01</b> <span data-texto="hero.meta5">herramienta en desarrollo</span></span>
           </div>
         </div>
 
@@ -695,6 +725,37 @@
       </div>
     </section>
 
+    <section class="section container servicios" id="servicios">
+      <div class="section__head">
+        <p class="eyebrow" data-texto="servicios.etiqueta">// qué puedo hacer por tu negocio</p>
+        <h2 data-texto="servicios.titulo">QUÉ PUEDO CONTRATARTE PARA HACER</h2>
+        <p class="section__sub" data-texto="servicios.texto">Trabajo claro y a medida para negocios que necesitan verse bien y vender sin complicaciones. Elige lo que necesitas y lo conversamos.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-card__num" data-texto="servicios.1numero">01</span>
+          <h3 data-texto="servicios.1titulo">PÁGINAS PARA NEGOCIOS</h3>
+          <p data-texto="servicios.1texto">Web para panaderías, restaurantes, barberías y tiendas: carta o catálogo, reservas, horarios, ubicación y pedidos por WhatsApp. Pensada para que el cliente entienda en segundos qué ofreces y cómo contactarte.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-card__num" data-texto="servicios.2numero">02</span>
+          <h3 data-texto="servicios.2titulo">CATÁLOGOS Y TIENDA LIGERA</h3>
+          <p data-texto="servicios.2texto">Productos con fotos, precios, filtros y carrito. El pedido termina en un WhatsApp con todo escrito, sin pagos raros ni formularios infinitos.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-card__num" data-texto="servicios.3numero">03</span>
+          <h3 data-texto="servicios.3titulo">HERRAMIENTAS Y PÁGINAS A MEDIDA</h3>
+          <p data-texto="servicios.3texto">Paneles sencillos, formularios, calendarios y reportes. Pueden funcionar sin internet y guardar la información en el computador cuando el negocio lo necesita.</p>
+        </article>
+      </div>
+
+      <div class="services__foot">
+        <a class="btn btn--primary" href="#contacto" data-texto="servicios.cta">HABLAR DE UN PROYECTO ↗</a>
+        <p data-texto="servicios.nota">¿No encaja aquí? Cuéntame la idea igual.</p>
+      </div>
+    </section>
+
     <section class="section container about" id="sobre-mi">
       <div class="window">
         <div class="window__bar">
@@ -702,12 +763,12 @@
           <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
         <div class="about__body">
-          <h2 data-texto="sobre.titulo">DEV POR ELECCIÓN,<br />PRO POR NATURALEZA</h2>
-          <p data-texto="sobre.texto1">Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recien graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaria estudiar ingenieria de sistemas dentro de muy poco... ya que llevo los ultimos 5 años de mi vida programando por divercion.</p>
-          <p data-texto="sobre.texto2">Y aunque tal vez todo esto se ve un poco raro, puedo jurar que soy profesional con todo esto y mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.</p>
+          <h2 data-texto="sobre.titulo">DEV POR ELECCIÓN,<br />CONSTANTE POR NATURALEZA</h2>
+          <p data-texto="sobre.texto1">Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recién graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaría estudiar ingeniería de sistemas dentro de muy poco... ya que llevo los últimos 5 años de mi vida programando por diversión.</p>
+          <p data-texto="sobre.texto2">Aunque todo esto se vea un poco raro, mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.</p>
           <ul class="traits">
             <li data-texto="sobre.punto1"><strong>01 /</strong> Código limpio, y bien explicado.</li>
-            <li data-texto="sobre.punto2"><strong>02 /</strong> La mejor estetica que encuentra en bga</li>
+            <li data-texto="sobre.punto2"><strong>02 /</strong> Estética cuidada, sin perder de vista lo que el negocio necesita.</li>
             <li data-texto="sobre.punto3"><strong>03 /</strong> Escucho al negocio antes de abrir el editor.</li>
             <li data-texto="sobre.punto4"><strong>04 /</strong> Si algo se ve raro, probablemente lo hice a propósito jeje.</li>
           </ul>
@@ -738,6 +799,7 @@
         <div class="terminal__hints" aria-label="Comandos rápidos">
           <button type="button" data-cmd="help">help</button>
           <button type="button" data-cmd="proyectos">proyectos</button>
+          <button type="button" data-cmd="servicios">servicios</button>
           <button type="button" data-cmd="quien-soy">quien-soy</button>
           <button type="button" data-cmd="contacto">contacto</button>
           <button type="button" data-cmd="chiste">chiste</button>
@@ -763,7 +825,7 @@
             <a class="btn btn--primary" href="mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev" data-texto="contacto.btn" data-texto-attr="href|contacto.btnMailto">ESCRÍBEME ✉</a>
           </div>
         </div>
-        <div class="contact__stamp" aria-hidden="true" data-texto="contacto.sello">RECIBO PAGOS EN MONSTER Y CIGUARROS</div>
+        <div class="contact__stamp" aria-hidden="true" data-texto="contacto.sello">PÁGINAS WEB A MEDIDA · BGA</div>
       </div>
     </section>
   </main>
@@ -802,7 +864,7 @@
     </article>
   </div>
 
-  <script id="thc-textos" type="application/json">{"hero.badge": "DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL", "hero.kicker": "Hola, soy Diego", "hero.titulo1": "CONSTRUYO", "hero.titulo2": "LO QUE TU", "hero.titulo3": "REALMENTE NECESITAS", "hero.lead": "Soy de **Bucaramanga**, desarrollo a nivel medio y le pongo todo mi esfuerzo. Hago páginas para **negocios** —una panadería, un restaurante, una tienda— y también pequeños mundos que solo existen porque se me ocurrió construirlos.", "hero.btn1": "VER PROYECTOS ↓", "hero.btn2": "¿QUIÉN ES ESTE RANDOM? ✕", "hero.meta1": "trabajos publicados", "hero.meta2": "app en camino", "hero.meta3": "ganas de pulir todo", "hero.alt": "Fotico De Mi", "hero.fotoEtiqueta": "YO ESE", "hero.fotoPie": "diego · thc.dev", "hero.fotoLugar": "bucaramanga · colombia", "hero.tag1": "SK8ER", "hero.tag2": "CODE", "hero.tag3": "DEV", "hero.sticker1": "OHZI / CODE", "hero.sticker2": "NO LOGO · THC", "hero.sticker3": "BGA · 2026", "hero.visitante1": "visitante #", "hero.visitante2": "✕ bienvenido a mi esquina de internet", "proyectos.etiqueta": "// archivo de proyectos", "proyectos.titulo": "ELIGE UN MUNDO", "proyectos.texto": "Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.", "proyectos.filtro1": "TODO", "proyectos.filtro2": "NEGOCIOS", "proyectos.filtro3": "COMUNIDAD", "proyectos.filtro4": "PERSONALES", "proyectos.filtro5": "HERRAMIENTAS", "sobre.archivo": "archivo: sobre_mi.txt", "sobre.titulo": "DEV POR ELECCIÓN,|PRO POR NATURALEZA", "sobre.texto1": "Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recien graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaria estudiar ingenieria de sistemas dentro de muy poco... ya que llevo los ultimos 5 años de mi vida programando por divercion.", "sobre.texto2": "Y aunque tal vez todo esto se ve un poco raro, puedo jurar que soy profesional con todo esto y mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.", "sobre.punto1": "**01 /** Código limpio, y bien explicado.", "sobre.punto2": "**02 /** La mejor estetica que encuentra en bga", "sobre.punto3": "**03 /** Escucho al negocio antes de abrir el editor.", "sobre.punto4": "**04 /** Si algo se ve raro, probablemente lo hice a propósito jeje.", "manifiesto.archivo": "manifiesto.txt", "manifiesto.nota": "// nota al margen", "manifiesto.titulo": "QUE SE VEA BIEN,|Y QUE SIRVA.", "manifiesto.texto": "Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.", "terminal.archivo": "thc.dev — terminal interactiva", "terminal.etiqueta": "Escribe un comando", "terminal.placeholder": "escribe help y dale Enter", "terminal.arranque1": "thc.dev terminal v3.0 // Esperando futuras actualizaciones", "terminal.arranque2": "Sistema listo. Escribe 'help' para ver los comandos.", "terminal.help": "comandos: help · proyectos · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear", "terminal.quien1": "Diego Alejandro Tellez Tellez. Bucaramanga. Dev nivel medio, estética Y2K underground y obseso del detalle.", "terminal.quien2": "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.", "terminal.contacto1": "thczt.dev@gmail.com", "terminal.contacto2": "WhatsApp: +57 3203805194", "terminal.contacto3": "Discord: @thc_dev", "terminal.contacto4": "Instagram: Proximamente", "terminal.contacto5": "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.", "terminal.chiste": "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "terminal.sk81": "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "terminal.sk82": "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "terminal.contab1": "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "terminal.contab2": "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "terminal.contab3": "Abre su código en GitHub desde la tarjeta 📊.", "terminal.desconocido": "No reconocí '{cmd}'. Prueba 'help'.", "ui.sonidoOff": "♫ sonido: OFF", "ui.sonidoOn": "♫ sonido: ON", "modal.ficha": "proyecto", "modal.enConstruccion": "EN CONSTRUCCIÓN", "modal.anio": "año", "modal.abrirDemo": "ABRIR DEMO ↗", "modal.verCodigo": "VER CÓDIGO ↗", "card.demoCta": "VER DETALLES", "card.wipCta": "VER CÓDIGO Y ESTADO", "card.ficticia": "DEMO FICTICIA", "modal.avisoDemoTitulo": "Aviso", "modal.avisoDemo": "Negocio ficticio y datos de ejemplo: demo demostrativa.", "modal.paraQuien": "Para quién", "modal.queResuelve": "Qué resuelve", "modal.comoLoHace": "Cómo lo hace", "modal.hechoCon": "Hecho con", "modal.plataformas": "Plataformas", "modal.roadmap": "Roadmap", "contacto.etiqueta": "// línea abierta", "contacto.titulo": "¿TIENES ALGO EN MENTE?", "contacto.texto": "Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.", "contacto.correo": "thczt.dev@gmail.com", "contacto.mailto": "mailto:thczt.dev@gmail.com", "contacto.btn": "ESCRÍBEME ✉", "contacto.btnMailto": "mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev", "contacto.whatsapp": "+57 3203805194", "contacto.whatsappLink": "https://wa.me/573203805194", "contacto.discord": "@thc_dev", "contacto.instagram": "Proximamente", "contacto.sello": "RECIBO PAGOS EN MONSTER Y CIGUARROS", "pie.inicio": "Diseñado y desarrollado por", "pie.nombre": "Diego Alejandro Tellez Tellez", "pie.sitio": "thc.dev", "pie.ciudad": "Bucaramanga", "pie.estilo": "estilo Y2K underground / sk8", "contabilidad.bajada": "App de escritorio local para llevar ingresos, gastos, proyectos, contactos y reportes. Sin internet.", "contabilidad.aviso": "Hoy funciona **únicamente en Linux**. Quiero sacar también una **versión nativa en Windows**, pero todavía no está lista: por eso se muestra aquí como proyecto en camino, no como una demo terminada.", "contabilidad.texto1": "Una app de escritorio para llevar el dinero de un negocio pequeño en un solo lugar: **ingresos, gastos, proyectos pendientes, clientes y reportes**. Todo se guarda en tu computador, sin depender de internet ni de cuentas en la nube.", "contabilidad.texto2": "Los montos se manejan en **peso colombiano** y la interfaz es oscura, con acento azul pastel y espacio de sobra para leer sin cansarse.", "contabilidad.paso1": "**Hoy:** funciona en Linux con sus seis áreas y los datos guardados en el computador.", "contabilidad.paso2": "**En camino:** una versión nativa en Windows, sin depender de WSL ni de una máquina virtual.", "contabilidad.paso3": "**Antes de darla por terminada:** probar la instalación y el respaldo de datos en ambos sistemas.", "contab.pasoRepo": "**Código abierto:** el proyecto está en GitHub; desde aquí puedes ver el avance y dejar una estrella.", "contab.volver": "← volver al hub", "contab.titulo": "THC Contabilidad", "contab.repoBoton": "VER CÓDIGO EN GITHUB ↗", "contab.repoLink": "https://github.com/thczt-dev/thc-contabilidad", "contab.chip1": "En construcción", "contab.chip2": "Solo Linux", "contab.chip3": "Sin internet", "contab.chip4": "Peso colombiano", "contab.chip5": "2026", "contab.alerta": "⚠ En construcción · no es una demo web", "contab.h2Para": "Para qué sirve", "contab.h2Modulos": "Módulos", "contab.tablaPestana": "Pestaña", "contab.tablaFuncion": "Función", "contab.mod1n": "Resumen", "contab.mod1d": "Indicadores del mes, balance, últimos movimientos, vencimientos y gráfico.", "contab.mod2n": "Movimientos", "contab.mod2d": "Ingresos y gastos con búsqueda, filtros, edición y borrado.", "contab.mod3n": "Proyectos", "contab.mod3d": "Cliente, estado, prioridad, fechas, presupuesto y vencimientos.", "contab.mod4n": "Calendario", "contab.mod4d": "Vista mensual, puntos de color, detalle por día y resumen del mes.", "contab.mod5n": "Contactos", "contab.mod5d": "Clientes y proveedores con NIT, teléfono, correo y dirección.", "contab.mod6n": "Reportes", "contab.mod6d": "Balances, resumen mensual, categorías y exportación CSV.", "contab.h2Calendario": "El calendario", "contab.cal1a": "Rejilla de 42 días (lunes a domingo) con navegación ◀ / ▶ y botón", "contab.cal1b": ". Cada día puede mostrar hasta cuatro indicadores:", "contab.calIngresos": "Ingresos", "contab.calGastos": "Gastos", "contab.calEntregas": "Entregas", "contab.calInicios": "Inicios", "contab.tooltip": "Al pasar el cursor aparece un tooltip con montos y proyectos; al hacer clic, un panel lateral muestra ingresos, gastos, neto, movimientos y proyectos de ese día. Abajo hay un resumen del mes.", "contab.h2Estado": "Estado y próximos pasos", "contab.pie": "thc.dev ✦ documentación de un proyecto en construcción"}</script>
+  <script id="thc-textos" type="application/json">{"hero.badge": "DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL", "hero.kicker": "Hola, soy Diego", "hero.titulo1": "CONSTRUYO", "hero.titulo2": "LO QUE TU", "hero.titulo3": "REALMENTE NECESITAS", "hero.lead": "Soy de **Bucaramanga** y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.", "hero.btn1": "VER PROYECTOS ↓", "hero.btn2": "¿QUIÉN ES ESTE RANDOM? ✕", "hero.meta1": "proyectos y experimentos", "hero.meta2": "demostraciones comerciales", "hero.meta3": "proyecto educativo", "hero.meta4": "proyecto personal", "hero.meta5": "herramienta en desarrollo", "hero.alt": "Fotico De Mi", "hero.fotoEtiqueta": "YO ESE", "hero.fotoPie": "diego · thc.dev", "hero.fotoLugar": "bucaramanga · colombia", "hero.tag1": "SK8ER", "hero.tag2": "CODE", "hero.tag3": "DEV", "hero.sticker1": "OHZI / CODE", "hero.sticker2": "NO LOGO · THC", "hero.sticker3": "BGA · 2026", "hero.visitante1": "visitante #", "hero.visitante2": "✕ bienvenido a mi esquina de internet", "proyectos.etiqueta": "// archivo de proyectos", "proyectos.titulo": "ELIGE UN MUNDO", "proyectos.texto": "Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.", "proyectos.filtro1": "TODO", "proyectos.filtro2": "NEGOCIOS", "proyectos.filtro3": "COMUNIDAD", "proyectos.filtro4": "PERSONALES", "proyectos.filtro5": "HERRAMIENTAS", "servicios.etiqueta": "// qué puedo hacer por tu negocio", "servicios.titulo": "QUÉ PUEDO CONTRATARTE PARA HACER", "servicios.texto": "Trabajo claro y a medida para negocios que necesitan verse bien y vender sin complicaciones. Elige lo que necesitas y lo conversamos.", "servicios.1numero": "01", "servicios.1titulo": "PÁGINAS PARA NEGOCIOS", "servicios.1texto": "Web para panaderías, restaurantes, barberías y tiendas: carta o catálogo, reservas, horarios, ubicación y pedidos por WhatsApp. Pensada para que el cliente entienda en segundos qué ofreces y cómo contactarte.", "servicios.2numero": "02", "servicios.2titulo": "CATÁLOGOS Y TIENDA LIGERA", "servicios.2texto": "Productos con fotos, precios, filtros y carrito. El pedido termina en un WhatsApp con todo escrito, sin pagos raros ni formularios infinitos.", "servicios.3numero": "03", "servicios.3titulo": "HERRAMIENTAS Y PÁGINAS A MEDIDA", "servicios.3texto": "Paneles sencillos, formularios, calendarios y reportes. Pueden funcionar sin internet y guardar la información en el computador cuando el negocio lo necesita.", "servicios.cta": "HABLAR DE UN PROYECTO ↗", "servicios.nota": "¿No encaja aquí? Cuéntame la idea igual.", "sobre.archivo": "archivo: sobre_mi.txt", "sobre.titulo": "DEV POR ELECCIÓN,|CONSTANTE POR NATURALEZA", "sobre.texto1": "Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recién graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaría estudiar ingeniería de sistemas dentro de muy poco... ya que llevo los últimos 5 años de mi vida programando por diversión.", "sobre.texto2": "Aunque todo esto se vea un poco raro, mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.", "sobre.punto1": "**01 /** Código limpio, y bien explicado.", "sobre.punto2": "**02 /** Estética cuidada, sin perder de vista lo que el negocio necesita.", "sobre.punto3": "**03 /** Escucho al negocio antes de abrir el editor.", "sobre.punto4": "**04 /** Si algo se ve raro, probablemente lo hice a propósito jeje.", "manifiesto.archivo": "manifiesto.txt", "manifiesto.nota": "// nota al margen", "manifiesto.titulo": "QUE SE VEA BIEN,|Y QUE SIRVA.", "manifiesto.texto": "Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.", "terminal.archivo": "thc.dev — terminal interactiva", "terminal.etiqueta": "Escribe un comando", "terminal.placeholder": "escribe help y dale Enter", "terminal.arranque1": "thc.dev terminal v3.0 // Esperando futuras actualizaciones", "terminal.arranque2": "Sistema listo. Escribe 'help' para ver los comandos.", "terminal.help": "comandos: help · proyectos · servicios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear", "terminal.quien1": "Diego Alejandro Tellez Tellez. Bucaramanga. Páginas web y herramientas digitales, estética Y2K underground y obseso del detalle.", "terminal.servicios1": "Puedo contratarme para: páginas de negocio, catálogos con pedido por WhatsApp y herramientas a medida.", "terminal.servicios2": "Cuéntame qué vendes y qué debe lograr la página. Escríbeme al correo o al WhatsApp de la sección contacto.", "terminal.quien2": "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.", "terminal.contacto1": "thczt.dev@gmail.com", "terminal.contacto2": "WhatsApp: +57 3203805194", "terminal.contacto3": "Discord: @thc_dev", "terminal.contacto4": "Instagram: Proximamente", "terminal.contacto5": "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.", "terminal.chiste": "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "terminal.sk81": "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "terminal.sk82": "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "terminal.contab1": "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "terminal.contab2": "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "terminal.contab3": "Abre su código en GitHub desde la tarjeta 📊.", "terminal.desconocido": "No reconocí '{cmd}'. Prueba 'help'.", "ui.sonidoOff": "♫ sonido: OFF", "ui.sonidoOn": "♫ sonido: ON", "modal.ficha": "proyecto", "modal.enConstruccion": "EN CONSTRUCCIÓN", "modal.anio": "año", "modal.abrirDemo": "ABRIR DEMO ↗", "modal.verCodigo": "VER CÓDIGO ↗", "card.demoCta": "VER DETALLES", "card.wipCta": "VER CÓDIGO Y ESTADO", "card.ficticia": "DEMO FICTICIA", "modal.avisoDemoTitulo": "Aviso", "modal.avisoDemo": "Negocio ficticio y datos de ejemplo: demo demostrativa.", "modal.paraQuien": "Para quién", "modal.queResuelve": "Qué resuelve", "modal.comoLoHace": "Cómo lo hace", "modal.hechoCon": "Hecho con", "modal.plataformas": "Plataformas", "modal.roadmap": "Roadmap", "contacto.etiqueta": "// línea abierta", "contacto.titulo": "¿TIENES ALGO EN MENTE?", "contacto.texto": "Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.", "contacto.correo": "thczt.dev@gmail.com", "contacto.mailto": "mailto:thczt.dev@gmail.com", "contacto.btn": "ESCRÍBEME ✉", "contacto.btnMailto": "mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev", "contacto.whatsapp": "+57 3203805194", "contacto.whatsappLink": "https://wa.me/573203805194", "contacto.discord": "@thc_dev", "contacto.instagram": "Proximamente", "contacto.sello": "PÁGINAS WEB A MEDIDA · BGA", "pie.inicio": "Diseñado y desarrollado por", "pie.nombre": "Diego Alejandro Tellez Tellez", "pie.sitio": "thc.dev", "pie.ciudad": "Bucaramanga", "pie.estilo": "estilo Y2K underground / sk8", "contabilidad.bajada": "App de escritorio local para llevar ingresos, gastos, proyectos, contactos y reportes. Sin internet.", "contabilidad.aviso": "Hoy funciona **únicamente en Linux**. Quiero sacar también una **versión nativa en Windows**, pero todavía no está lista: por eso se muestra aquí como proyecto en camino, no como una demo terminada.", "contabilidad.texto1": "Una app de escritorio para llevar el dinero de un negocio pequeño en un solo lugar: **ingresos, gastos, proyectos pendientes, clientes y reportes**. Todo se guarda en tu computador, sin depender de internet ni de cuentas en la nube.", "contabilidad.texto2": "Los montos se manejan en **peso colombiano** y la interfaz es oscura, con acento azul pastel y espacio de sobra para leer sin cansarse.", "contabilidad.paso1": "**Hoy:** funciona en Linux con sus seis áreas y los datos guardados en el computador.", "contabilidad.paso2": "**En camino:** una versión nativa en Windows, sin depender de WSL ni de una máquina virtual.", "contabilidad.paso3": "**Antes de darla por terminada:** probar la instalación y el respaldo de datos en ambos sistemas.", "contab.pasoRepo": "**Código abierto:** el proyecto está en GitHub; desde aquí puedes ver el avance y dejar una estrella.", "contab.volver": "← volver al hub", "contab.titulo": "THC Contabilidad", "contab.repoBoton": "VER CÓDIGO EN GITHUB ↗", "contab.repoLink": "https://github.com/thczt-dev/thc-contabilidad", "contab.chip1": "En construcción", "contab.chip2": "Solo Linux", "contab.chip3": "Sin internet", "contab.chip4": "Peso colombiano", "contab.chip5": "2026", "contab.alerta": "⚠ En construcción · no es una demo web", "contab.h2Para": "Para qué sirve", "contab.h2Modulos": "Módulos", "contab.tablaPestana": "Pestaña", "contab.tablaFuncion": "Función", "contab.mod1n": "Resumen", "contab.mod1d": "Indicadores del mes, balance, últimos movimientos, vencimientos y gráfico.", "contab.mod2n": "Movimientos", "contab.mod2d": "Ingresos y gastos con búsqueda, filtros, edición y borrado.", "contab.mod3n": "Proyectos", "contab.mod3d": "Cliente, estado, prioridad, fechas, presupuesto y vencimientos.", "contab.mod4n": "Calendario", "contab.mod4d": "Vista mensual, puntos de color, detalle por día y resumen del mes.", "contab.mod5n": "Contactos", "contab.mod5d": "Clientes y proveedores con NIT, teléfono, correo y dirección.", "contab.mod6n": "Reportes", "contab.mod6d": "Balances, resumen mensual, categorías y exportación CSV.", "contab.h2Calendario": "El calendario", "contab.cal1a": "Rejilla de 42 días (lunes a domingo) con navegación ◀ / ▶ y botón", "contab.cal1b": ". Cada día puede mostrar hasta cuatro indicadores:", "contab.calIngresos": "Ingresos", "contab.calGastos": "Gastos", "contab.calEntregas": "Entregas", "contab.calInicios": "Inicios", "contab.tooltip": "Al pasar el cursor aparece un tooltip con montos y proyectos; al hacer clic, un panel lateral muestra ingresos, gastos, neto, movimientos y proyectos de ese día. Abajo hay un resumen del mes.", "contab.h2Estado": "Estado y próximos pasos", "contab.pie": "thc.dev ✦ documentación de un proyecto en construcción"}</script>
   <script>
     (function () {
       "use strict";
@@ -1147,7 +1209,7 @@
 
         switch (cmd) {
           case "help":
-            txtLineas("terminal.help", "comandos: help · proyectos · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear");
+            txtLineas("terminal.help", "comandos: help · proyectos · servicios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear");
             break;
           case "proyectos":
             state.projects.forEach(function (p, i) {
@@ -1155,9 +1217,13 @@
                 (p.status === "wip" ? " [EN CONSTRUCCIÓN]" : ""));
             });
             break;
+          case "servicios":
+            txtLineas("terminal.servicios1", "Puedo contratarme para: páginas de negocio, catálogos con pedido por WhatsApp y herramientas a medida.");
+            txtLineas("terminal.servicios2", "Cuéntame qué vendes y qué debe lograr la página. Escríbeme al correo o al WhatsApp de la sección contacto.");
+            break;
           case "quien-soy":
           case "sobre-mi":
-            txtLineas("terminal.quien1", "Diego Alejandro Tellez Tellez. Bucaramanga. Dev nivel medio, estética Y2K underground y obseso del detalle.");
+            txtLineas("terminal.quien1", "Diego Alejandro Tellez Tellez. Bucaramanga. Páginas web y herramientas digitales, estética Y2K underground y obseso del detalle.");
             txtLineas("terminal.quien2", "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.");
             break;
           case "contacto":
@@ -1177,7 +1243,7 @@
           case "contabilidad":
             txtLineas("terminal.contab1", "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "t-hi");
             txtLineas("terminal.contab2", "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "t-hi");
-            txtLineas("terminal.contab3", "Abre su ficha en la tarjeta 📊 para ver el estado.", "t-hi");
+            txtLineas("terminal.contab3", "Abre su código en GitHub desde la tarjeta 📊.", "t-hi");
             break;
           case "fecha":
             line(new Date().toLocaleDateString("es-CO", { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
