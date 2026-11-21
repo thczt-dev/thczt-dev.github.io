@@ -157,6 +157,7 @@
     .hero { position: relative; padding: 54px 0 70px; }
     .hero__grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 42px; align-items: center; }
     .hero__copy { position: relative; z-index: 2; min-width: 0; }
+    .hero__head, .hero__detail { position: relative; z-index: 2; }
     .hero__portrait { position: relative; display: grid; justify-items: center; gap: 14px; z-index: 2; }
     .hero__scrap { position: absolute; inset: 0; pointer-events: none; }
     .sticker {
@@ -393,7 +394,9 @@
     .tarifa-card__desc { margin: 8px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.45; }
     .tarifa-card__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
     .tarifa-btn {
-      padding: 7px 10px; border: 1px solid var(--line); border-radius: 3px;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 38px; padding: 8px 12px;
+      border: 1px solid var(--line); border-radius: 3px;
       background: transparent; color: var(--muted); cursor: pointer;
       font: 700 .62rem/1 "Space Grotesk", sans-serif; letter-spacing: .12em;
       transition: color .2s, border-color .2s, background .2s;
@@ -446,7 +449,11 @@
     }
     .solicitud__items b { display: block; font-size: .86rem; font-weight: 600; }
     .solicitud__items small { color: var(--pink); font: 400 .82rem/1 "VT323", monospace; }
-    .solicitud__remove { border: 0; background: none; color: var(--muted); cursor: pointer; padding: 4px 6px; font: 400 1rem/1 "VT323", monospace; }
+    .solicitud__remove {
+      min-width: 36px; min-height: 38px; padding: 6px;
+      border: 0; background: none; color: var(--muted); cursor: pointer;
+      font: 400 1rem/1 "VT323", monospace;
+    }
     .solicitud__remove:hover { color: #ffb3c1; }
     .solicitud__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 18px; }
     .solicitud__actions p { margin: 0; color: var(--muted); font-size: .85rem; }
@@ -606,7 +613,10 @@
       .about, .contact__box { grid-template-columns: 1fr; }
       .paquetes__grid { grid-template-columns: 1fr; }
       .hero__grid { grid-template-columns: 1fr; gap: 26px; }
-      .hero__portrait { order: -1; }
+      .hero__copy { display: contents; }
+      .hero__head { order: 1; }
+      .hero__portrait { order: 2; }
+      .hero__detail { order: 3; }
       .photo-polaroid--hero { width: min(66%, 270px); }
       .contact__stamp { justify-self: center; }
       .hero__counter {
@@ -617,7 +627,7 @@
     }
     @media (max-width: 700px) {
       /* El header es fijo: dejamos sitio para que las anclas no queden tapadas. */
-      html { scroll-padding-top: 118px; }
+      html { scroll-padding-top: 134px; }
 
       /* Cabecera: el menú no desaparece, pasa a una fila deslizable. */
       .site-header__in { flex-wrap: wrap; gap: 10px; padding-top: 8px; }
@@ -635,6 +645,7 @@
       .sound-btn { min-height: 38px; padding: 6px 12px; font-size: .75rem; }
 
       .hero { padding-top: 28px; padding-bottom: 44px; }
+      .hero__kicker { margin-top: 18px; }
       .chrome { font-size: clamp(2.15rem, 10.2vw, 3.4rem); line-height: .95; }
       .hero__lead { margin-top: 18px; font-size: .98rem; }
       .hero__actions { gap: 10px; }
@@ -655,7 +666,7 @@
 
       .tarifa-tabs {
         flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
-        margin-right: -20px; padding: 2px 20px 8px 0;
+        margin-right: -14px; padding: 2px 14px 8px 0;
       }
       .tarifa-tabs::-webkit-scrollbar { display: none; }
       .tarifa-tab { flex: 0 0 auto; min-height: 38px; }
@@ -739,20 +750,24 @@
     <section class="hero container">
       <div class="hero__grid">
         <div class="hero__copy">
-          <span class="hero__badge" data-texto="hero.badge">DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL</span>
-          <p class="hero__kicker" data-texto="hero.kicker">Hola, soy Diego</p>
-          <h1 class="chrome"><span data-texto="hero.titulo1">CONSTRUYO</span><br /><span data-texto="hero.titulo2">LO QUE TU</span><br /><em data-texto="hero.titulo3">REALMENTE NECESITAS</em></h1>
-          <p class="hero__lead" data-texto="hero.lead">Soy de <strong>Bucaramanga</strong> y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#proyectos" data-texto="hero.btn1">VER PROYECTOS ↓</a>
-            <button class="btn btn--ghost" id="aboutBtn" type="button" data-texto="hero.btn2">¿QUIÉN ES ESTE RANDOM? ✕</button>
+          <div class="hero__head">
+            <span class="hero__badge" data-texto="hero.badge">DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL</span>
+            <p class="hero__kicker" data-texto="hero.kicker">Hola, soy Diego</p>
+            <h1 class="chrome"><span data-texto="hero.titulo1">CONSTRUYO</span><br /><span data-texto="hero.titulo2">LO QUE TU</span><br /><em data-texto="hero.titulo3">REALMENTE NECESITAS</em></h1>
           </div>
-          <div class="hero__meta">
-            <span><b>06</b> <span data-texto="hero.meta1">proyectos y experimentos</span></span>
-            <span><b>03</b> <span data-texto="hero.meta2">demostraciones comerciales</span></span>
-            <span><b>01</b> <span data-texto="hero.meta3">proyecto educativo</span></span>
-            <span><b>01</b> <span data-texto="hero.meta4">proyecto personal</span></span>
-            <span><b>01</b> <span data-texto="hero.meta5">herramienta en desarrollo</span></span>
+          <div class="hero__detail">
+            <p class="hero__lead" data-texto="hero.lead">Soy de <strong>Bucaramanga</strong> y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#proyectos" data-texto="hero.btn1">VER PROYECTOS ↓</a>
+              <button class="btn btn--ghost" id="aboutBtn" type="button" data-texto="hero.btn2">¿QUIÉN ES ESTE RANDOM? ✕</button>
+            </div>
+            <div class="hero__meta">
+              <span><b>06</b> <span data-texto="hero.meta1">proyectos y experimentos</span></span>
+              <span><b>03</b> <span data-texto="hero.meta2">demostraciones comerciales</span></span>
+              <span><b>01</b> <span data-texto="hero.meta3">proyecto educativo</span></span>
+              <span><b>01</b> <span data-texto="hero.meta4">proyecto personal</span></span>
+              <span><b>01</b> <span data-texto="hero.meta5">herramienta en desarrollo</span></span>
+            </div>
           </div>
         </div>
 
