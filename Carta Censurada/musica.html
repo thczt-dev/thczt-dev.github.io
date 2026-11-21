@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="La música que suena en el tocadiscos de ELLA. Pistas locales en aleatorio.">
+  <title>Música para ELLA ✦</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070d'/%3E%3Cpath d='M40 12a20 20 0 1 0 0 40 22 22 0 0 1 0-40z' fill='%23b9c6da'/%3E%3Cpath d='M46 18l1.6 4.4L52 24l-4.4 1.6L46 30l-1.6-4.4L40 24l4.4-1.6z' fill='%237fa3d8'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <canvas id="estrellas" aria-hidden="true"></canvas>
+  <div class="luna" aria-hidden="true"></div>
+  <div class="niebla" aria-hidden="true"></div>
+  <div class="capa-grano" aria-hidden="true"></div>
+
+  <div class="contenido">
+
+    <header class="cabecera">
+      <div class="ancho cabecera-in">
+        <a class="logo" href="index.html" aria-label="ELLA, volver al inicio">
+          <span class="logo-marca" aria-hidden="true">✦</span>
+          <span class="logo-texto">
+            <span class="logo-nombre">ELLA</span>
+            <span class="logo-sub">alguien q te piensa :3</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Menú principal">
+          <a href="index.html">inicio</a>
+          <a href="cartas.html">cartas</a>
+          <a href="musica.html" aria-current="page">música</a>
+          <a href="galeria.html">galería</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pagina">
+      <div class="ancho">
+
+        <header class="pagina-cabecera" data-anima>
+          <p class="eyebrow">cuando armé el tocadiscos casi me saco un ojo jsjs</p>
+          <h1 class="titulo-seccion">Un melómano q vive de la música y de ELLA :3</h1>
+          <p class="texto-intro">
+            Cada pista suena al azar. No tienen nombre, no tienen dedicatoria y tampoco explican nada: solo acompañan.
+          </p>
+        </header>
+
+        <div class="musica-grid">
+
+          <!-- Tocadiscos -->
+          <section class="panel tocadiscos-panel" data-anima aria-label="Tocadiscos">
+            <div class="tocadiscos">
+              <div class="plato">
+                <div class="vinilo">
+                  <div class="vinilo-etiqueta">
+                    <span>✦</span>
+                    <small>ELLA</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="brazo" aria-hidden="true">
+                <div class="brazo-pivote"></div>
+                <div class="brazo-varilla"></div>
+                <div class="brazo-cabeza"></div>
+              </div>
+            </div>
+
+            <div class="controles">
+              <button class="control" id="btn-anterior" type="button" aria-label="Canción anterior" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9.5 12z" fill="currentColor"/></svg>
+              </button>
+
+              <button class="control control--play" id="btn-play" type="button" aria-label="Reproducir">
+                <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                <svg class="ico-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+              </button>
+
+              <button class="control" id="btn-siguiente" type="button" aria-label="Canción siguiente" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l10.5-7z" fill="currentColor"/></svg>
+              </button>
+            </div>
+
+            <div class="estado-tocadiscos">
+              <span><span class="luz" aria-hidden="true"></span><span id="estado-texto">en pausa</span></span>
+              <span>166 rpm</span>
+            </div>
+          </section>
+
+          <!-- Panel de pistas locales -->
+          <aside class="panel reproductor-panel" data-anima aria-label="Colección de pistas">
+            <div class="reproductor-cuerpo">
+              <div class="reproductor-estado">
+                <span class="ecualizador" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span id="texto-estado">en pausa</span>
+              </div>
+
+              <p class="pista-nombre">pista —</p>
+              <p class="pista-sub" id="pista-sub">aleatorio</p>
+
+              <div class="progreso" id="progreso" role="progressbar" aria-label="Progreso de la canción" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span id="barra-progreso"></span>
+              </div>
+              <div class="tiempos">
+                <span id="tiempo-actual">0:00</span>
+                <span id="tiempo-total">0:00</span>
+              </div>
+
+              <div class="spotify-caja" id="spotify-caja">
+                <div id="spotify-vacio" hidden></div>
+                <div class="playlist-ella" aria-label="Colección de ELLA"><span aria-hidden="true">✦</span><strong>colección de ELLA</strong><small>suena en aleatorio ♫</small></div>
+              </div>
+
+              <audio id="audio-local" preload="metadata"></audio>
+
+              <p class="nota-musica" id="nota-conexion">
+                El tocadiscos de arriba suena con las pistas en aleatorio. La colección de ELLA se quedó guardada aquí ♫
+              </p>
+
+              <div class="reproductor-acciones">
+                <span class="enlace-mini">colección de ELLA ✦</span>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+        <p class="nota-musica">
+          nota: les subí al volumen para que se escuche bien ♫
+        </p>
+
+      </div>
+    </main>
+
+    <footer class="pie">
+      <div class="ancho">
+        <span class="pie-ornamento" aria-hidden="true">✦ ♡ ✦</span>
+        <p>Hecho para ELLA · <span data-anio>2026</span></p>
+        <p class="pie-mini">súbele, q no se escucha jsjs</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <button class="boton-suerte" type="button" data-suerte aria-label="Descubrir un mensaje para ti">✦</button>
+
+  <script src="js/datos.js"></script>
+  <script src="js/canciones.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/musica.js"></script>
+</body>
+</html>

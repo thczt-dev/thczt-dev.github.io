@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sabor & Punto — Cocina de mesa en Bucaramanga. Menú digital, postres caseros y domicilios. Pide por WhatsApp." />
+  <meta name="theme-color" content="#fbf7f0" />
+  <title>Sabor &amp; Punto · Cocina de mesa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<!-- CAMBIAR: número real del restaurante (todos los botones se generan desde aquí) -->
+<body data-page="inicio" data-whatsapp="573000000000" data-whatsapp-name="Sabor &amp; Punto">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Cabecera, pie y pedido se inyectan desde js/main.js -->
+  <div data-site-header></div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__orb" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <p class="eyebrow"><span aria-hidden="true">❧</span> Cocina de mesa · desde 2024 <span aria-hidden="true">❧</span></p>
+        <h1>Lo rico de la vida<br />se sirve <em>en compañía</em><span class="dot">.</span></h1>
+        <p class="hero__lead">Platos de siempre hechos con calma, ingredientes de verdad y ese punto casero que no se apura. Siéntate, comparte y pide sin complicaciones.</p>
+
+        <div class="hero__actions">
+          <a href="carta.html" class="btn btn--solid">Ver la carta <span aria-hidden="true">→</span></a>
+          <a class="btn btn--outline js-wa" data-wa-message="¡Hola Sabor &amp; Punto! Quiero hacer un pedido 🍽️" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="hero__portrait">
+          <div class="hero__ring" aria-hidden="true"></div>
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="Plato fresco servido en Sabor & Punto" fetchpriority="high" />
+          <span class="hero__stamp" aria-hidden="true">hecho<br /><strong>con cariño</strong></span>
+        </div>
+
+        <div class="hero__facts">
+          <span><strong>4.9</strong> valoración</span>
+          <span class="sep" aria-hidden="true">✳</span>
+          <span><strong>30 min</strong> domicilio</span>
+          <span class="sep" aria-hidden="true">✳</span>
+          <span><strong>12</strong> platos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORA EL SITIO ============ -->
+    <section class="section descubre">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="ornament" aria-hidden="true">✳</span>
+          <p class="eyebrow">Explora</p>
+          <h2>Todo en su <em>sitio</em></h2>
+          <p class="section-lead">Carta, historia, ubicación y contacto. Cada cosa en su propia página para que encuentres rápido lo que buscas.</p>
+        </div>
+
+        <div class="highlight-grid">
+          <a href="carta.html" class="highlight-card reveal">
+            <span class="highlight-card__icon" aria-hidden="true">✳</span>
+            <h3>Nuestra carta</h3>
+            <p>12 platos con precios, descripción y pedido directo.</p>
+            <span class="highlight-card__go">Ver carta →</span>
+          </a>
+          <a href="historia.html" class="highlight-card reveal">
+            <span class="highlight-card__icon" aria-hidden="true">❧</span>
+            <h3>Nuestra historia</h3>
+            <p>De una mesa grande y una cocina pequeña hasta hoy.</p>
+            <span class="highlight-card__go">Conocernos →</span>
+          </a>
+          <a href="ubicacion.html" class="highlight-card reveal">
+            <span class="highlight-card__icon" aria-hidden="true">⌖</span>
+            <h3>Encontranos</h3>
+            <p>Dirección, mapa, horarios y estado en vivo.</p>
+            <span class="highlight-card__go">Cómo llegar →</span>
+          </a>
+          <a href="contacto.html" class="highlight-card reveal">
+            <span class="highlight-card__icon" aria-hidden="true">✆</span>
+            <h3>Contacto</h3>
+            <p>Escríbenos para pedidos, reservas o cualquier duda.</p>
+            <span class="highlight-card__go">Escribirnos →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section class="gallery" aria-label="Fotografías del restaurante">
+      <div class="wrap gallery__inner">
+        <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Salón del restaurante" loading="lazy" /><figcaption>La mesa</figcaption></figure>
+        <figure class="reveal"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80" alt="Cocina del restaurante" loading="lazy" /><figcaption>La cocina</figcaption></figure>
+        <figure class="reveal"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80" alt="Postre casero" loading="lazy" /><figcaption>El final feliz</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ CIERRE ============ -->
+    <section class="closing">
+      <div class="wrap closing__inner reveal">
+        <span class="ornament" aria-hidden="true">❧</span>
+        <h2>¿Se te antojó?</h2>
+        <p>Tu plato está a un mensaje de distancia.</p>
+        <a href="carta.html" class="btn btn--light">Explorar la carta ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-order></div>
+  <div data-site-footer></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

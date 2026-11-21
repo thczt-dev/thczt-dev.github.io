@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KDS │ Moda Streetwear ⚡⛓️. Nuevos en el mercado, veteranos en calidad. Streetwear con sello nacional, estampados personalizados y envíos a todo Colombia." />
+  <meta name="theme-color" content="#11110e" />
+  <title>KDS │ Moda Streetwear ⚡⛓️ — Sello nacional</title>
+
+  <!-- Fuentes: Anton para títulos, Inter para texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Acceso rápido para teclado / lectores de pantalla -->
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="KDS Moda Streetwear — ir al inicio">
+        <span class="logo__mark">KDS<span class="logo__bar">│</span></span>
+        <span class="logo__sub">MODA STREETWEAR</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#estampado">Estampados</a>
+        <a href="#drop">Drop 01</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn cart-btn" id="cartToggle" aria-label="Abrir carrito" aria-expanded="false" aria-controls="cartDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow"><span class="eyebrow__line"></span> ⚡ Nuevos en el mercado, veteranos en calidad</p>
+          <h1 class="hero__title">VISTE<br /><span class="hero__outline">TU</span> CIUDAD<span class="accent-dot">.</span></h1>
+          <p class="hero__text">
+            Streetwear con sello nacional ⚡⛓️. Piezas pensadas para los que caminan su propia ruta:
+            calidad real, ediciones cortas y la posibilidad de ponerle tu propio estampado.
+          </p>
+          <div class="hero__actions">
+            <a href="#catalogo" class="btn btn--primary">
+              Explorar catálogo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a href="#nosotros" class="btn btn--ghost">Conocer la marca</a>
+          </div>
+          <div class="hero__stats">
+            <div><strong>100%</strong><span>Sello nacional 🇨🇴</span></div>
+            <div><strong>⚡</strong><span>Estampados únicos</span></div>
+            <div><strong>4.9<span class="star">★</span></strong><span>Calificación</span></div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__frame">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Modelo con un outfit streetwear de la marca" fetchpriority="high" />
+          </div>
+          <div class="hero__badge" aria-hidden="true">KDS<br />SELLO<br /><small>NACIONAL</small></div>
+          <div class="hero__shape" aria-hidden="true"></div>
+          <div class="hero__tag" aria-hidden="true">BGA / 001</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>NUEVOS EN EL MERCADO, VETERANOS EN CALIDAD ⚡</span><span>⛓️</span><span>STREETWEAR CON SELLO NACIONAL</span><span>⚡</span><span>PERSONALIZA TU ESTAMPADO</span><span>⛓️</span><span>ENVÍOS A TODO COLOMBIA 🚚</span><span>⚡</span>
+        <span>NUEVOS EN EL MERCADO, VETERANOS EN CALIDAD ⚡</span><span>⛓️</span><span>STREETWEAR CON SELLO NACIONAL</span><span>⚡</span><span>PERSONALIZA TU ESTAMPADO</span><span>⛓️</span><span>ENVÍOS A TODO COLOMBIA 🚚</span><span>⚡</span>
+      </div>
+    </div>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="section catalog" id="catalogo">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__line"></span> Lo que está sonando</p>
+            <h2 class="section__title">EL <span class="text-accent">CATÁLOGO</span></h2>
+          </div>
+          <p class="section__desc">Prendas para el día a día con el sello KDS: diseño urbano, calidad honesta y tu estampado si quieres hacerla única.</p>
+        </div>
+
+        <!-- Filtros: el JS los conecta con las tarjetas -->
+        <div class="filters reveal" role="group" aria-label="Filtrar productos por categoría">
+          <button class="filter is-active" data-filter="todo" aria-pressed="true">Todo</button>
+          <button class="filter" data-filter="camisetas" aria-pressed="false">Camisetas</button>
+          <button class="filter" data-filter="hoodies" aria-pressed="false">Hoodies</button>
+          <button class="filter" data-filter="pantalones" aria-pressed="false">Pantalones</button>
+          <button class="filter" data-filter="accesorios" aria-pressed="false">Accesorios</button>
+        </div>
+
+        <div class="products" id="products">
+          <article class="product-card reveal" data-category="camisetas" data-name="Camiseta KDS Original" data-price="79000" data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Camiseta blanca KDS Original" loading="lazy" />
+              <span class="product-card__badge">BEST SELLER</span>
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Camiseta KDS Original al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Camisetas</span>
+              <h3>Camiseta KDS Original</h3>
+              <div class="product-card__bottom">
+                <span class="price">$79.000</span>
+                <span class="rating">★ 4.9</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="hoodies" data-name="Hoodie Night Shift" data-price="169000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80" alt="Hoodie oscuro Night Shift" loading="lazy" />
+              <span class="product-card__badge product-card__badge--acid">NUEVO</span>
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Hoodie Night Shift al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Hoodies</span>
+              <h3>Hoodie Night Shift</h3>
+              <div class="product-card__bottom">
+                <span class="price">$169.000</span>
+                <span class="rating">★ 5.0</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="camisetas" data-name="Camiseta Graphic City" data-price="89000" data-image="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80" alt="Camiseta gráfica urbana" loading="lazy" />
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Camiseta Graphic City al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Camisetas</span>
+              <h3>Camiseta Graphic City</h3>
+              <div class="product-card__bottom">
+                <span class="price">$89.000</span>
+                <span class="rating">★ 4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="accesorios" data-name="Gorra KDS Snapback" data-price="69000" data-image="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=700&q=80" alt="Gorra snapback de la marca" loading="lazy" />
+              <span class="product-card__badge">TOP VENTAS</span>
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Gorra KDS Snapback al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Accesorios</span>
+              <h3>Gorra KDS Snapback</h3>
+              <div class="product-card__bottom">
+                <span class="price">$69.000</span>
+                <span class="rating">★ 4.9</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="pantalones" data-name="Pantalón Cargo urbano" data-price="189000" data-image="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80" alt="Pantalón cargo de estilo urbano" loading="lazy" />
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Pantalón Cargo urbano al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Pantalones</span>
+              <h3>Pantalón Cargo urbano</h3>
+              <div class="product-card__bottom">
+                <span class="price">$189.000</span>
+                <span class="rating">★ 4.7</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="hoodies" data-name="Hoodie Acid Green" data-price="159000" data-image="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=700&q=80" alt="Hoodie verde ácido" loading="lazy" />
+              <span class="product-card__badge product-card__badge--acid">EDICIÓN LIMITADA</span>
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Hoodie Acid Green al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Hoodies</span>
+              <h3>Hoodie Acid Green</h3>
+              <div class="product-card__bottom">
+                <span class="price">$159.000</span>
+                <span class="rating">★ 5.0</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="accesorios" data-name="Tenis Runner BGA" data-price="289000" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Tenis deportivos de color rojo" loading="lazy" />
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Tenis Runner BGA al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Accesorios</span>
+              <h3>Tenis Runner BGA</h3>
+              <div class="product-card__bottom">
+                <span class="price">$289.000</span>
+                <span class="rating">★ 4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="pantalones" data-name="Jeans Relaxed Fit" data-price="179000" data-image="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80">
+            <div class="product-card__media">
+              <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80" alt="Jeans de corte relajado" loading="lazy" />
+              <button class="product-card__add" data-add-to-cart aria-label="Agregar Jeans Relaxed Fit al carrito">+</button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__category">Pantalones</span>
+              <h3>Jeans Relaxed Fit</h3>
+              <div class="product-card__bottom">
+                <span class="price">$179.000</span>
+                <span class="rating">★ 4.6</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="no-results" id="noResults" hidden>No hay productos en esta categoría todavía. ¡Pronto!</p>
+      </div>
+    </section>
+
+    <!-- ============ ESTAMPADO PERSONALIZADO ============ -->
+    <section class="custom" id="estampado">
+      <div class="container">
+        <div class="custom__box reveal">
+          <div class="custom__head">
+            <p class="eyebrow"><span class="eyebrow__line"></span> ⚡ Personaliza tu estampado</p>
+            <h2 class="section__title">TU IDEA, <span class="text-accent">TU PRENDA</span></h2>
+            <p>¿Tienes un diseño, un frase o un concepto en la cabeza? Nos lo mandas y lo llevamos a la tela. Así cada pieza es tan única como tú.</p>
+          </div>
+          <div class="custom__steps">
+            <article class="custom__step">
+              <span>01</span>
+              <h3>Elige la prenda</h3>
+              <p>Camiseta, hoodie o la pieza que prefieras de nuestro catálogo.</p>
+            </article>
+            <article class="custom__step">
+              <span>02</span>
+              <h3>Envía tu idea</h3>
+              <p>Comparte tu arte o cuéntanos qué quieres estampar por WhatsApp.</p>
+            </article>
+            <article class="custom__step">
+              <span>03</span>
+              <h3>Recibe tu pieza</h3>
+              <p>La producimos con el mismo cuidado y te la enviamos a todo el país.</p>
+            </article>
+          </div>
+          <div class="custom__cta">
+            <a href="https://wa.me/573170576031?text=Hola%20KDS%2C%20quiero%20personalizar%20un%20estampado" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Pedir mi estampado <span aria-hidden="true">↗</span></a>
+            <small>⚡ Ediciones cortas · 🇨🇴 Sello nacional · 🚚 Envíos a todo Colombia</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DROP / BANNER ============ -->
+    <section class="drop" id="drop">
+      <div class="container drop__inner">
+        <div class="drop__copy reveal">
+          <p class="eyebrow"><span class="eyebrow__line"></span> ⛓️ Edición limitada</p>
+          <h2 class="section__title">DROP <span class="text-accent">01</span><br />NOCHE URBANA</h2>
+          <p>Una serie corta inspirada en las calles de Bucaramanga de noche. Streetwear con sello nacional: cuando se acaba, se acabó.</p>
+          <a href="#catalogo" class="btn btn--primary">Ver el drop <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="drop__visual reveal">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=80" alt="Perchero con ropa urbana de la colección" loading="lazy" />
+          <span class="drop__stamp" aria-hidden="true">KDS<br />DROP 01</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section class="section about" id="nosotros">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__line"></span> Sobre la marca</p>
+            <h2 class="section__title">MÁS QUE <span class="text-accent">ROPA</span></h2>
+          </div>
+          <p class="section__desc">Somos nuevos en el mercado, veteranos en calidad ⚡. Streetwear con sello nacional, hecho con la misma actitud con la que se camina la ciudad.</p>
+        </div>
+
+        <div class="values">
+          <article class="value-card reveal">
+            <span class="value-card__number">01</span>
+            <div class="value-card__icon" aria-hidden="true">⚡</div>
+            <h3>Sello nacional</h3>
+            <p>Cada prenda se concibe en Bucaramanga, pensando en cómo se viste la gente real de nuestra ciudad. 🇨🇴</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-card__number">02</span>
+            <div class="value-card__icon" aria-hidden="true">⛓️</div>
+            <h3>Veteranos en calidad</h3>
+            <p>Telas resistentes, costuras cuidadas y prendas que aguantan el ritmo de todos los días. Sin atajos.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-card__number">03</span>
+            <div class="value-card__icon" aria-hidden="true">✦</div>
+            <h3>Estampado propio</h3>
+            <p>Personaliza tu estampado ⚡ y usa algo que no ves en todas partes. Producimos poco y bien.</p>
+          </article>
+        </div>
+
+        <div class="quote reveal">
+          <p>"Nuevos en el mercado, veteranos en calidad. La calle es nuestra pasarela y el sello nacional va en cada costura."</p>
+          <span>— Equipo KDS │ Moda Streetwear ⚡⛓️</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto">
+      <div class="container contact__grid">
+        <div class="contact__info reveal">
+          <p class="eyebrow"><span class="eyebrow__line"></span> ⚡ Hablemos</p>
+          <h2 class="section__title">¿NOS <span class="text-accent">VEMOS?</span></h2>
+          <p>Escríbenos por WhatsApp para conocer los nuevos drops, pedir tu estampado personalizado o simplemente saludar. 🚚 Enviamos a todo Colombia.</p>
+          <ul class="contact__list">
+            <li><span>WhatsApp</span><a href="https://wa.me/573170576031" target="_blank" rel="noopener noreferrer">+57 310 705 6031</a></li>
+            <li><span>Instagram</span><a href="https://www.instagram.com/kds.clothesco/" target="_blank" rel="noopener noreferrer">@kds.clothesco</a></li>
+            <li><span>Correo</span><a href="mailto:hola@kdsclothesco.com">hola@kdsclothesco.com</a></li>
+            <li><span>Ciudad</span><strong>Bucaramanga, Colombia</strong></li>
+          </ul>
+        </div>
+
+        <form class="newsletter reveal" id="newsletterForm" novalidate>
+          <h3>ENTRA AL DROP</h3>
+          <p>Suscríbete y entérate primero de cada lanzamiento. Cero spam, prometido.</p>
+          <label for="email">Tu correo electrónico</label>
+          <div class="newsletter__row">
+            <input type="email" id="email" name="email" placeholder="hola@tucorreo.com" autocomplete="email" required />
+            <button type="submit" class="btn btn--primary">Suscribirme</button>
+          </div>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+          <small>Al suscribirte aceptas recibir novedades de KDS. Puedes darte de baja cuando quieras.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo">
+          <span class="logo__mark">KDS<span class="logo__bar">│</span></span>
+          <span class="logo__sub">MODA STREETWEAR</span>
+        </a>
+        <p>Nuevos en el mercado, veteranos en calidad ⚡⛓️. Streetwear con sello nacional, nacido en Bucaramanga.</p>
+        <a class="footer__ig" href="https://www.instagram.com/kds.clothesco/" target="_blank" rel="noopener noreferrer">@kds.clothesco ↗</a>
+      </div>
+      <div class="footer__links">
+        <div>
+          <h4>Explorar</h4>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#estampado">Estampados</a>
+          <a href="#drop">Drop 01</a>
+          <a href="#nosotros">Nosotros</a>
+        </div>
+        <div>
+          <h4>Ayuda</h4>
+          <a href="#contacto">Envíos</a>
+          <a href="#contacto">Cambios</a>
+          <a href="#contacto">Tallas</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year">2026</span> KDS │ Moda Streetwear. Todos los derechos reservados.</p>
+      <p>Diseñado y desarrollado por <strong>Diego Alejandro Tellez Tellez</strong> &middot; <a href="https://thc.dev" target="_blank" rel="noopener noreferrer">thc.dev</a></p>
+    </div>
+  </footer>
+
+  <!-- ============ CARRITO (panel lateral) ============ -->
+  <div class="overlay" id="cartOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Carrito de compras" role="dialog" aria-modal="true">
+    <div class="cart-drawer__head">
+      <h2>TU CARRITO <span id="cartItemsCount">(0)</span></h2>
+      <button class="icon-btn" id="cartClose" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div class="cart-drawer__body" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <span aria-hidden="true">◯</span>
+        <p>Tu carrito está vacío.</p>
+        <small>¡Explora el catálogo y encuentra tu próxima prenda favorita!</small>
+      </div>
+    </div>
+    <div class="cart-drawer__foot">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">$ 0</strong></div>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Finalizar compra</button>
+      <small>Los impuestos y el envío se calculan al finalizar.</small>
+    </div>
+  </aside>
+
+  <!-- Notificación flotante -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

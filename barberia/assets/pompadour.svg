@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Corte pompadour">
+  <rect width="400" height="400" fill="#080809"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+  <circle cx="200" cy="185" r="140" fill="none" stroke="#b8893f" stroke-width="1" opacity=".18"/>
+  <path d="M200 66c-50 0-84 34-84 88 0 32 10 54 10 76 0 16 8 26 22 26h104c14 0 22-10 22-26 0-22 10-44 10-76 0-54-34-88-84-88Z" fill="#191512" stroke="#b8893f" stroke-width="2"/>
+  <path d="M116 158c-4-38 14-70 44-82 24-10 56-2 78 16 22 18 34 42 44 66-30-24-62-34-96-30-30 4-54 16-70 30Z" fill="#241b16"/>
+  <g fill="none" stroke="#b8893f" stroke-width="1.5" opacity=".85">
+    <path d="M132 140q34-46 84-50"/><path d="M146 132q34-42 78-44"/><path d="M162 124q30-32 66-34"/>
+  </g>
+  <path d="M120 164q80 26 160 0" fill="none" stroke="#8e2f29" stroke-width="2.5" opacity=".85"/>
+  <g fill="#5fa69e" opacity=".7"><circle cx="60" cy="86" r="2"/><circle cx="340" cy="300" r="2"/></g>
+</svg>

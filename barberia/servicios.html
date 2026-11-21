@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0b0a" />
+  <meta name="description" content="Catálogo de recortes, servicios y tarifas de NAVAJA NEGRA: fade, undercut, barba, combos y más." />
+  <title>Catálogo y tarifas · NAVAJA NEGRA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body data-page="servicios" data-whatsapp="573000000000" data-direccion="Cra. 15 # 12-34, Centro · Bucaramanga">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div data-site-header></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow reveal">Catálogo del garage · Tarifas</p>
+        <h1 class="reveal">ELIGE TU FILO.</h1>
+        <p class="reveal">
+          Nueve servicios con precio y duración a la vista. Filtra por estilo y aparta tu hora
+          directamente con el botón de cada tarjeta.
+        </p>
+        <div class="page-head__actions reveal">
+          <a class="btn btn--gold" href="citas.html">Ir a reservas <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="galeria.html">Ver referencias</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters reveal" role="group" aria-label="Filtrar servicios">
+          <button class="filter is-active" type="button" data-filter="all">Todos <span aria-hidden="true">09</span></button>
+          <button class="filter" type="button" data-filter="clasicos">Clásicos</button>
+          <button class="filter" type="button" data-filter="modernos">Modernos</button>
+          <button class="filter" type="button" data-filter="barba">Barba</button>
+          <button class="filter" type="button" data-filter="combos">Combos</button>
+        </div>
+
+        <div class="service-grid" id="serviceGrid" aria-live="polite">
+          <noscript>
+            <p class="empty">Activa JavaScript para ver el catálogo con filtros. Mientras tanto, puedes <a href="citas.html">solicitar una cita</a> indicando el corte que quieres.</p>
+          </noscript>
+        </div>
+
+        <p class="tarifa-nota reveal">
+          <strong>Tarifas de ejemplo.</strong> El precio mostrado es una referencia de la demo e incluye acabado
+          con navaja o tijera, limpieza de cuello y revisión en espejo. Sin arranques en frío: no hay recargo por reservar en línea.
+          Los datos de contacto son marcadores de posición.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

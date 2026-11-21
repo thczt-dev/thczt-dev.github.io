@@ -1,0 +1,19 @@
+{
+  "name": "NAVAJA NEGRA",
+  "description": "Barbería de garage con motos y filo propio: catálogo de recortes, tarifas claras, galería de estilos y reserva de citas en el navegador.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JS",
+    "MULTIPÁGINA"
+  ],
+  "emoji": "💈",
+  "category": "negocios",
+  "audience": "Barberías, peluquerías y negocios que viven de citas y clientes habituales.",
+  "problem": "Que el cliente no sepa qué corte pedir, cuánto cuesta ni cómo apartar un horario.",
+  "solution": "Catálogo con precios y duración, galería de referencias y un formulario que deja el mensaje listo para WhatsApp.",
+  "accent": "#a9c7f5",
+  "year": "2026",
+  "demo": true,
+  "notice": "Negocio ficticio y datos de ejemplo. Es una demo demostrativa, no una barbería real."
+}

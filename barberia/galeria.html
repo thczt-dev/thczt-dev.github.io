@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0b0a" />
+  <meta name="description" content="Galería de estilos de NAVAJA NEGRA: fade, undercut, clásico, pompadour, barba y herramientas." />
+  <title>Galería · NAVAJA NEGRA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body data-page="galeria" data-whatsapp="573000000000" data-direccion="Cra. 15 # 12-34, Centro · Bucaramanga">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div data-site-header></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow reveal">Galería</p>
+        <h1 class="reveal">ESTILOS DEL GARAGE.</h1>
+        <p class="reveal">
+          Diez ilustraciones originales creadas en SVG para esta demo: cortes, barbas,
+          una café racer y su casco. Sirven para elegir estilo sin usar fotos de clientes reales.
+          Pulsa cualquiera para ampliarla.
+        </p>
+        <div class="page-head__actions reveal">
+          <a class="btn btn--gold" href="servicios.html">Ver tarifas <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="citas.html">Reservar cita</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Visor de imágenes -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__box" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <div class="lightbox__bar">
+        <strong id="lightboxTitle">Estilo</strong>
+        <button type="button" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+      </div>
+      <img id="lightboxImg" src="assets/fade.svg" alt="" />
+      <div class="lightbox__foot">
+        <span id="lightboxMeta">Ilustración · NAVAJA NEGRA</span>
+        <div class="lightbox__nav">
+          <button type="button" id="lightboxPrev" aria-label="Imagen anterior">←</button>
+          <button type="button" id="lightboxNext" aria-label="Imagen siguiente">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-site-footer></div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

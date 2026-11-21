@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Navaja barbera">
+  <rect width="400" height="400" fill="#080809"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+  <circle cx="200" cy="200" r="132" fill="none" stroke="#b8893f" stroke-width="1" opacity=".2"/>
+  <g transform="rotate(-32 200 200)">
+    <path d="M96 188h186l30 12-30 12H96Z" fill="#d9d4cc" stroke="#f4efe6" stroke-width="1"/>
+    <path d="M96 188h186l30 12H96Z" fill="#f6f1e8" opacity=".55"/>
+    <path d="M282 188l30 12-30 12Z" fill="#5fa69e"/>
+    <rect x="60" y="186" width="40" height="28" rx="8" fill="#241b16" stroke="#b8893f" stroke-width="2"/>
+    <circle cx="80" cy="200" r="4" fill="#b8893f"/>
+  </g>
+  <g fill="#b8893f" opacity=".8"><circle cx="70" cy="86" r="2"/><circle cx="330" cy="312" r="2"/></g>
+</svg>

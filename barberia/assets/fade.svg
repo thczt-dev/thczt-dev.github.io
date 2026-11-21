@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Corte fade">
+  <defs>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a211a"/><stop offset="1" stop-color="#0e0c0b"/>
+    </linearGradient>
+    <radialGradient id="halo"><stop offset="0" stop-color="#b8893f" stop-opacity=".28"/><stop offset="1" stop-color="#b8893f" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="#080809"/>
+  <circle cx="200" cy="190" r="150" fill="url(#halo)"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7">
+    <path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/>
+  </g>
+  <path d="M200 62c-50 0-84 34-84 88 0 32 10 54 10 76 0 16 8 26 22 26h104c14 0 22-10 22-26 0-22 10-44 10-76 0-54-34-88-84-88Z" fill="url(#fg)" stroke="#b8893f" stroke-width="2"/>
+  <path d="M118 150c8-46 38-72 82-72s74 26 82 72c-26-22-54-30-82-30s-56 8-82 30Z" fill="#191512"/>
+  <g stroke="#b8893f" stroke-width="1.4" opacity=".75">
+    <path d="M126 158c18-14 44-22 74-22s56 8 74 22"/><path d="M130 176c18-12 42-18 70-18s52 6 70 18"/>
+  </g>
+  <g stroke="#5fa69e" stroke-width="1" opacity=".55">
+    <path d="M124 196h152M126 208h148M132 220h136"/>
+  </g>
+  <path d="M170 258q30 14 60 0" fill="none" stroke="#8e2f29" stroke-width="2" opacity=".8"/>
+  <g fill="#b8893f" opacity=".8"><circle cx="56" cy="64" r="2"/><circle cx="344" cy="92" r="2"/><circle cx="318" cy="330" r="2"/></g>
+</svg>

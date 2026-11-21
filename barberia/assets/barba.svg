@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Barba tallada">
+  <rect width="400" height="400" fill="#080809"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+  <path d="M200 62c-50 0-84 34-84 88 0 32 10 54 10 76 0 16 8 26 22 26h104c14 0 22-10 22-26 0-22 10-44 10-76 0-54-34-88-84-88Z" fill="#191512" stroke="#b8893f" stroke-width="2"/>
+  <path d="M134 232c10 40 34 66 66 66s56-26 66-66c-14 14-38 24-66 24s-52-10-66-24Z" fill="#241b16" stroke="#b8893f" stroke-width="1.4"/>
+  <g stroke="#5fa69e" stroke-width="1.2" opacity=".8">
+    <path d="M164 256q36 16 72 0"/><path d="M172 272q28 12 56 0"/>
+  </g>
+  <path d="M178 232q22 10 44 0" fill="none" stroke="#8e2f29" stroke-width="2"/>
+  <path d="M118 158c8-46 38-72 82-72s74 26 82 72c-26-22-54-30-82-30s-56 8-82 30Z" fill="#191512"/>
+  <g fill="#b8893f" opacity=".7"><circle cx="58" cy="310" r="2"/><circle cx="344" cy="80" r="2"/></g>
+</svg>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Carta digital de Sabor & Punto: entradas, platos fuertes, postres y bebidas con precios y descripción. Arma tu pedido." />
+  <meta name="theme-color" content="#fbf7f0" />
+  <title>Carta · Sabor &amp; Punto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="carta" data-whatsapp="573000000000" data-whatsapp-name="Sabor &amp; Punto">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div data-site-header></div>
+
+  <main id="main">
+    <!-- ============ INTRO ============ -->
+    <section class="page-intro">
+      <div class="wrap">
+        <span class="ornament" aria-hidden="true">✳</span>
+        <p class="eyebrow">Nuestra carta</p>
+        <h1>Elige tu <em>plato</em></h1>
+        <p class="section-lead">Categorías, precios y descripción. Arma tu pedido y envíalo directo a nuestro WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- ============ PLATOS ============ -->
+    <section class="section menu" id="menu">
+      <div class="wrap">
+        <div class="filters" role="group" aria-label="Filtrar platos por categoría">
+          <button class="filter is-active" type="button" data-filter="todo" aria-pressed="true">Toda la carta</button>
+          <button class="filter" type="button" data-filter="entradas" aria-pressed="false">Para empezar</button>
+          <button class="filter" type="button" data-filter="principales" aria-pressed="false">Platos fuertes</button>
+          <button class="filter" type="button" data-filter="postres" aria-pressed="false">Postres</button>
+          <button class="filter" type="button" data-filter="bebidas" aria-pressed="false">Para beber</button>
+        </div>
+
+        <!-- Los platos se generan con js/main.js -->
+        <div class="dish-grid" id="dishGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO PEDIR ============ -->
+    <section class="section pasos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="ornament" aria-hidden="true">❧</span>
+          <p class="eyebrow">Así de fácil</p>
+          <h2>Cómo <em>pedir</em></h2>
+          <p class="section-lead">Tres pasos y tu pedido llega listo a nuestro WhatsApp.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step__num">1</span>
+            <h3>Elige tus platos</h3>
+            <p>Filtra por categoría y pulsa el botón <strong>+</strong> en cada plato que quieras.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">2</span>
+            <h3>Revisa tu pedido</h3>
+            <p>La barra inferior muestra el total. Puedes cambiar cantidades antes de enviar.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">3</span>
+            <h3>Envíalo por WhatsApp</h3>
+            <p>Confirmamos disponibilidad, tiempo de entrega y forma de pago por el mismo chat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing__inner reveal">
+        <span class="ornament" aria-hidden="true">❧</span>
+        <h2>¿Listo para pedir?</h2>
+        <p>Tu mesa (o tu sofá) te espera.</p>
+        <a class="btn btn--light js-wa" data-wa-message="¡Hola Sabor &amp; Punto! Quiero hacer un pedido 🍽️" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-order></div>
+  <div data-site-footer></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

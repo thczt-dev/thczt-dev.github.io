@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Cartas para ELLA: líneas nuevas, sin mensajes viejos. Léelas cuando quieras :3">
+  <title>Cartas para ELLA ✦</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070d'/%3E%3Cpath d='M40 12a20 20 0 1 0 0 40 22 22 0 0 1 0-40z' fill='%23b9c6da'/%3E%3Cpath d='M46 18l1.6 4.4L52 24l-4.4 1.6L46 30l-1.6-4.4L40 24l4.4-1.6z' fill='%237fa3d8'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <canvas id="estrellas" aria-hidden="true"></canvas>
+  <div class="luna" aria-hidden="true"></div>
+  <div class="niebla" aria-hidden="true"></div>
+  <div class="capa-grano" aria-hidden="true"></div>
+
+  <div class="contenido">
+
+    <header class="cabecera">
+      <div class="ancho cabecera-in">
+        <a class="logo" href="index.html" aria-label="ELLA, volver al inicio">
+          <span class="logo-marca" aria-hidden="true">✦</span>
+          <span class="logo-texto">
+            <span class="logo-nombre">ELLA</span>
+            <span class="logo-sub">alguien q te piensa :3</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Menú principal">
+          <a href="index.html">inicio</a>
+          <a href="cartas.html" aria-current="page">cartas</a>
+          <a href="musica.html">música</a>
+          <a href="galeria.html">galería</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pagina">
+      <div class="ancho">
+
+        <header class="pagina-cabecera" data-anima>
+          <p class="eyebrow">cartas</p>
+          <h1 class="titulo-seccion">cartas para ti :3</h1>
+          <p class="texto-intro">
+            Seis cartas escritas de cero para ELLA. Nada de copiar y pegar, nada de frases prestadas: solo algo bonito para leer cuando quieras.
+          </p>
+        </header>
+
+        <div class="cartas-grid" id="cartas-grid"></div>
+
+        <p class="cartas-nota">
+          <span aria-hidden="true">✦</span>
+          <span>Léelas cuando quieras, las veces que sea jsjs</span>
+        </p>
+
+      </div>
+    </main>
+
+    <footer class="pie">
+      <div class="ancho">
+        <span class="pie-ornamento" aria-hidden="true">✦ ♡ ✦</span>
+        <p>Hecho para ELLA · <span data-anio>2026</span></p>
+        <p class="pie-mini">cada carta se edita en js/datos.js</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <button class="boton-suerte" type="button" data-suerte aria-label="Descubrir un mensaje para ti">✦</button>
+
+  <!-- Modal de carta -->
+  <div class="modal" id="modal-carta" hidden>
+    <div class="modal-fondo" data-cerrar></div>
+
+    <article class="carta-papel" role="dialog" aria-modal="true" aria-labelledby="carta-titulo">
+      <button class="modal-cerrar" type="button" data-cerrar aria-label="Cerrar carta">×</button>
+
+      <p class="carta-meta">
+        <span id="carta-fecha"></span>
+        <span class="punto" aria-hidden="true">✦</span>
+        <span>Para ELLA ✦</span>
+      </p>
+
+      <h2 id="carta-titulo"></h2>
+      <div class="carta-texto" id="carta-texto"></div>
+      <p class="carta-firma" id="carta-firma"></p>
+
+      <span class="carta-sello" aria-hidden="true">✦</span>
+
+      <div class="carta-nav">
+        <button type="button" id="carta-anterior">← anterior</button>
+        <span class="contador" id="carta-contador"></span>
+        <button type="button" id="carta-siguiente">siguiente →</button>
+      </div>
+
+    </article>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/cartas.js"></script>
+</body>
+</html>

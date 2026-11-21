@@ -1,0 +1,11 @@
+☾ FOTOS DE ELLA ☽
+
+La galería usa las 45 copias de fotos/web/01.webp … 45.webp.
+Todas están muy pixeladas y difuminadas a propósito: se conserva
+el ambiente y los colores, no las caras ni ningún detalle reconocible.
+Los originales y las copias de seguridad no están en el proyecto.
+
+Para cambiar el texto de un marco, edita su "pie" en js/datos.js:
+  { src: "fotos/web/01.webp", pie: "un instante cualquiera", ratio: "1.334" }
+
+Si agregas imágenes nuevas, pixelalas y difuminalas antes de copiarlas aquí.

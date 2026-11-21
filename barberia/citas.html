@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0b0a" />
+  <meta name="description" content="Solicitud de citas y formulario de reserva de NAVAJA NEGRA: elige servicio, fecha y hora en un minuto." />
+  <title>Reservar cita · NAVAJA NEGRA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body data-page="citas" data-whatsapp="573000000000" data-direccion="Cra. 15 # 12-34, Centro · Bucaramanga">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div data-site-header></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow reveal">Solicitud de citas</p>
+        <h1 class="reveal">APARTA TU SILLA.</h1>
+        <p class="reveal">
+          Llena el formulario: tu solicitud queda guardada en este navegador y puedes enviarla
+          por WhatsApp con el mensaje ya escrito. Sin filas y sin arranques en frío.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container booking">
+        <aside class="booking__info reveal">
+          <h2>Antes de arrancar</h2>
+          <ul>
+            <li><span><strong>Elige el servicio</strong> del catálogo; cada uno tiene su duración.</span></li>
+            <li><span>Escribe un <strong>WhatsApp válido</strong> para que podamos confirmar la cita.</span></li>
+            <li><span>El <strong>correo es opcional</strong>: úsalo si quieres una copia de la solicitud.</span></li>
+            <li><span>Puedes <strong>cancelar</strong> cualquier solicitud desde la lista inferior.</span></li>
+          </ul>
+          <div class="contact-line">
+            <h3>Datos de contacto</h3>
+            <p><strong>WhatsApp:</strong> <a class="js-wa" data-wa-message="¡Hola NAVAJA NEGRA! Quiero información sobre una cita." href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">+57 300 000 0000</a></p>
+            <p><strong>Dirección:</strong> Cra. 15 # 12-34, Centro · Bucaramanga</p>
+            <p><strong>Horario:</strong> Lunes a sábado, 9:00 a.m. – 7:00 p.m.</p>
+            <p style="color:#8d8277;font-size:.76rem;">Teléfono y dirección son datos de ejemplo de la demo.</p>
+          </div>
+        </aside>
+
+        <div class="booking__form reveal">
+          <h2>Formulario de reserva</h2>
+          <p class="form-sub">Los campos marcados con * son obligatorios.</p>
+
+          <form id="bookingForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="bookingNombre">Nombre *</label>
+                <input id="bookingNombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" maxlength="60" required />
+              </div>
+              <div class="field">
+                <label for="bookingWhatsapp">WhatsApp *</label>
+                <input id="bookingWhatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 000 0000" maxlength="20" required />
+                <small>Solo números. Ejemplo: 3000000000</small>
+              </div>
+              <div class="field">
+                <label for="bookingCorreo">Correo (opcional)</label>
+                <input id="bookingCorreo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com" maxlength="100" />
+              </div>
+              <div class="field">
+                <label for="bookingServicio">Servicio *</label>
+                <select id="bookingServicio" name="servicio" required>
+                  <option value="">Selecciona un servicio</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="bookingFecha">Fecha *</label>
+                <input id="bookingFecha" name="fecha" type="date" required />
+              </div>
+              <div class="field">
+                <label for="bookingHora">Hora *</label>
+                <select id="bookingHora" name="hora" required>
+                  <option value="">Selecciona una hora</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="bookingNota">Nota (opcional)</label>
+                <textarea id="bookingNota" name="nota" maxlength="240" placeholder="Cuéntanos algo: cómo quieres el corte, si es primera vez, etc."></textarea>
+                <small>Hasta 240 caracteres.</small>
+              </div>
+            </div>
+
+            <p class="form-error" id="bookingError" role="alert" hidden></p>
+
+            <div class="form-actions">
+              <button class="btn btn--gold" type="submit">Guardar solicitud <span aria-hidden="true">→</span></button>
+              <button class="btn btn--ghost" type="reset">Limpiar</button>
+            </div>
+            <p class="form-note">Demo local: los datos se guardan solo en este navegador, nunca se envían a un servidor.</p>
+          </form>
+
+          <div class="booking__success" id="bookingSuccess" role="status" hidden>
+            <h3>✓ Solicitud guardada</h3>
+            <p id="bookingSuccessText"></p>
+            <a class="btn btn--gold btn--small" id="bookingWhatsappLink" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">Enviar por WhatsApp ↗</a>
+            <button class="btn btn--ghost btn--small" id="bookingAgain" type="button">Hacer otra reserva</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container booking__list">
+        <h2 class="reveal">Mis solicitudes</h2>
+        <p style="color:var(--muted);font-size:.86rem;">Lista guardada en este navegador. Puedes cancelar la que ya no necesites.</p>
+        <ul id="bookingList" class="reveal" aria-live="polite"></ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

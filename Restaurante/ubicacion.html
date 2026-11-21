@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dirección, horarios y mapa de Sabor & Punto en Bucaramanga. Pásate a almorzar o pide a domicilio." />
+  <meta name="theme-color" content="#fbf7f0" />
+  <title>Encontranos · Sabor &amp; Punto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="ubicacion" data-whatsapp="573000000000" data-whatsapp-name="Sabor &amp; Punto">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div data-site-header></div>
+
+  <main id="main">
+    <!-- ============ INTRO ============ -->
+    <section class="page-intro">
+      <div class="wrap">
+        <span class="ornament" aria-hidden="true">✳</span>
+        <p class="eyebrow">Encontranos</p>
+        <h1>Tu sitio en la <em>ciudad</em></h1>
+        <p class="section-lead">Estamos en el centro de Bucaramanga. Pásate a almorzar o pídenos a domicilio.</p>
+      </div>
+    </section>
+
+    <!-- ============ DATOS ============ -->
+    <section class="section place">
+      <div class="wrap">
+        <div class="place__cards">
+          <article class="place-card reveal">
+            <span class="place-card__icon" aria-hidden="true">⌖</span>
+            <h3>Dirección</h3>
+            <!-- CAMBIAR: dirección real -->
+            <p>Cra. 15 # 12-34, Centro<br />Bucaramanga, Colombia</p>
+            <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Bucaramanga%2C%20Colombia" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a>
+          </article>
+          <article class="place-card reveal">
+            <span class="place-card__icon" aria-hidden="true">◷</span>
+            <h3>Horarios</h3>
+            <p class="open-status" id="openStatus">Consultando horario…</p>
+            <ul class="hours">
+              <li><span>Lun – Jue</span><strong>11:00 – 22:00</strong></li>
+              <li><span>Vie – Sáb</span><strong>11:00 – 23:00</strong></li>
+              <li><span>Domingo</span><strong>11:00 – 21:00</strong></li>
+            </ul>
+          </article>
+          <article class="place-card reveal">
+            <span class="place-card__icon" aria-hidden="true">✆</span>
+            <h3>Escríbenos</h3>
+            <p>Pedidos, reservas y lo que se te ocurra.</p>
+            <a class="text-link js-wa" data-wa-message="¡Hola Sabor &amp; Punto! Quiero información sobre pedidos y reservas." href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">Abrir WhatsApp ↗</a>
+          </article>
+        </div>
+
+        <!-- CAMBIAR: URL del mapa por la ubicación exacta -->
+        <div class="place__map reveal">
+          <iframe title="Mapa de Sabor & Punto en Bucaramanga" src="https://www.google.com/maps?q=Bucaramanga%2C%20Colombia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO LLEGAR ============ -->
+    <section class="section llegar">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="ornament" aria-hidden="true">❧</span>
+          <p class="eyebrow">Para que no te pierdas</p>
+          <h2>Llega <em>fácil</em></h2>
+          <p class="section-lead">Estamos a pocas cuadras del Parque Santander. Pregunta por Sabor &amp; Punto; el olor te avisa.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step__num">⌖</span>
+            <h3>En transporte</h3>
+            <p>Varias rutas pasan por la Carrera 15. Baja en el centro y camina una cuadra.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">P</span>
+            <h3>En carro</h3>
+            <p>Hay parqueaderos cercanos sobre la Calle 12 y la Carrera 16.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">✆</span>
+            <h3>A domicilio</h3>
+            <p>Escríbenos por WhatsApp y te confirmamos cobertura y tiempo de entrega.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing__inner reveal">
+        <span class="ornament" aria-hidden="true">✳</span>
+        <h2>Te esperamos</h2>
+        <p>Mira la carta y decide qué pedir cuando llegues.</p>
+        <a href="carta.html" class="btn btn--light">Ver la carta ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-order></div>
+  <div data-site-footer></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

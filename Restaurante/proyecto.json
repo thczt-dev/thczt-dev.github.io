@@ -1,0 +1,19 @@
+{
+  "name": "Sabor & Punto",
+  "description": "Restaurante con carta digital, pedidos por WhatsApp, ubicación, horarios en vivo y formulario de contacto. Cinco páginas pensadas para que el cliente no tenga que preguntar nada.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JS",
+    "MULTIPÁGINA"
+  ],
+  "emoji": "🍽️",
+  "category": "negocios",
+  "audience": "Restaurantes, cafés, panaderías y cocinas pequeñas.",
+  "problem": "Que la gente no sepa qué hay hoy, dónde queda el local o cómo hacer un pedido.",
+  "solution": "Menú dinámico, pedido que se guarda solo y un botón que abre WhatsApp con el resumen listo.",
+  "accent": "#9fb0bf",
+  "year": "2026",
+  "demo": true,
+  "notice": "Negocio ficticio y datos de ejemplo. Es una demo demostrativa, no un restaurante real."
+}

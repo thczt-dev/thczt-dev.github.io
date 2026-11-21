@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07060b" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="thc.dev — portafolio de Diego Alejandro Tellez Tellez. Demos de páginas para negocios, comunidades y detalles personales, hechas en Bucaramanga." />
+  <title>thc.dev ✦ Diego Alejandro Tellez Tellez</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet" />
+
+  <style>
+
+    :root {
+      --bg: #07080a;
+      --panel: #101318;
+      --panel-2: #171c22;
+      --line: #2a323b;
+      --text: #f0f4f8;
+      --muted: #98a4b0;
+      --violet: #a9c7f5;      /* pastel blue */
+      --pink: #d6e6ff;        /* pastel blue claro */
+      --cyan: #bcd8ff;        /* pastel blue frío */
+      --gold: #8f9aa5;        /* gris acero */
+      --ember: #6d7884;
+      --ok: #b8d8ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 6%, rgba(169,199,245,.14), transparent 34%),
+        radial-gradient(circle at 90% 28%, rgba(214,230,255,.08), transparent 28%),
+        radial-gradient(circle at 55% 100%, rgba(143,154,165,.12), transparent 46%);
+    }
+    .grip {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .3;
+      background-image: radial-gradient(rgba(214,230,255,.16) 1px, transparent 1.4px);
+      background-size: 9px 9px;
+    }
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(169,199,245,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(169,199,245,.05) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: linear-gradient(to bottom, #000, transparent 80%);
+      mask-image: linear-gradient(to bottom, #000, transparent 80%);
+    }
+    .checker {
+      height: 9px;
+      opacity: .35;
+      border-block: 1px solid var(--line);
+      background: repeating-conic-gradient(var(--pink) 0 25%, var(--bg) 0 50%) 0 0/18px 18px;
+    }
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 9990;
+      opacity: .09;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+    }
+    .sparkles { position: fixed; inset: 0; z-index: 9991; pointer-events: none; overflow: hidden; }
+    .sparkle {
+      position: fixed;
+      color: var(--pink);
+      font: 700 1rem/1 "VT323", monospace;
+      text-shadow: 0 0 10px currentColor;
+      animation: sparkle-float var(--dur, 900ms) ease-out forwards;
+      pointer-events: none;
+    }
+    @keyframes sparkle-float {
+      to { transform: translate(var(--dx, 0), -46px) scale(.2) rotate(120deg); opacity: 0; }
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+    ::selection { background: var(--pink); color: #080a0d; }
+
+    .container { width: min(100% - 40px, 1160px); margin-inline: auto; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- cabecera ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 900;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7,8,10,.88);
+      backdrop-filter: blur(14px);
+    }
+    .site-header__in {
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      min-height: 66px;
+    }
+    .brand {
+      display: inline-flex; align-items: baseline; gap: 2px;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: 1.7rem; letter-spacing: .02em; text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand__star { color: var(--pink); font-size: 1.1rem; animation: blink 2.4s steps(1) infinite; }
+    .brand__dot { color: var(--violet); }
+    .brand small {
+      margin-left: 12px;
+      font: 400 .78rem/1 "VT323", monospace;
+      letter-spacing: .08em; color: var(--muted);
+    }
+    @keyframes blink { 50% { opacity: .25; } }
+
+    .nav { display: flex; align-items: center; gap: 22px; }
+    .nav a {
+      font: 600 .72rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav a:hover { color: var(--pink); }
+    .sound-btn {
+      border: 1px solid var(--line); background: rgba(169,199,245,.08);
+      color: var(--muted); border-radius: 999px;
+      padding: 7px 12px; cursor: pointer;
+      font: 400 .8rem/1 "VT323", monospace; letter-spacing: .08em;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .sound-btn[aria-pressed="true"] { color: var(--ok); border-color: var(--ok); background: rgba(184,216,255,.08); }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; padding: 54px 0 70px; }
+    .hero__grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 42px; align-items: center; }
+    .hero__copy { position: relative; z-index: 2; min-width: 0; }
+    .hero__portrait { position: relative; display: grid; justify-items: center; gap: 14px; z-index: 2; }
+    .hero__scrap { position: absolute; inset: 0; pointer-events: none; }
+    .sticker {
+      position: absolute;
+      padding: 6px 11px;
+      border: 1px solid var(--violet);
+      background: rgba(10,12,15,.8);
+      color: var(--pink);
+      font: 400 .95rem/1 "Permanent Marker", "VT323", cursive;
+      letter-spacing: .06em;
+      box-shadow: 3px 3px 0 rgba(169,199,245,.18);
+    }
+    .sticker--one { top: 34px; right: 4%; transform: rotate(-9deg); }
+    .sticker--two { top: 150px; right: 11%; transform: rotate(7deg); color: var(--muted); border-color: var(--line); }
+    .sticker--three { bottom: 118px; right: 3%; transform: rotate(-4deg); }
+    .hero__badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 13px; border: 1px solid var(--line);
+      border-radius: 999px; background: rgba(169,199,245,.08);
+      font: 400 .85rem/1 "VT323", monospace; letter-spacing: .14em;
+      color: var(--cyan);
+    }
+    .hero__badge::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ok); box-shadow: 0 0 10px var(--ok);
+      animation: blink 1.6s steps(1) infinite;
+    }
+    .hero__kicker {
+      margin: 34px 0 6px; color: var(--pink);
+      font: 700 .78rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .28em; text-transform: uppercase;
+    }
+    .hero__kicker::after { content: "_"; animation: blink 1s steps(1) infinite; }
+    .chrome {
+      margin: 0;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(2.9rem, 6.8vw, 5.9rem);
+      line-height: .92; letter-spacing: .01em; text-transform: uppercase;
+      overflow-wrap: break-word;
+      background: linear-gradient(180deg, #fff 4%, #d8e2ee 26%, #788593 48%, #f7fbff 52%, #8d9aa8 72%, #dce7f3 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 4px 0 rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(169,199,245,.24));
+    }
+    .chrome em {
+      font-style: normal;
+      background: linear-gradient(180deg, #eef5ff, #a9c7f5 44%, #5d7fa8 56%, #d6e6ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero__lead {
+      max-width: 660px; margin: 26px 0 0;
+      color: #c6d0da; font-size: clamp(1rem, 1.6vw, 1.12rem);
+    }
+    .hero__lead strong { color: var(--text); }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 20px; border-radius: 4px;
+      border: 1px solid var(--line);
+      font: 700 .76rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .14em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: transform .18s, box-shadow .2s, border-color .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn--primary {
+      border-color: transparent; color: #0a0d11;
+      background: linear-gradient(120deg, var(--pink), var(--violet));
+      box-shadow: 0 10px 28px rgba(169,199,245,.2);
+    }
+    .btn--ghost { background: rgba(255,255,255,.03); color: var(--text); }
+    .btn--ghost:hover { border-color: var(--cyan); box-shadow: 0 0 22px rgba(188,216,255,.14); }
+    .hero__meta {
+      display: flex; flex-wrap: wrap; gap: 22px; margin-top: 38px;
+      font: 400 .9rem/1 "VT323", monospace; color: var(--muted);
+    }
+    .hero__meta b { color: var(--gold); font-weight: 400; }
+    .hero__counter {
+      position: absolute; right: 0; bottom: 74px;
+      padding: 10px 14px; border: 1px dashed var(--line);
+      color: var(--muted); font: 400 .9rem/1 "VT323", monospace;
+      letter-spacing: .08em; transform: rotate(3deg);
+      background: rgba(10,12,15,.7);
+    }
+    .hero__counter b { color: var(--cyan); font-weight: 400; }
+
+    /* ---------- ventana genérica ---------- */
+    .window {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(155deg, rgba(20,25,31,.97), rgba(8,10,13,.98));
+      box-shadow: 0 26px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .window__bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 9px 14px;
+      background: linear-gradient(90deg, #25313d, #141920 62%, #1d2630);
+      border-bottom: 1px solid var(--line);
+      font: 400 .92rem/1 "VT323", monospace; letter-spacing: .06em; color: #d2e0ef;
+    }
+    .window__bar button { background: none; border: 0; color: #e6f0ff; cursor: pointer; font-size: 1.2rem; line-height: 1; padding: 0 2px; }
+    .window__dots { display: inline-flex; gap: 6px; }
+    .window__dots i { display: block; width: 9px; height: 9px; border-radius: 2px; background: #46535f; }
+    .window__dots i:first-child { background: var(--pink); }
+    .window__dots i:nth-child(2) { background: var(--gold); }
+    .window__dots i:last-child { background: var(--cyan); }
+
+    /* ---------- secciones ---------- */
+    .section { padding: 72px 0; }
+    .section__head { max-width: 720px; margin-bottom: 30px; }
+    .eyebrow {
+      margin: 0 0 10px; color: var(--cyan);
+      font: 400 .95rem/1 "VT323", monospace; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .section__head h2, .about h2, .contact h2 {
+      margin: 0;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(2.1rem, 5.5vw, 3.7rem);
+      line-height: 1; letter-spacing: .02em; text-transform: uppercase;
+    }
+    .section__sub { margin: 14px 0 0; color: var(--muted); max-width: 620px; }
+
+    /* ---------- filtros ---------- */
+    .filters { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px; }
+    .filter {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 14px; border-radius: 999px;
+      border: 1px solid var(--line); background: transparent;
+      color: var(--muted); cursor: pointer;
+      font: 700 .68rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .14em; text-transform: uppercase;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .filter span { color: var(--violet); font: 400 .85rem/1 "VT323", monospace; }
+    .filter:hover { color: var(--text); border-color: var(--violet); }
+    .filter.is-active { color: #0a0d11; background: var(--violet); border-color: var(--violet); }
+    .filter.is-active span { color: #0a0d11; }
+    .filter .filter__label { font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; }
+
+    /* ---------- tarjetas ---------- */
+    .project-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+      gap: 18px; perspective: 1200px;
+    }
+    .project-card {
+      position: relative; display: flex; flex-direction: column;
+      min-height: 288px; padding: 22px;
+      border: 1px solid var(--line); border-radius: 11px;
+      background: linear-gradient(155deg, rgba(22,27,33,.96), rgba(8,10,13,.97));
+      cursor: pointer; overflow: hidden; outline: none;
+      transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px));
+      transition: transform .16s ease, border-color .2s, box-shadow .2s;
+    }
+    .project-card::before {
+      content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none;
+      background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 0%), var(--accent), transparent 62%);
+      transition: opacity .25s;
+    }
+    .project-card:hover, .project-card:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 20px 50px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.05);
+      --ty: -5px;
+    }
+    .project-card:hover::before, .project-card:focus-visible::before { opacity: .16; }
+    .project-card > * { position: relative; z-index: 1; }
+    .project-card__top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .project-card__num { color: var(--accent); font: 400 1.5rem/1 "VT323", monospace; }
+    .project-card__emoji {
+      font-size: 1.9rem; filter: drop-shadow(0 0 12px var(--accent));
+      animation: floaty 5s ease-in-out infinite;
+    }
+    @keyframes floaty { 50% { transform: translateY(-6px) rotate(8deg); } }
+    .project-card__cat {
+      margin: 24px 0 4px; color: var(--accent);
+      font: 400 .88rem/1 "VT323", monospace; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .project-card h3 {
+      margin: 0; font-family: "Anton", Impact, sans-serif;
+      font-size: 1.55rem; line-height: 1.08; letter-spacing: .02em; text-transform: uppercase;
+    }
+    .project-card__desc { margin: 12px 0 0; color: var(--muted); font-size: .87rem; }
+    .project-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .project-card__tags span {
+      padding: 4px 8px; border: 1px solid var(--line); border-radius: 3px;
+      font: 400 .76rem/1 "VT323", monospace; letter-spacing: .06em; color: #c3cfda;
+    }
+    .project-card__cta {
+      margin-top: auto; padding-top: 20px;
+      font: 700 .7rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+    }
+    .project-card__cta b { font-size: 1rem; }
+    .project-card--wip { border-style: dashed; }
+    .project-card--wip .project-card__cta { color: var(--muted); }
+    .wip-badge, .demo-badge {
+      display: inline-block; margin-left: 8px; padding: 3px 7px;
+      border: 1px solid var(--pink); border-radius: 2px;
+      color: var(--pink); font: 700 .62rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    .demo-badge { border-color: var(--cyan); color: var(--cyan); }
+    .modal__facts .wip-row { display: none; }
+    .modal__facts .wip-row.is-visible { display: grid; }
+    .modal__facts .wip-row dt { color: var(--pink); }
+    .empty { grid-column: 1/-1; padding: 40px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
+
+    /* ---------- sobre mí ---------- */
+    .about { display: grid; grid-template-columns: 1.5fr .9fr; gap: 22px; align-items: start; }
+    .about__body { padding: 28px; }
+    .about__body h2 { font-size: clamp(1.9rem, 4.6vw, 3rem); }
+    .about__body p { color: #cbd5df; margin: 18px 0 0; }
+    .traits { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 10px; }
+    .traits li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 14px; border-left: 2px solid var(--violet);
+      background: rgba(169,199,245,.06); color: #dce5ee; font-size: .92rem;
+    }
+    .traits b { color: var(--pink); font-family: "VT323", monospace; font-weight: 400; }
+    .about__side { padding: 0; text-align: center; }
+    .about__photo { display: grid; justify-items: center; gap: 14px; padding: 26px 22px 24px; }
+    .photo-polaroid {
+      position: relative; width: min(100%, 260px);
+      padding: 10px 10px 32px;
+      background: #e8eef7;
+      box-shadow: 0 18px 40px rgba(0,0,0,.65);
+      transform: rotate(-3deg);
+    }
+    .photo-polaroid img {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 22%;
+      background: #0b0d10;
+      filter: grayscale(.35) contrast(1.06) saturate(.8);
+    }
+    .photo-polaroid figcaption {
+      position: absolute; left: 0; right: 0; bottom: 8px;
+      color: #2a323b; font: 700 .72rem/1 "Permanent Marker", cursive; letter-spacing: .06em;
+    }
+    .photo-tape {
+      position: absolute; top: -15px; left: 50%;
+      transform: translateX(-50%) rotate(3deg);
+      padding: 6px 15px;
+      background: rgba(169,199,245,.92); color: #0a0d11;
+      font: 400 .86rem/1 "VT323", monospace; letter-spacing: .12em;
+      box-shadow: 2px 2px 0 rgba(0,0,0,.3);
+    }
+    .photo-polaroid--hero { width: min(100%, 330px); transform: rotate(3deg); }
+    .photo-polaroid--hero img { object-position: center 20%; }
+    .sticker--photo { top: -16px; left: -18px; transform: rotate(-12deg); z-index: 3; }
+    .photo-caption { margin: 0; color: var(--violet); font: 400 .95rem/1 "VT323", monospace; letter-spacing: .1em; }
+    .photo-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+    .photo-tags span {
+      padding: 5px 9px; border: 1px solid var(--line); border-radius: 2px;
+      color: var(--muted); font: 400 .78rem/1 "VT323", monospace; letter-spacing: .1em;
+    }
+
+    /* ---------- terminal ---------- */
+    .terminal-section { padding-top: 20px; }
+    .terminal__screen {
+      height: 240px; overflow-y: auto; padding: 18px;
+      background: rgba(6,10,15,.82);
+      color: var(--ok); text-shadow: 0 0 9px rgba(184,216,255,.22);
+      font: 400 1.02rem/1.55 "VT323", monospace;
+    }
+    .terminal__screen p { margin: 0 0 3px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .terminal__screen .t-cmd { color: var(--cyan); }
+    .terminal__screen .t-err { color: #ffb3c1; }
+    .terminal__screen .t-hi { color: var(--pink); }
+    .terminal__form {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-top: 1px solid var(--line);
+      background: rgba(169,199,245,.05);
+    }
+    .terminal__form span { color: var(--pink); font: 400 1.2rem/1 "VT323", monospace; }
+    .terminal__form input {
+      flex: 1; min-width: 0; border: 0; outline: 0;
+      background: transparent; color: var(--ok);
+      font: 400 1.05rem/1 "VT323", monospace;
+    }
+    .terminal__form input::placeholder { color: #5b6875; }
+    .terminal__hints { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }
+    .terminal__hints button {
+      border: 1px solid var(--line); background: transparent; color: var(--muted);
+      border-radius: 3px; padding: 5px 9px; cursor: pointer;
+      font: 400 .85rem/1 "VT323", monospace;
+    }
+    .terminal__hints button:hover { color: var(--cyan); border-color: var(--cyan); }
+
+    /* ---------- contacto ---------- */
+    .contact__box {
+      display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center;
+      padding: 32px;
+    }
+    .contact__box p { color: var(--muted); margin: 16px 0 22px; max-width: 560px; }
+    .contact__mail {
+      font-family: "VT323", monospace; font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: var(--cyan); text-decoration: none; word-break: break-all;
+    }
+    .contact__mail:hover { color: var(--pink); }
+    .contact__note { font: 400 .88rem/1.5 "VT323", monospace; color: #7d8995; margin-top: 10px; }
+    .contact__channels { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
+    .contact__channels li {
+      display: flex; align-items: center; gap: 10px; min-width: 0;
+      font: 400 .98rem/1.2 "VT323", monospace; color: var(--muted);
+    }
+    .contact__channel {
+      flex: 0 0 auto; min-width: 36px; text-align: center; padding: 4px 6px;
+      border: 1px solid var(--line); border-radius: 3px;
+      color: var(--cyan); font: 700 .65rem/1 "Space Grotesk", sans-serif; letter-spacing: .1em;
+    }
+    .contact__channels a {
+      color: var(--text); text-decoration: none;
+      border-bottom: 1px dashed var(--line); overflow-wrap: anywhere;
+    }
+    .contact__channels a:hover { color: var(--violet); border-color: var(--violet); }
+    .contact__stamp {
+      justify-self: end;
+      width: clamp(150px, 40vw, 184px); height: clamp(150px, 40vw, 184px);
+      border-radius: 50%; display: grid; place-items: center; text-align: center;
+      border: 2px dashed var(--violet); color: var(--violet);
+      font: 400 clamp(.72rem, 2.1vw, .95rem)/1.2 "Permanent Marker", cursive;
+      letter-spacing: .04em; padding: 14px;
+      overflow-wrap: anywhere; text-wrap: balance; hyphens: auto;
+      transform: rotate(-12deg); opacity: .9;
+    }
+
+    /* ---------- modal ---------- */
+    .modal[hidden] { display: none; }
+    .modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; }
+    .modal__backdrop { position: absolute; inset: 0; background: rgba(3,4,6,.82); backdrop-filter: blur(6px); }
+    .modal__window { position: relative; width: min(100%, 620px); max-height: min(86vh, 760px); overflow-y: auto; }
+    .modal__body { padding: 28px; }
+    .modal__cat { margin: 0; color: var(--pink); font: 400 .95rem/1 "VT323", monospace; letter-spacing: .18em; text-transform: uppercase; }
+    .modal__body h2 {
+      margin: 10px 0 6px; font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem); line-height: 1.05; text-transform: uppercase;
+    }
+    .modal__year { color: var(--muted); font: 400 .9rem/1 "VT323", monospace; }
+    .modal__desc { color: #d2dce6; margin: 18px 0 20px; }
+    .modal__facts { display: grid; gap: 0; margin: 0 0 24px; border-top: 1px solid var(--line); }
+    .modal__facts div { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .modal__facts dt { color: var(--cyan); font: 400 .9rem/1.4 "VT323", monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .modal__facts dd { margin: 0; color: var(--muted); font-size: .9rem; }
+    .modal__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+
+    /* ---------- pie ---------- */
+    footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: #7d8995; font-size: .8rem; }
+    footer strong { color: var(--text); }
+    footer details { margin-top: 12px; }
+    footer summary { cursor: pointer; color: var(--violet); }
+    footer code { font-family: "VT323", monospace; color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .about, .contact__box { grid-template-columns: 1fr; }
+      .hero__grid { grid-template-columns: 1fr; gap: 26px; }
+      .hero__portrait { order: -1; }
+      .photo-polaroid--hero { width: min(66%, 270px); }
+      .contact__stamp { justify-self: center; }
+      .hero__counter {
+        position: static; margin: 26px auto 0; display: block; width: fit-content;
+        max-width: 100%; text-align: center; transform: rotate(-2deg);
+      }
+      .hero__scrap { display: none; }
+    }
+    @media (max-width: 700px) {
+      /* El header es fijo: dejamos sitio para que las anclas no queden tapadas. */
+      html { scroll-padding-top: 118px; }
+
+      /* Cabecera: el menú no desaparece, pasa a una fila deslizable. */
+      .site-header__in { flex-wrap: wrap; gap: 10px; padding-top: 8px; }
+      .brand small { display: none; }
+      .nav {
+        order: 3; display: flex; width: 100%; gap: 18px;
+        overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding: 9px 0 8px; border-top: 1px solid var(--line);
+      }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav a {
+        display: inline-flex; align-items: center; min-height: 38px;
+        padding: 8px 2px; white-space: nowrap; font-size: .68rem;
+      }
+      .sound-btn { min-height: 38px; padding: 6px 12px; font-size: .75rem; }
+
+      .hero { padding-top: 28px; padding-bottom: 44px; }
+      .chrome { font-size: clamp(2.15rem, 10.2vw, 3.4rem); line-height: .95; }
+      .hero__lead { margin-top: 18px; font-size: .98rem; }
+      .hero__actions { gap: 10px; }
+      .btn { flex: 1 1 150px; padding: 12px 12px; font-size: .7rem; }
+      .hero__meta { gap: 12px; margin-top: 26px; font-size: .82rem; }
+      .hero__counter { font-size: .82rem; }
+
+      .section { padding: 48px 0; }
+      .section__head h2, .about h2, .contact h2 { font-size: clamp(2rem, 9vw, 2.9rem); }
+      .filters {
+        flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+        margin-right: -20px; padding: 2px 20px 8px 0;
+      }
+      .filters::-webkit-scrollbar { display: none; }
+      .filter { flex: 0 0 auto; min-height: 40px; padding: 10px 14px; }
+      .project-grid { grid-template-columns: 1fr; gap: 14px; }
+      .project-card { min-width: 0; }
+
+      .terminal-section { padding-top: 10px; }
+      .terminal__screen { height: 190px; padding: 14px; font-size: .95rem; }
+      .terminal__form { padding: 10px 12px; }
+      .terminal__hints {
+        flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+        padding: 10px 12px; gap: 7px;
+      }
+      .terminal__hints::-webkit-scrollbar { display: none; }
+      .terminal__hints button { flex: 0 0 auto; min-height: 36px; padding: 8px 10px; }
+
+      .contact__box { padding: 22px; gap: 18px; }
+      .contact__mail { font-size: 1.35rem; }
+      .contact__stamp { width: 150px; height: 150px; font-size: .72rem; }
+
+      .modal { padding: 10px; }
+      .modal__window { max-height: 90vh; }
+      .modal__body { padding: 20px; }
+      .modal__facts div { grid-template-columns: 1fr; gap: 4px; }
+
+      footer { text-align: center; padding: 24px 0 36px; }
+    }
+    @media (max-width: 380px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .brand { font-size: 1.45rem; }
+      .chrome { font-size: clamp(1.95rem, 9.6vw, 2.6rem); }
+      .btn { flex: 1 1 100%; font-size: .68rem; }
+      .hero__meta { flex-wrap: wrap; gap: 8px 14px; }
+      .filters { margin-right: -14px; padding-right: 14px; }
+      .section { padding: 40px 0; }
+      .terminal__screen { height: 175px; font-size: .9rem; }
+      .contact__box { padding: 18px; }
+      .contact__mail { font-size: 1.15rem; }
+      .contact__stamp { width: 126px; height: 126px; font-size: .65rem; padding: 10px; }
+      .modal { padding: 6px; }
+      .modal__body { padding: 16px; }
+      .modal__actions { gap: 10px; }
+      footer { font-size: .75rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .project-card { transform: none !important; }
+      .sparkles { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="grip" aria-hidden="true"></div>
+  <div class="checker" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container site-header__in">
+      <a class="brand" href="#top" aria-label="thc.dev, volver arriba">
+        <span class="brand__star" aria-hidden="true">✦</span>thc<span class="brand__dot">.</span>dev
+        <small>// diego a. tellez</small>
+      </a>
+      <nav class="nav" aria-label="Menú principal">
+        <a href="#proyectos">proyectos</a>
+        <a href="#sobre-mi">sobre mí</a>
+        <a href="#terminal">terminal</a>
+        <a href="#contacto">contacto</a>
+      </nav>
+      <button class="sound-btn" id="soundBtn" type="button" aria-pressed="false" data-texto="ui.sonidoOff">♫ sonido: OFF</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <span class="hero__badge" data-texto="hero.badge">DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL</span>
+          <p class="hero__kicker" data-texto="hero.kicker">Hola, soy Diego</p>
+          <h1 class="chrome"><span data-texto="hero.titulo1">CONSTRUYO</span><br /><span data-texto="hero.titulo2">LO QUE TU</span><br /><em data-texto="hero.titulo3">REALMENTE NECESITAS</em></h1>
+          <p class="hero__lead" data-texto="hero.lead">Soy de <strong>Bucaramanga</strong>, desarrollo a nivel medio y le pongo todo mi esfuerzo. Hago páginas para <strong>negocios</strong> —una panadería, un restaurante, una tienda— y también pequeños mundos que solo existen porque se me ocurrió construirlos.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#proyectos" data-texto="hero.btn1">VER PROYECTOS ↓</a>
+            <button class="btn btn--ghost" id="aboutBtn" type="button" data-texto="hero.btn2">¿QUIÉN ES ESTE RANDOM? ✕</button>
+          </div>
+          <div class="hero__meta">
+            <span><b>05</b> <span data-texto="hero.meta1">trabajos publicados</span></span>
+            <span><b>01</b> <span data-texto="hero.meta2">app en camino</span></span>
+            <span><b>∞</b> <span data-texto="hero.meta3">ganas de pulir todo</span></span>
+          </div>
+        </div>
+
+        <div class="hero__portrait">
+          <figure class="photo-polaroid photo-polaroid--hero">
+            <span class="photo-tape" aria-hidden="true">TH.C</span>
+            <span class="sticker sticker--photo" aria-hidden="true" data-texto="hero.fotoEtiqueta">YO ESE</span>
+            <img src="ThcFoto.png" alt="Fotico De Mi" data-texto-attr="alt|hero.alt" />
+            <figcaption data-texto="hero.fotoPie">diego · thc.dev</figcaption>
+          </figure>
+          <p class="photo-caption" data-texto="hero.fotoLugar">bucaramanga · colombia</p>
+          <div class="photo-tags" aria-hidden="true"><span data-texto="hero.tag1">SK8ER</span><span data-texto="hero.tag2">CODE</span><span data-texto="hero.tag3">DEV</span></div>
+        </div>
+      </div>
+
+      <div class="hero__scrap" aria-hidden="true">
+        <span class="sticker sticker--one" data-texto="hero.sticker1">OHZI / CODE</span>
+        <span class="sticker sticker--two" data-texto="hero.sticker2">NO LOGO · THC</span>
+        <span class="sticker sticker--three" data-texto="hero.sticker3">BGA · 2026</span>
+      </div>
+      <div class="hero__counter"><span data-texto="hero.visitante1">visitante #</span><b id="visitCount">0001</b> <span data-texto="hero.visitante2">✕ bienvenido a mi esquina de internet</span></div>
+    </section>
+  <div class="checker" aria-hidden="true"></div>
+
+    <section class="section container" id="proyectos">
+      <div class="section__head">
+        <p class="eyebrow" data-texto="proyectos.etiqueta">// archivo de proyectos</p>
+        <h2 data-texto="proyectos.titulo">ELIGE UN MUNDO</h2>
+        <p class="section__sub" data-texto="proyectos.texto">Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrar proyectos">
+        <button class="filter is-active" type="button" data-filter="all"><span class="filter__label" data-texto="proyectos.filtro1">TODO</span> <span data-count-for="all">06</span></button>
+        <button class="filter" type="button" data-filter="negocios"><span class="filter__label" data-texto="proyectos.filtro2">NEGOCIOS</span> <span data-count-for="negocios">03</span></button>
+        <button class="filter" type="button" data-filter="comunidad"><span class="filter__label" data-texto="proyectos.filtro3">COMUNIDAD</span> <span data-count-for="comunidad">01</span></button>
+        <button class="filter" type="button" data-filter="personales"><span class="filter__label" data-texto="proyectos.filtro4">PERSONALES</span> <span data-count-for="personales">01</span></button>
+        <button class="filter" type="button" data-filter="herramientas"><span class="filter__label" data-texto="proyectos.filtro5">HERRAMIENTAS</span> <span data-count-for="herramientas">01</span></button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <noscript>
+          <p class="empty">Sin JavaScript puedes abrir las demos directo:
+            <a href="../kds.clothesco/index.html">KDS</a> ·
+            <a href="../barberia/index.html">NAVAJA NEGRA</a> ·
+            <a href="../Restaurante/index.html">Sabor &amp; Punto</a> ·
+            <a href="../Ayni/index.html">Ayni</a> ·
+            <a href="../Carta%20Censurada/index.html">Carta para ELLA</a> ·
+            <a href="https://github.com/thczt-dev/thc-contabilidad" target="_blank" rel="noopener">THC Contabilidad (código en GitHub)</a>
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section container about" id="sobre-mi">
+      <div class="window">
+        <div class="window__bar">
+          <span data-texto="sobre.archivo">archivo: sobre_mi.txt</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="about__body">
+          <h2 data-texto="sobre.titulo">DEV POR ELECCIÓN,<br />PRO POR NATURALEZA</h2>
+          <p data-texto="sobre.texto1">Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recien graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaria estudiar ingenieria de sistemas dentro de muy poco... ya que llevo los ultimos 5 años de mi vida programando por divercion.</p>
+          <p data-texto="sobre.texto2">Y aunque tal vez todo esto se ve un poco raro, puedo jurar que soy profesional con todo esto y mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.</p>
+          <ul class="traits">
+            <li data-texto="sobre.punto1"><strong>01 /</strong> Código limpio, y bien explicado.</li>
+            <li data-texto="sobre.punto2"><strong>02 /</strong> La mejor estetica que encuentra en bga</li>
+            <li data-texto="sobre.punto3"><strong>03 /</strong> Escucho al negocio antes de abrir el editor.</li>
+            <li data-texto="sobre.punto4"><strong>04 /</strong> Si algo se ve raro, probablemente lo hice a propósito jeje.</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="window about__side">
+        <div class="window__bar"><span data-texto="manifiesto.archivo">manifiesto.txt</span><span aria-hidden="true">✕</span></div>
+        <div class="about__body" style="padding: 26px;">
+          <p class="eyebrow" data-texto="manifiesto.nota">// nota al margen</p>
+          <h3 style="color:var(--violet);font-size:1.15rem;text-transform:uppercase;letter-spacing:.08em;" data-texto="manifiesto.titulo">QUE SE VEA BIEN,<br />Y QUE SIRVA.</h3>
+          <p data-texto="manifiesto.texto">Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section terminal-section container" id="terminal">
+      <div class="window">
+        <div class="window__bar">
+          <span data-texto="terminal.archivo">thc.dev — terminal interactiva</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="terminal__screen" id="terminalScreen" role="log" aria-live="polite" aria-label="Salida de la terminal"></div>
+        <form class="terminal__form" id="terminalForm">
+          <label class="sr-only" for="terminalInput" data-texto="terminal.etiqueta">Escribe un comando</label>
+          <span aria-hidden="true">❯</span>
+          <input id="terminalInput" type="text" autocomplete="off" spellcheck="false" placeholder="escribe help y dale Enter" data-texto-attr="placeholder|terminal.placeholder" />
+        </form>
+        <div class="terminal__hints" aria-label="Comandos rápidos">
+          <button type="button" data-cmd="help">help</button>
+          <button type="button" data-cmd="proyectos">proyectos</button>
+          <button type="button" data-cmd="quien-soy">quien-soy</button>
+          <button type="button" data-cmd="contacto">contacto</button>
+          <button type="button" data-cmd="chiste">chiste</button>
+          <button type="button" data-cmd="sk8">sk8</button>
+          <button type="button" data-cmd="contabilidad">contabilidad</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contacto">
+      <div class="window contact__box">
+        <div>
+          <p class="eyebrow" data-texto="contacto.etiqueta">// línea abierta</p>
+          <h2 data-texto="contacto.titulo">¿TIENES ALGO EN MENTE?</h2>
+          <p data-texto="contacto.texto">Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.</p>
+          <a class="contact__mail" href="mailto:thczt.dev@gmail.com" data-texto="contacto.correo" data-texto-attr="href|contacto.mailto">thczt.dev@gmail.com</a>
+          <ul class="contact__channels" aria-label="Canales de contacto">
+            <li><span class="contact__channel" aria-hidden="true">WS</span><a href="https://wa.me/573203805194" data-texto="contacto.whatsapp" data-texto-attr="href|contacto.whatsappLink" target="_blank" rel="noopener">+57 3203805194</a></li>
+            <li><span class="contact__channel" aria-hidden="true">DC</span><span data-texto="contacto.discord">@thc_dev</span></li>
+            <li><span class="contact__channel" aria-hidden="true">IG</span><span data-texto="contacto.instagram">Proximamente</span></li>
+          </ul>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev" data-texto="contacto.btn" data-texto-attr="href|contacto.btnMailto">ESCRÍBEME ✉</a>
+          </div>
+        </div>
+        <div class="contact__stamp" aria-hidden="true" data-texto="contacto.sello">RECIBO PAGOS EN MONSTER Y CIGUARROS</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><span data-texto="pie.inicio">Diseñado y desarrollado por</span> <strong data-texto="pie.nombre">Diego Alejandro Tellez Tellez</strong> · <span data-texto="pie.sitio">thc.dev</span> · <span data-texto="pie.ciudad">Bucaramanga</span> · <span data-texto="pie.estilo">estilo Y2K underground / sk8</span> · <span data-year>2026</span></p>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <article class="window modal__window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="window__bar">
+        <span id="modalPath">proyecto</span>
+        <button type="button" data-close aria-label="Cerrar ventana">×</button>
+      </div>
+      <div class="modal__body">
+        <p class="modal__cat" id="modalCat"></p>
+        <h2 id="modalTitle"></h2>
+        <p class="modal__year" id="modalYear"></p>
+        <p class="modal__desc" id="modalDesc"></p>
+        <dl class="modal__facts">
+          <div><dt data-texto="modal.paraQuien">Para quién</dt><dd id="modalAudience"></dd></div>
+          <div><dt data-texto="modal.queResuelve">Qué resuelve</dt><dd id="modalProblem"></dd></div>
+          <div><dt data-texto="modal.comoLoHace">Cómo lo hace</dt><dd id="modalSolution"></dd></div>
+          <div><dt data-texto="modal.hechoCon">Hecho con</dt><dd id="modalTags"></dd></div>
+          <div class="wip-row" id="modalPlatformRow"><dt data-texto="modal.plataformas">Plataformas</dt><dd id="modalPlatform"></dd></div>
+          <div class="wip-row" id="modalPlatformRow2"><dt data-texto="modal.roadmap">Roadmap</dt><dd id="modalRoadmap"></dd></div>
+          <div class="wip-row" id="modalDemoRow"><dt data-texto="modal.avisoDemoTitulo">Aviso</dt><dd id="modalDemo"></dd></div>
+        </dl>
+        <div class="modal__actions">
+          <a class="btn btn--primary" id="modalOpen" href="#" data-texto="modal.abrirDemo">ABRIR DEMO ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script id="thc-textos" type="application/json">{"hero.badge": "DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL", "hero.kicker": "Hola, soy Diego", "hero.titulo1": "CONSTRUYO", "hero.titulo2": "LO QUE TU", "hero.titulo3": "REALMENTE NECESITAS", "hero.lead": "Soy de **Bucaramanga**, desarrollo a nivel medio y le pongo todo mi esfuerzo. Hago páginas para **negocios** —una panadería, un restaurante, una tienda— y también pequeños mundos que solo existen porque se me ocurrió construirlos.", "hero.btn1": "VER PROYECTOS ↓", "hero.btn2": "¿QUIÉN ES ESTE RANDOM? ✕", "hero.meta1": "trabajos publicados", "hero.meta2": "app en camino", "hero.meta3": "ganas de pulir todo", "hero.alt": "Fotico De Mi", "hero.fotoEtiqueta": "YO ESE", "hero.fotoPie": "diego · thc.dev", "hero.fotoLugar": "bucaramanga · colombia", "hero.tag1": "SK8ER", "hero.tag2": "CODE", "hero.tag3": "DEV", "hero.sticker1": "OHZI / CODE", "hero.sticker2": "NO LOGO · THC", "hero.sticker3": "BGA · 2026", "hero.visitante1": "visitante #", "hero.visitante2": "✕ bienvenido a mi esquina de internet", "proyectos.etiqueta": "// archivo de proyectos", "proyectos.titulo": "ELIGE UN MUNDO", "proyectos.texto": "Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.", "proyectos.filtro1": "TODO", "proyectos.filtro2": "NEGOCIOS", "proyectos.filtro3": "COMUNIDAD", "proyectos.filtro4": "PERSONALES", "proyectos.filtro5": "HERRAMIENTAS", "sobre.archivo": "archivo: sobre_mi.txt", "sobre.titulo": "DEV POR ELECCIÓN,|PRO POR NATURALEZA", "sobre.texto1": "Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recien graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaria estudiar ingenieria de sistemas dentro de muy poco... ya que llevo los ultimos 5 años de mi vida programando por divercion.", "sobre.texto2": "Y aunque tal vez todo esto se ve un poco raro, puedo jurar que soy profesional con todo esto y mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.", "sobre.punto1": "**01 /** Código limpio, y bien explicado.", "sobre.punto2": "**02 /** La mejor estetica que encuentra en bga", "sobre.punto3": "**03 /** Escucho al negocio antes de abrir el editor.", "sobre.punto4": "**04 /** Si algo se ve raro, probablemente lo hice a propósito jeje.", "manifiesto.archivo": "manifiesto.txt", "manifiesto.nota": "// nota al margen", "manifiesto.titulo": "QUE SE VEA BIEN,|Y QUE SIRVA.", "manifiesto.texto": "Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.", "terminal.archivo": "thc.dev — terminal interactiva", "terminal.etiqueta": "Escribe un comando", "terminal.placeholder": "escribe help y dale Enter", "terminal.arranque1": "thc.dev terminal v3.0 // Esperando futuras actualizaciones", "terminal.arranque2": "Sistema listo. Escribe 'help' para ver los comandos.", "terminal.help": "comandos: help · proyectos · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear", "terminal.quien1": "Diego Alejandro Tellez Tellez. Bucaramanga. Dev nivel medio, estética Y2K underground y obseso del detalle.", "terminal.quien2": "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.", "terminal.contacto1": "thczt.dev@gmail.com", "terminal.contacto2": "WhatsApp: +57 3203805194", "terminal.contacto3": "Discord: @thc_dev", "terminal.contacto4": "Instagram: Proximamente", "terminal.contacto5": "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.", "terminal.chiste": "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "terminal.sk81": "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "terminal.sk82": "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "terminal.contab1": "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "terminal.contab2": "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "terminal.contab3": "Abre su código en GitHub desde la tarjeta 📊.", "terminal.desconocido": "No reconocí '{cmd}'. Prueba 'help'.", "ui.sonidoOff": "♫ sonido: OFF", "ui.sonidoOn": "♫ sonido: ON", "modal.ficha": "proyecto", "modal.enConstruccion": "EN CONSTRUCCIÓN", "modal.anio": "año", "modal.abrirDemo": "ABRIR DEMO ↗", "modal.verCodigo": "VER CÓDIGO ↗", "card.demoCta": "VER DETALLES", "card.wipCta": "VER CÓDIGO Y ESTADO", "card.ficticia": "DEMO FICTICIA", "modal.avisoDemoTitulo": "Aviso", "modal.avisoDemo": "Negocio ficticio y datos de ejemplo: demo demostrativa.", "modal.paraQuien": "Para quién", "modal.queResuelve": "Qué resuelve", "modal.comoLoHace": "Cómo lo hace", "modal.hechoCon": "Hecho con", "modal.plataformas": "Plataformas", "modal.roadmap": "Roadmap", "contacto.etiqueta": "// línea abierta", "contacto.titulo": "¿TIENES ALGO EN MENTE?", "contacto.texto": "Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.", "contacto.correo": "thczt.dev@gmail.com", "contacto.mailto": "mailto:thczt.dev@gmail.com", "contacto.btn": "ESCRÍBEME ✉", "contacto.btnMailto": "mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev", "contacto.whatsapp": "+57 3203805194", "contacto.whatsappLink": "https://wa.me/573203805194", "contacto.discord": "@thc_dev", "contacto.instagram": "Proximamente", "contacto.sello": "RECIBO PAGOS EN MONSTER Y CIGUARROS", "pie.inicio": "Diseñado y desarrollado por", "pie.nombre": "Diego Alejandro Tellez Tellez", "pie.sitio": "thc.dev", "pie.ciudad": "Bucaramanga", "pie.estilo": "estilo Y2K underground / sk8", "contabilidad.bajada": "App de escritorio local para llevar ingresos, gastos, proyectos, contactos y reportes. Sin internet.", "contabilidad.aviso": "Hoy funciona **únicamente en Linux**. Quiero sacar también una **versión nativa en Windows**, pero todavía no está lista: por eso se muestra aquí como proyecto en camino, no como una demo terminada.", "contabilidad.texto1": "Una app de escritorio para llevar el dinero de un negocio pequeño en un solo lugar: **ingresos, gastos, proyectos pendientes, clientes y reportes**. Todo se guarda en tu computador, sin depender de internet ni de cuentas en la nube.", "contabilidad.texto2": "Los montos se manejan en **peso colombiano** y la interfaz es oscura, con acento azul pastel y espacio de sobra para leer sin cansarse.", "contabilidad.paso1": "**Hoy:** funciona en Linux con sus seis áreas y los datos guardados en el computador.", "contabilidad.paso2": "**En camino:** una versión nativa en Windows, sin depender de WSL ni de una máquina virtual.", "contabilidad.paso3": "**Antes de darla por terminada:** probar la instalación y el respaldo de datos en ambos sistemas.", "contab.pasoRepo": "**Código abierto:** el proyecto está en GitHub; desde aquí puedes ver el avance y dejar una estrella.", "contab.volver": "← volver al hub", "contab.titulo": "THC Contabilidad", "contab.repoBoton": "VER CÓDIGO EN GITHUB ↗", "contab.repoLink": "https://github.com/thczt-dev/thc-contabilidad", "contab.chip1": "En construcción", "contab.chip2": "Solo Linux", "contab.chip3": "Sin internet", "contab.chip4": "Peso colombiano", "contab.chip5": "2026", "contab.alerta": "⚠ En construcción · no es una demo web", "contab.h2Para": "Para qué sirve", "contab.h2Modulos": "Módulos", "contab.tablaPestana": "Pestaña", "contab.tablaFuncion": "Función", "contab.mod1n": "Resumen", "contab.mod1d": "Indicadores del mes, balance, últimos movimientos, vencimientos y gráfico.", "contab.mod2n": "Movimientos", "contab.mod2d": "Ingresos y gastos con búsqueda, filtros, edición y borrado.", "contab.mod3n": "Proyectos", "contab.mod3d": "Cliente, estado, prioridad, fechas, presupuesto y vencimientos.", "contab.mod4n": "Calendario", "contab.mod4d": "Vista mensual, puntos de color, detalle por día y resumen del mes.", "contab.mod5n": "Contactos", "contab.mod5d": "Clientes y proveedores con NIT, teléfono, correo y dirección.", "contab.mod6n": "Reportes", "contab.mod6d": "Balances, resumen mensual, categorías y exportación CSV.", "contab.h2Calendario": "El calendario", "contab.cal1a": "Rejilla de 42 días (lunes a domingo) con navegación ◀ / ▶ y botón", "contab.cal1b": ". Cada día puede mostrar hasta cuatro indicadores:", "contab.calIngresos": "Ingresos", "contab.calGastos": "Gastos", "contab.calEntregas": "Entregas", "contab.calInicios": "Inicios", "contab.tooltip": "Al pasar el cursor aparece un tooltip con montos y proyectos; al hacer clic, un panel lateral muestra ingresos, gastos, neto, movimientos y proyectos de ese día. Abajo hay un resumen del mes.", "contab.h2Estado": "Estado y próximos pasos", "contab.pie": "thc.dev ✦ documentación de un proyecto en construcción"}</script>
+  <script>
+    (function () {
+      "use strict";
+
+      var TEXTOS = {};
+      try {
+        TEXTOS = JSON.parse(document.getElementById("thc-textos").textContent || "{}") || {};
+      } catch (e) { /* sin textos.txt: se usan los valores de respaldo */ }
+      function txt(clave, respaldo) {
+        var v = TEXTOS[clave];
+        return (typeof v === "string" && v.trim()) ? v : respaldo;
+      }
+      function txtLineas(clave, respaldo, cls) {
+        String(txt(clave, respaldo)).split("|").forEach(function (s) { line(s, cls); });
+      }
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* Datos de respaldo: funcionan al abrir index.html con doble clic. */
+      var FALLBACK = [
+        {
+          folder: "barberia", name: "NAVAJA NEGRA", emoji: "💈",
+          category: "negocios", accent: "#a9c7f5", year: "2026",
+          description: "Barbería de garage con motos y filo propio: catálogo de recortes, tarifas claras, galería de estilos y reserva de citas en el navegador.",
+          tags: ["HTML", "CSS", "JS", "MULTIPÁGINA"],
+          audience: "Barberías, peluquerías y negocios que viven de citas y clientes habituales.",
+          problem: "Que el cliente no sepa qué corte pedir, cuánto cuesta ni cómo apartar un horario.",
+          solution: "Catálogo con precios y duración, galería de referencias y un formulario que deja el mensaje listo para WhatsApp.",
+          demo: true,
+          notice: "Negocio ficticio y datos de ejemplo. Es una demo demostrativa, no una barbería real.",
+          url: "../barberia/index.html"
+        },
+        {
+          folder: "kds.clothesco", name: "KDS │ Streetwear", emoji: "⚡",
+          category: "negocios", accent: "#d6e6ff", year: "2026",
+          description: "Tienda de ropa urbana con catálogo, filtros y carrito. El cliente elige su talla, personaliza el estampado y escribe por WhatsApp con el pedido listo.",
+          tags: ["HTML", "CSS", "JS", "TIENDA"],
+          audience: "Tiendas de ropa, marcas urbanas y negocios que venden por redes.",
+          problem: "Tener el catálogo en fotos sueltas y depender de mensajes para cerrar cada venta.",
+          solution: "Un catálogo con filtros, carrito y estampados personalizados que termina en un WhatsApp con todo escrito.",
+          url: "../kds.clothesco/index.html"
+        },
+        {
+          folder: "Restaurante", name: "Sabor & Punto", emoji: "🍽️",
+          category: "negocios", accent: "#9fb0bf", year: "2026",
+          description: "Restaurante con carta digital, pedidos por WhatsApp, ubicación, horarios en vivo y formulario de contacto. Cinco páginas pensadas para que el cliente no tenga que preguntar nada.",
+          tags: ["HTML", "CSS", "JS", "MULTIPÁGINA"],
+          audience: "Restaurantes, cafés, panaderías y cocinas pequeñas.",
+          problem: "Que la gente no sepa qué hay hoy, dónde queda el local o cómo hacer un pedido.",
+          solution: "Menú dinámico, pedido que se guarda solo y un botón que abre WhatsApp con el resumen listo.",
+          demo: true,
+          notice: "Negocio ficticio y datos de ejemplo. Es una demo demostrativa, no un restaurante real.",
+          url: "../Restaurante/index.html"
+        },
+        {
+          folder: "Ayni", name: "AYNI English Library", emoji: "📚",
+          category: "comunidad", accent: "#bcd8ff", year: "2026",
+          description: "Biblioteca digital para un colegio de Bucaramanga: libros en inglés con búsqueda, filtros por nivel y un panel para publicar libros sin tocar código.",
+          tags: ["HTML", "CSS", "JS", "CATÁLOGO"],
+          audience: "Colegios, profesores y estudiantes que necesitan encontrar material rápido.",
+          problem: "Los libros y las actividades estaban dispersos y era difícil buscarlos por nivel.",
+          solution: "Un catálogo con búsqueda, filtros A1 a B2 y un panel sencillo para subir contenido.",
+          url: "../Ayni/index.html"
+        },
+        {
+          folder: "Carta Censurada", name: "Carta para ELLA", emoji: "✦",
+          category: "personales", accent: "#84939f", year: "2026",
+          description: "Demo íntima y gótica: cartas, un tocadiscos y una galería de recuerdos muy pixelados. Un detalle personal convertido en experiencia web, sin nombres reales.",
+          tags: ["HTML", "CSS", "JS", "INTERACTIVO"],
+          audience: "Un detalle para alguien especial. También una prueba de que cuido los detalles.",
+          problem: "Convertir algo muy personal en algo bonito sin exponer a nadie.",
+          solution: "Estrellas, música local, cartas inventadas y fotos tan pixeladas que no se distingue nada.",
+          url: "../Carta%20Censurada/index.html"
+        },
+        {
+          folder: "thc contabilidad", name: "THC Contabilidad", emoji: "📊",
+          category: "herramientas", accent: "#c3d7ef", year: "2026",
+          status: "wip",
+          platform: "Solo Linux.",
+          roadmap: "Quiero hacerla nativa en Windows también; todavía no está lista para eso.",
+          description: "App de escritorio para llevar ingresos, gastos, proyectos, contactos y reportes sin internet. Hecha únicamente para Linux por ahora; quiero sacar también una versión nativa en Windows.",
+          tags: ["ESCRITORIO", "SIN INTERNET", "LINUX", "EN CAMINO"],
+          audience: "Negocios pequeños y personas que llevan sus cuentas sin depender de internet.",
+          problem: "Tener los ingresos, gastos y vencimientos en papeles o en una hoja de cálculo que nadie actualiza.",
+          solution: "Una app local con resumen, movimientos, proyectos, calendario, contactos y reportes. Todo se guarda en el computador.",
+          repo: "https://github.com/thczt-dev/thc-contabilidad",
+          url: "../thc%20contabilidad/index.html"
+        }
+      ];
+
+      var CAT_LABEL = {
+        negocios: "para negocios", comunidad: "para comunidad",
+        personales: "algo personal", herramientas: "app de escritorio"
+      };
+
+      var state = {
+        projects: FALLBACK.slice(),
+        filter: "all",
+        sound: false,
+        audio: null,
+        lastFocus: null
+      };
+
+      var grid = document.getElementById("projectGrid");
+      var modal = document.getElementById("projectModal");
+      var sparkles = document.getElementById("sparkles");
+      var screen = document.getElementById("terminalScreen");
+      var form = document.getElementById("terminalForm");
+      var input = document.getElementById("terminalInput");
+      var soundBtn = document.getElementById("soundBtn");
+
+      function esc(value) {
+        return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+
+      function safeAccent(value) {
+        return /^#[0-9a-f]{3,8}$/i.test(value || "") ? value : "#a9c7f5";
+      }
+
+      function normalize(p) {
+        var category = CAT_LABEL[p.category] ? p.category : "comunidad";
+        return {
+          folder: p.folder || "",
+          name: p.name || p.folder || "Proyecto",
+          emoji: p.emoji || "✦",
+          category: category,
+          accent: safeAccent(p.accent),
+          year: p.year || new Date().getFullYear(),
+          description: p.description || "Demo del portafolio.",
+          tags: Array.isArray(p.tags) ? p.tags : ["HTML", "CSS", "JS"],
+          audience: p.audience || "Cualquier persona con una idea.",
+          problem: p.problem || "Mostrar la idea de forma clara.",
+          solution: p.solution || "Una página sencilla e interactiva.",
+          status: p.status || "",
+          platform: p.platform || "",
+          roadmap: p.roadmap || "",
+          repo: p.repo || "",
+          demo: !!p.demo,
+          notice: p.notice || "",
+          url: p.url || "#"
+        };
+      }
+
+      function beep(freq) {
+        if (!state.sound) return;
+        try {
+          var Ctx = window.AudioContext || window.webkitAudioContext;
+          if (!Ctx) return;
+          if (!state.audio) state.audio = new Ctx();
+          var osc = state.audio.createOscillator();
+          var gain = state.audio.createGain();
+          osc.type = "triangle";
+          osc.frequency.value = freq || 520;
+          gain.gain.setValueAtTime(0.035, state.audio.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, state.audio.currentTime + 0.12);
+          osc.connect(gain).connect(state.audio.destination);
+          osc.start();
+          osc.stop(state.audio.currentTime + 0.13);
+        } catch (e) { /* sonido es opcional */ }
+      }
+
+      function bindTilt(card) {
+        if (reduce || !window.matchMedia("(hover: hover)").matches) return;
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width;
+          var y = (e.clientY - r.top) / r.height;
+          card.style.setProperty("--rx", (0.5 - y) * 7 + "deg");
+          card.style.setProperty("--ry", (x - 0.5) * 9 + "deg");
+          card.style.setProperty("--mx", x * 100 + "%");
+          card.style.setProperty("--my", y * 100 + "%");
+        });
+        card.addEventListener("pointerleave", function () {
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+        });
+      }
+
+      function render() {
+        var lista = state.projects.filter(function (p) {
+          return state.filter === "all" || p.category === state.filter;
+        });
+
+        if (!lista.length) {
+          grid.innerHTML = '<p class="empty">No hay proyectos en esta categoría todavía. ✦</p>';
+          return;
+        }
+
+        grid.innerHTML = lista.map(function (p, i) {
+          var wip = p.status === "wip";
+          return '<article class="project-card' + (wip ? " project-card--wip" : "") + '" tabindex="0" role="button" ' +
+            'aria-label="Ver detalles de ' + esc(p.name) + (wip ? " (en construcción)" : "") + (p.demo ? " (demo ficticia)" : "") + '" ' +
+            'data-index="' + esc(state.projects.indexOf(p)) + '" style="--accent:' + esc(p.accent) + '">' +
+            '<div class="project-card__top">' +
+              '<span class="project-card__num">' + String(i + 1).padStart(2, "0") + "</span>" +
+              '<span class="project-card__emoji" aria-hidden="true">' + esc(p.emoji) + "</span>" +
+            "</div>" +
+            '<p class="project-card__cat">' + esc(CAT_LABEL[p.category]) +
+              (wip ? '<span class="wip-badge">EN CONSTRUCCIÓN</span>' : "") +
+              (p.demo ? '<span class="demo-badge">' + txt("card.ficticia", "DEMO FICTICIA") + '</span>' : "") + "</p>" +
+            "<h3>" + esc(p.name) + "</h3>" +
+            '<p class="project-card__desc">' + esc(p.description) + "</p>" +
+            '<div class="project-card__tags">' + p.tags.map(function (t) {
+              return "<span>" + esc(t) + "</span>";
+            }).join("") + "</div>" +
+            '<span class="project-card__cta">' + (wip ? txt("card.wipCta", "VER CÓDIGO Y ESTADO") : txt("card.demoCta", "VER DETALLES")) + ' <b aria-hidden="true">↗</b></span>' +
+          "</article>";
+        }).join("");
+
+        Array.prototype.forEach.call(grid.querySelectorAll(".project-card"), function (card) {
+          bindTilt(card);
+          card.addEventListener("click", function () { openModal(state.projects[Number(card.dataset.index)]); });
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openModal(state.projects[Number(card.dataset.index)]);
+            }
+          });
+        });
+      }
+
+      function updateCounts() {
+        ["all", "negocios", "comunidad", "personales", "herramientas"].forEach(function (key) {
+          var el = document.querySelector('[data-count-for="' + key + '"]');
+          if (!el) return;
+          var n = key === "all" ? state.projects.length : state.projects.filter(function (p) { return p.category === key; }).length;
+          el.textContent = String(n).padStart(2, "0");
+        });
+      }
+
+      function openModal(p) {
+        if (!p) return;
+        state.lastFocus = document.activeElement;
+        document.getElementById("modalPath").textContent = txt("modal.ficha", "ficha") + " · " + p.name;
+        document.getElementById("modalCat").textContent = CAT_LABEL[p.category] + " ✦ " + (p.emoji || "") +
+          (p.status === "wip" ? " · " + txt("modal.enConstruccion", "EN CONSTRUCCIÓN") : "");
+        document.getElementById("modalTitle").textContent = p.name;
+        document.getElementById("modalYear").textContent = txt("modal.anio", "año") + " " + p.year + " · " + p.tags.join(" / ");
+        document.getElementById("modalDesc").textContent = p.description;
+        document.getElementById("modalAudience").textContent = p.audience;
+        document.getElementById("modalProblem").textContent = p.problem;
+        document.getElementById("modalSolution").textContent = p.solution;
+        document.getElementById("modalTags").textContent = p.tags.join(" · ");
+        var wip = p.status === "wip";
+        document.getElementById("modalPlatformRow").classList.toggle("is-visible", wip);
+        document.getElementById("modalPlatformRow2").classList.toggle("is-visible", wip);
+        document.getElementById("modalPlatform").textContent = p.platform;
+        document.getElementById("modalRoadmap").textContent = p.roadmap;
+        document.getElementById("modalDemoRow").classList.toggle("is-visible", !!p.demo);
+        document.getElementById("modalDemo").textContent = p.notice || txt("modal.avisoDemo", "Negocio ficticio y datos de ejemplo: demo demostrativa.");
+        var link = document.getElementById("modalOpen");
+        var conRepo = wip && !!p.repo;
+        link.href = conRepo ? p.repo : p.url;
+        /* El código se abre en pestaña nueva; las demos siguen en la misma. */
+        link.target = conRepo ? "_blank" : "";
+        link.rel = conRepo ? "noopener noreferrer" : "";
+        link.textContent = wip
+          ? txt("modal.verCodigo", "VER CÓDIGO ↗")
+          : txt("modal.abrirDemo", "ABRIR DEMO ↗");
+        link.classList.toggle("btn--ghost", wip && !conRepo);
+        link.classList.toggle("btn--primary", !wip || conRepo);
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        beep(680);
+        link.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        if (state.lastFocus && state.lastFocus.focus) state.lastFocus.focus();
+      }
+
+      /* ---------- filtros ---------- */
+      document.querySelectorAll(".filter").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".filter").forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          state.filter = btn.dataset.filter;
+          beep(440);
+          render();
+        });
+      });
+
+      modal.addEventListener("click", function (e) {
+        if (e.target.hasAttribute("data-close")) closeModal();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.hidden) closeModal();
+      });
+
+      document.getElementById("aboutBtn").addEventListener("click", function () {
+        document.getElementById("sobre-mi").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+        beep(520);
+      });
+
+      /* ---------- sonido ---------- */
+      soundBtn.addEventListener("click", function () {
+        state.sound = !state.sound;
+        soundBtn.setAttribute("aria-pressed", String(state.sound));
+        soundBtn.textContent = txt(state.sound ? "ui.sonidoOn" : "ui.sonidoOff", state.sound ? "♫ sonido: ON" : "♫ sonido: OFF");
+        if (state.sound) beep(760);
+      });
+
+      /* ---------- chispas ---------- */
+      var lastSpark = 0;
+      if (!reduce && window.matchMedia("(hover: hover)").matches) {
+        window.addEventListener("pointermove", function (e) {
+          if (e.pointerType === "touch" || Date.now() - lastSpark < 75) return;
+          lastSpark = Date.now();
+          var s = document.createElement("span");
+          s.className = "sparkle";
+          s.textContent = Math.random() > 0.45 ? "✦" : "✕";
+          s.style.left = e.clientX + "px";
+          s.style.top = e.clientY + "px";
+          s.style.setProperty("--dx", (Math.random() * 46 - 23) + "px");
+          s.style.setProperty("--dur", (650 + Math.random() * 500) + "ms");
+          s.style.color = Math.random() > 0.5 ? "#d6e6ff" : "#a9c7f5";
+          sparkles.appendChild(s);
+          setTimeout(function () { s.remove(); }, 1250);
+        });
+      }
+
+      /* ---------- terminal ---------- */
+      function line(text, cls) {
+        var p = document.createElement("p");
+        p.className = "terminal__line" + (cls ? " " + cls : "");
+        p.textContent = text;
+        screen.appendChild(p);
+        screen.scrollTop = screen.scrollHeight;
+      }
+
+      txtLineas("terminal.arranque1", "thc.dev terminal v3.0 // underground sk8", "t-hi");
+      txtLineas("terminal.arranque2", "Sistema listo. Escribe 'help' para ver los comandos.");
+
+      function runCommand(raw) {
+        var cmd = raw.trim().toLowerCase();
+        if (!cmd) return;
+        line("❯ " + cmd, "t-cmd");
+
+        switch (cmd) {
+          case "help":
+            txtLineas("terminal.help", "comandos: help · proyectos · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear");
+            break;
+          case "proyectos":
+            state.projects.forEach(function (p, i) {
+              line((i + 1) + ". " + p.emoji + " " + p.name + " — " + CAT_LABEL[p.category] +
+                (p.status === "wip" ? " [EN CONSTRUCCIÓN]" : ""));
+            });
+            break;
+          case "quien-soy":
+          case "sobre-mi":
+            txtLineas("terminal.quien1", "Diego Alejandro Tellez Tellez. Bucaramanga. Dev nivel medio, estética Y2K underground y obseso del detalle.");
+            txtLineas("terminal.quien2", "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.");
+            break;
+          case "contacto":
+            txtLineas("terminal.contacto1", "thczt.dev@gmail.com");
+            txtLineas("terminal.contacto2", "WhatsApp: +57 3203805194");
+            txtLineas("terminal.contacto3", "Discord: @thc_dev");
+            txtLineas("terminal.contacto4", "Instagram: Proximamente");
+            txtLineas("terminal.contacto5", "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.");
+            break;
+          case "chiste":
+            txtLineas("terminal.chiste", "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "t-hi");
+            break;
+          case "sk8":
+            txtLineas("terminal.sk81", "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "t-hi");
+            txtLineas("terminal.sk82", "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "t-hi");
+            break;
+          case "contabilidad":
+            txtLineas("terminal.contab1", "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "t-hi");
+            txtLineas("terminal.contab2", "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "t-hi");
+            txtLineas("terminal.contab3", "Abre su ficha en la tarjeta 📊 para ver el estado.", "t-hi");
+            break;
+          case "fecha":
+            line(new Date().toLocaleDateString("es-CO", { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
+            break;
+          case "clear":
+            screen.innerHTML = "";
+            break;
+          default:
+            line(txt("terminal.desconocido", "No reconocí '{cmd}'. Prueba 'help'.").replace("{cmd}", cmd), "t-err");
+        }
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        runCommand(input.value);
+        input.value = "";
+        beep(600);
+      });
+      document.querySelectorAll("[data-cmd]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          input.value = btn.dataset.cmd;
+          form.requestSubmit();
+          input.focus();
+        });
+      });
+
+      /* ---------- datos varios ---------- */
+      var yearEl = document.querySelector("[data-year]");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      try {
+        var visitas = Number(localStorage.getItem("thcdev_visitas") || 0) + 1;
+        localStorage.setItem("thcdev_visitas", String(visitas));
+        var vc = document.getElementById("visitCount");
+        if (vc) vc.textContent = String(visitas).padStart(4, "0");
+      } catch (e) { /* almacenamiento opcional */ }
+
+      updateCounts();
+      render();
+
+      /* Si el servidor está activo, reemplazamos por los proyectos reales. */
+      (async function () {
+        try {
+          var res = await fetch("/__projects", { cache: "no-store" });
+          if (!res.ok) return;
+          var data = await res.json();
+          if (!Array.isArray(data) || !data.length) return;
+          state.projects = data.map(normalize);
+          updateCounts();
+          render();
+        } catch (e) { /* modo file://: se conservan los datos de respaldo */ }
+      })();
+    })();
+  </script>
+</body>
+</html>

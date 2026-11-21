@@ -1,0 +1,17 @@
+{
+  "name": "Carta para ELLA",
+  "description": "Demo íntima y gótica: cartas, un tocadiscos y una galería de recuerdos muy pixelados. Un detalle personal convertido en experiencia web, sin nombres reales.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JS",
+    "INTERACTIVO"
+  ],
+  "emoji": "✦",
+  "category": "personales",
+  "audience": "Un detalle para alguien especial. También una prueba de que cuido los detalles.",
+  "problem": "Convertir algo muy personal en algo bonito sin exponer a nadie.",
+  "solution": "Estrellas, música local, cartas inventadas y fotos tan pixeladas que no se distingue nada.",
+  "accent": "#84939f",
+  "year": "2026"
+}

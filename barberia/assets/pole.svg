@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Poste de barbería">
+  <rect width="400" height="400" fill="#080809"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#b8893f" stroke-width="1" opacity=".18"/>
+  <g transform="rotate(18 200 200)">
+    <rect x="166" y="70" width="68" height="260" rx="34" fill="#efe9df" stroke="#b8893f" stroke-width="3"/>
+    <path d="M166 108h68M166 148h68M166 188h68M166 228h68M166 268h68" stroke="#8e2f29" stroke-width="14" opacity=".9"/>
+    <path d="M166 128h68M166 168h68M166 208h68M166 248h68" stroke="#5fa69e" stroke-width="14" opacity=".85"/>
+    <rect x="160" y="58" width="80" height="18" rx="6" fill="#b8893f"/>
+    <rect x="160" y="324" width="80" height="18" rx="6" fill="#b8893f"/>
+  </g>
+</svg>

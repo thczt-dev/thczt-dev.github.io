@@ -1,0 +1,17 @@
+{
+  "name": "AYNI English Library",
+  "description": "Biblioteca digital para un colegio de Bucaramanga: libros en inglés con búsqueda, filtros por nivel y un panel para publicar libros sin tocar código.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JS",
+    "CATÁLOGO"
+  ],
+  "emoji": "📚",
+  "category": "comunidad",
+  "audience": "Colegios, profesores y estudiantes que necesitan encontrar material rápido.",
+  "problem": "Los libros y las actividades estaban dispersos y era difícil buscarlos por nivel.",
+  "solution": "Un catálogo con búsqueda, filtros A1 a B2 y un panel sencillo para subir contenido.",
+  "accent": "#bcd8ff",
+  "year": "2026"
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Tijeras de barbería">
+  <rect width="400" height="400" fill="#080809"/>
+  <g stroke="#332b24" stroke-width="1" opacity=".7"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+  <g transform="rotate(28 200 200)" fill="none" stroke="#b8893f" stroke-width="8" stroke-linecap="round">
+    <path d="M200 200 92 92"/><path d="M200 200 308 92"/>
+    <circle cx="92" cy="92" r="22"/><circle cx="308" cy="92" r="22"/>
+  </g>
+  <circle cx="200" cy="200" r="12" fill="#8e2f29" stroke="#dfb46c" stroke-width="3"/>
+  <g fill="#5fa69e" opacity=".7"><circle cx="62" cy="316" r="2"/><circle cx="338" cy="60" r="2"/></g>
+</svg>

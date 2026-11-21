@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Los recuerdos de ELLA, en versión bien pixelada. Se siente el ambiente, no se ve nada.">
+  <title>Recuerdos de ELLA ✦ (no se ve nada)</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070d'/%3E%3Cpath d='M40 12a20 20 0 1 0 0 40 22 22 0 0 1 0-40z' fill='%23b9c6da'/%3E%3Cpath d='M46 18l1.6 4.4L52 24l-4.4 1.6L46 30l-1.6-4.4L40 24l4.4-1.6z' fill='%237fa3d8'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <canvas id="estrellas" aria-hidden="true"></canvas>
+  <div class="luna" aria-hidden="true"></div>
+  <div class="niebla" aria-hidden="true"></div>
+  <div class="capa-grano" aria-hidden="true"></div>
+
+  <div class="contenido">
+
+    <header class="cabecera">
+      <div class="ancho cabecera-in">
+        <a class="logo" href="index.html" aria-label="ELLA, volver al inicio">
+          <span class="logo-marca" aria-hidden="true">✦</span>
+          <span class="logo-texto">
+            <span class="logo-nombre">ELLA</span>
+            <span class="logo-sub">alguien q te piensa :3</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Menú principal">
+          <a href="index.html">inicio</a>
+          <a href="cartas.html">cartas</a>
+          <a href="musica.html">música</a>
+          <a href="galeria.html" aria-current="page">galería</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pagina">
+      <div class="ancho">
+
+        <header class="pagina-cabecera" data-anima>
+          <p class="eyebrow">Fotos (q se pueden mostrar jsjs)</p>
+          <h1 class="titulo-seccion">Los recuerdos de ELLA :3</h1>
+          <p class="texto-intro">
+            45 fotos bien pixeladas y difuminadas. Se conserva el ambiente y el color; las caras y los detalles se perdieron en el camino.
+          </p>
+        </header>
+
+        <div class="mosaico" id="mosaico"></div>
+
+        <div class="galeria-pie">
+          <span><span class="corazon">♡</span> <span id="conteo-fotos">0 foticos</span></span>
+          <span>haz clic en una para verla grande</span>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="pie">
+      <div class="ancho">
+        <span class="pie-ornamento" aria-hidden="true">✦ ♡ ✦</span>
+        <p>Hecho para ELLA · <span data-anio>2026</span></p>
+        <p class="pie-mini">hecho con ♡ para ELLA</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <button class="boton-suerte" type="button" data-suerte aria-label="Descubrir un mensaje para ti">✦</button>
+
+  <!-- Visor de fotos -->
+  <div class="visor" id="visor" hidden>
+    <div class="visor-fondo" data-cerrar-visor></div>
+
+    <div class="visor-caja" role="dialog" aria-modal="true" aria-label="Visor de recuerdos">
+      <button class="visor-cerrar" id="visor-cerrar" type="button" aria-label="Cerrar visor">×</button>
+      <div class="visor-foto" id="visor-foto"></div>
+      <div class="visor-pie">
+        <div class="visor-texto">
+          <span id="visor-pie"></span>
+          <small id="visor-contador"></small>
+        </div>
+        <div class="visor-nav">
+          <button id="visor-anterior" type="button" aria-label="Foto anterior">←</button>
+          <button id="visor-siguiente" type="button" aria-label="Foto siguiente">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="volver-arriba" type="button" aria-label="Volver arriba">↑</button>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/galeria.js"></script>
+</body>
+</html>
