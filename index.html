@@ -363,30 +363,100 @@
     .modal__facts .wip-row dt { color: var(--pink); }
     .empty { grid-column: 1/-1; padding: 40px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
 
-    /* ---------- servicios ---------- */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .service-card {
-      position: relative; min-width: 0; padding: 26px 22px 24px;
-      border: 1px solid var(--line); border-radius: 10px;
+    /* ---------- tarifas ---------- */
+    .tarifas__body { padding: 20px; }
+    .tarifa-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; padding-bottom: 4px; }
+    .tarifa-tab {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 40px;
+      padding: 9px 13px; border: 1px solid var(--line); border-radius: 3px;
+      background: transparent; color: var(--muted); cursor: pointer;
+      font: 700 .68rem/1 "Space Grotesk", sans-serif;
+      letter-spacing: .12em; text-transform: uppercase;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .tarifa-tab::before { content: ">"; color: var(--violet); font-family: "VT323", monospace; }
+    .tarifa-tab span { color: var(--violet); font: 400 .85rem/1 "VT323", monospace; }
+    .tarifa-tab:hover { color: var(--text); border-color: var(--violet); }
+    .tarifa-tab.is-active { color: #0a0d11; background: var(--violet); border-color: var(--violet); }
+    .tarifa-tab.is-active::before, .tarifa-tab.is-active span { color: #0a0d11; }
+    .tarifa-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .tarifa-card {
+      display: flex; flex-direction: column; min-width: 0; padding: 16px;
+      border: 1px solid var(--line); border-radius: 8px;
+      background: linear-gradient(160deg, rgba(169,199,245,.06), rgba(10,14,20,.35));
+      transition: border-color .2s, transform .2s;
+    }
+    .tarifa-card:hover { border-color: var(--violet); transform: translateY(-2px); }
+    .tarifa-card__top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+    .tarifa-card__name { margin: 0; color: var(--text); font: 700 .92rem/1.3 "Space Grotesk", sans-serif; }
+    .tarifa-card__price { flex: 0 0 auto; color: var(--pink); white-space: nowrap; font: 400 .95rem/1.2 "VT323", monospace; }
+    .tarifa-card__desc { margin: 8px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.45; }
+    .tarifa-card__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+    .tarifa-btn {
+      padding: 7px 10px; border: 1px solid var(--line); border-radius: 3px;
+      background: transparent; color: var(--muted); cursor: pointer;
+      font: 700 .62rem/1 "Space Grotesk", sans-serif; letter-spacing: .12em;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .tarifa-btn:hover { color: var(--pink); border-color: var(--pink); }
+    .tarifa-btn--add { color: var(--cyan); border-color: rgba(188,216,255,.45); }
+    .tarifa-btn--add:hover, .tarifa-btn--add.is-on { background: var(--violet); border-color: var(--violet); color: #0a0d11; }
+    .tarifas__foot { margin: 16px 0 0; color: var(--muted); font: 400 .95rem/1.4 "VT323", monospace; }
+    .tarifas__foot a { color: var(--cyan); text-decoration: none; border-bottom: 1px dashed var(--line); }
+    .tarifas__foot a:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ---------- paquetes ---------- */
+    .paquetes { margin-top: 26px; }
+    .paquetes__head { margin-bottom: 16px; }
+    .paquetes__head h3 { margin: 4px 0 0; font: 700 1.35rem/1.1 "Space Grotesk", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .paquetes__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .paquete {
+      position: relative; display: flex; flex-direction: column; min-width: 0;
+      padding: 22px 20px; border: 1px solid var(--line); border-radius: 10px;
       background: linear-gradient(180deg, rgba(169,199,245,.07), rgba(10,14,20,.5));
     }
-    .service-card::before {
-      content: ""; position: absolute; inset: 0 0 auto; height: 2px;
-      background: linear-gradient(90deg, var(--cyan), transparent);
-      border-radius: 10px 10px 0 0;
+    .paquete--destacado { border-color: var(--violet); box-shadow: 0 0 0 1px rgba(169,199,245,.16), 0 18px 40px rgba(0,0,0,.4); }
+    .paquete__badge {
+      position: absolute; top: -10px; right: 14px; padding: 4px 8px;
+      background: var(--violet); color: #0a0d11; border-radius: 2px;
+      font: 700 .58rem/1 "Space Grotesk", sans-serif; letter-spacing: .14em;
     }
-    .service-card__num {
-      color: var(--gold); font: 400 1rem/1 "VT323", monospace;
-      letter-spacing: .14em;
+    .paquete__name { margin: 0; font-family: "Anton", Impact, sans-serif; font-size: 1.6rem; letter-spacing: .06em; text-transform: uppercase; }
+    .paquete__price { margin: 6px 0 0; color: var(--pink); font: 400 1.25rem/1 "VT323", monospace; }
+    .paquete__features { list-style: none; margin: 16px 0 20px; padding: 0; display: grid; gap: 8px; }
+    .paquete__features li { position: relative; padding-left: 18px; color: #cbd5df; font-size: .85rem; line-height: 1.4; }
+    .paquete__features li::before { content: "✦"; position: absolute; left: 0; color: var(--violet); font-size: .75rem; }
+    .paquete__actions { display: grid; gap: 8px; margin-top: auto; }
+    .paquete__actions .btn { width: 100%; padding: 11px 12px; font-size: .68rem; }
+    .paquete__actions .tarifa-btn { width: 100%; }
+
+    /* ---------- selección / presupuesto ---------- */
+    .solicitud { margin-top: 22px; }
+    .solicitud__body { padding: 20px; }
+    .solicitud__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .solicitud__head h3 { margin: 0; font-family: "Anton", Impact, sans-serif; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .05em; }
+    .solicitud__count { color: var(--gold); font: 400 .95rem/1 "VT323", monospace; }
+    .solicitud__empty[hidden] { display: none; }
+    .solicitud__empty { margin: 14px 0 0; color: var(--muted); font-size: .88rem; }
+    .solicitud__items { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+    .solicitud__items li {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 9px 12px; border: 1px solid var(--line); border-radius: 4px;
+      background: rgba(169,199,245,.04);
     }
-    .service-card h3 {
-      margin: 14px 0 10px; color: var(--text);
-      font: 700 1.02rem/1.25 "Space Grotesk", sans-serif;
-      letter-spacing: .07em;
-    }
-    .service-card p { margin: 0; color: var(--muted); font-size: .92rem; }
-    .services__foot { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
-    .services__foot p { margin: 0; color: var(--muted); font: 400 1rem/1 "VT323", monospace; }
+    .solicitud__items b { display: block; font-size: .86rem; font-weight: 600; }
+    .solicitud__items small { color: var(--pink); font: 400 .82rem/1 "VT323", monospace; }
+    .solicitud__remove { border: 0; background: none; color: var(--muted); cursor: pointer; padding: 4px 6px; font: 400 1rem/1 "VT323", monospace; }
+    .solicitud__remove:hover { color: #ffb3c1; }
+    .solicitud__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 18px; }
+    .solicitud__actions p { margin: 0; color: var(--muted); font-size: .85rem; }
+
+    /* ---------- condiciones ---------- */
+    .condiciones { margin-top: 22px; }
+    .condiciones summary { cursor: pointer; color: var(--violet); font: 400 1rem/1.4 "VT323", monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .condiciones__body { padding: 4px 22px 20px; }
+    .condiciones ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); font-size: .85rem; }
+    .condiciones li { margin-bottom: 6px; }
 
     /* ---------- sobre mí ---------- */
     .about { display: grid; grid-template-columns: 1.5fr .9fr; gap: 22px; align-items: start; }
@@ -534,7 +604,7 @@
 
     @media (max-width: 900px) {
       .about, .contact__box { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
+      .paquetes__grid { grid-template-columns: 1fr; }
       .hero__grid { grid-template-columns: 1fr; gap: 26px; }
       .hero__portrait { order: -1; }
       .photo-polaroid--hero { width: min(66%, 270px); }
@@ -574,7 +644,6 @@
 
       .section { padding: 48px 0; }
       .section__head h2, .about h2, .contact h2, .servicios h2 { font-size: clamp(2rem, 9vw, 2.9rem); }
-      .service-card { padding: 20px; }
       .filters {
         flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
         margin-right: -20px; padding: 2px 20px 8px 0;
@@ -583,6 +652,18 @@
       .filter { flex: 0 0 auto; min-height: 40px; padding: 10px 14px; }
       .project-grid { grid-template-columns: 1fr; gap: 14px; }
       .project-card { min-width: 0; }
+
+      .tarifa-tabs {
+        flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+        margin-right: -20px; padding: 2px 20px 8px 0;
+      }
+      .tarifa-tabs::-webkit-scrollbar { display: none; }
+      .tarifa-tab { flex: 0 0 auto; min-height: 38px; }
+      .tarifa-grid { grid-template-columns: 1fr; gap: 10px; }
+      .tarifa-card { padding: 14px; }
+      .tarifas__body, .solicitud__body { padding: 14px; }
+      .condiciones__body { padding: 4px 14px 18px; }
+      .solicitud__head h3 { font-size: 1.25rem; }
 
       .terminal-section { padding-top: 10px; }
       .terminal__screen { height: 190px; padding: 14px; font-size: .95rem; }
@@ -727,33 +808,61 @@
 
     <section class="section container servicios" id="servicios">
       <div class="section__head">
-        <p class="eyebrow" data-texto="servicios.etiqueta">// qué puedo hacer por tu negocio</p>
-        <h2 data-texto="servicios.titulo">QUÉ PUEDO CONTRATARTE PARA HACER</h2>
-        <p class="section__sub" data-texto="servicios.texto">Trabajo claro y a medida para negocios que necesitan verse bien y vender sin complicaciones. Elige lo que necesitas y lo conversamos.</p>
+        <p class="eyebrow" data-texto="servicios.etiqueta">// tarifas de referencia</p>
+        <h2 data-texto="servicios.titulo">QUÉ PUEDO CONSTRUIR PARA TI</h2>
+        <p class="section__sub" data-texto="servicios.texto">No todos los negocios necesitan lo mismo. Algunos necesitan una página para mostrar lo que hacen, otros un catálogo para vender y otros algo más personalizado. Yo puedo ayudarte a construirlo. Precios de referencia en pesos colombianos.</p>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <span class="service-card__num" data-texto="servicios.1numero">01</span>
-          <h3 data-texto="servicios.1titulo">PÁGINAS PARA NEGOCIOS</h3>
-          <p data-texto="servicios.1texto">Web para panaderías, restaurantes, barberías y tiendas: carta o catálogo, reservas, horarios, ubicación y pedidos por WhatsApp. Pensada para que el cliente entienda en segundos qué ofreces y cómo contactarte.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-card__num" data-texto="servicios.2numero">02</span>
-          <h3 data-texto="servicios.2titulo">CATÁLOGOS Y TIENDA LIGERA</h3>
-          <p data-texto="servicios.2texto">Productos con fotos, precios, filtros y carrito. El pedido termina en un WhatsApp con todo escrito, sin pagos raros ni formularios infinitos.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-card__num" data-texto="servicios.3numero">03</span>
-          <h3 data-texto="servicios.3titulo">HERRAMIENTAS Y PÁGINAS A MEDIDA</h3>
-          <p data-texto="servicios.3texto">Paneles sencillos, formularios, calendarios y reportes. Pueden funcionar sin internet y guardar la información en el computador cuando el negocio lo necesita.</p>
-        </article>
+      <div class="window tarifas">
+        <div class="window__bar">
+          <span data-texto="tarifas.archivo">tarifas.txt — catálogo abierto</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tarifas__body">
+          <div class="tarifa-tabs" id="tarifaTabs" role="tablist" aria-label="Categorías de servicios">
+            <button class="tarifa-tab is-active" type="button" role="tab" aria-selected="true" data-cat="web"><span data-texto="tarifas.tab1">PÁGINAS WEB</span> <span data-count-cat="web">07</span></button>
+            <button class="tarifa-tab" type="button" role="tab" aria-selected="false" data-cat="catalogos"><span data-texto="tarifas.tab2">CATÁLOGOS Y COMERCIO</span> <span data-count-cat="catalogos">07</span></button>
+            <button class="tarifa-tab" type="button" role="tab" aria-selected="false" data-cat="sistemas"><span data-texto="tarifas.tab3">SISTEMAS</span> <span data-count-cat="sistemas">08</span></button>
+            <button class="tarifa-tab" type="button" role="tab" aria-selected="false" data-cat="adicionales"><span data-texto="tarifas.tab4">ADICIONALES</span> <span data-count-cat="adicionales">08</span></button>
+          </div>
+          <div class="tarifa-grid" id="tarifaGrid" role="tabpanel" aria-live="polite">
+            <noscript><p class="empty">Sin JavaScript puedes escribirme a <a href="mailto:thczt.dev@gmail.com">thczt.dev@gmail.com</a> y te paso las tarifas.</p></noscript>
+          </div>
+          <p class="tarifas__foot"><span data-texto="tarifas.nota">¿No ves lo que buscas?</span> <a href="https://wa.me/573203805194" data-texto-attr="href|contacto.whatsappLink" data-texto="tarifas.notaCta" target="_blank" rel="noopener noreferrer">CONSULTAR OTRA IDEA ↗</a></p>
+        </div>
       </div>
 
-      <div class="services__foot">
-        <a class="btn btn--primary" href="#contacto" data-texto="servicios.cta">HABLAR DE UN PROYECTO ↗</a>
-        <p data-texto="servicios.nota">¿No encaja aquí? Cuéntame la idea igual.</p>
+      <div class="paquetes">
+        <div class="paquetes__head">
+          <p class="eyebrow" data-texto="paquetes.etiqueta">// paquetes listos para arrancar</p>
+          <h3 data-texto="paquetes.titulo">PAQUETES</h3>
+        </div>
+        <div class="paquetes__grid" id="paquetesGrid"></div>
       </div>
+
+      <div class="solicitud window" id="solicitud">
+        <div class="window__bar">
+          <span data-texto="solicitar.archivo">presupuesto.txt — selección actual</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="solicitud__body">
+          <div class="solicitud__head">
+            <h3 data-texto="solicitar.titulo">TU SELECCIÓN</h3>
+            <span class="solicitud__count" id="solicitudCount">00</span>
+          </div>
+          <p class="solicitud__empty" id="solicitudVacio" data-texto="solicitar.vacio">Toca AGREGAR en un servicio o elige un paquete para armar tu consulta.</p>
+          <ul class="solicitud__items" id="solicitudItems"></ul>
+          <div class="solicitud__actions">
+            <a class="btn btn--primary" id="solicitudEnviar" href="https://wa.me/573203805194" data-texto-attr="href|contacto.whatsappLink" data-texto="solicitar.otroCta" target="_blank" rel="noopener noreferrer">CONSULTAR OTRA IDEA ↗</a>
+            <p data-texto="solicitar.nota">Sin compromiso: es solo un mensaje para conversar.</p>
+          </div>
+        </div>
+      </div>
+
+      <details class="condiciones window">
+        <summary data-texto="condiciones.titulo">CONDICIONES CLARAS</summary>
+        <div class="condiciones__body"><ul id="condicionesLista"></ul></div>
+      </details>
     </section>
 
     <section class="section container about" id="sobre-mi">
@@ -864,7 +973,7 @@
     </article>
   </div>
 
-  <script id="thc-textos" type="application/json">{"hero.badge": "DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL", "hero.kicker": "Hola, soy Diego", "hero.titulo1": "CONSTRUYO", "hero.titulo2": "LO QUE TU", "hero.titulo3": "REALMENTE NECESITAS", "hero.lead": "Soy de **Bucaramanga** y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.", "hero.btn1": "VER PROYECTOS ↓", "hero.btn2": "¿QUIÉN ES ESTE RANDOM? ✕", "hero.meta1": "proyectos y experimentos", "hero.meta2": "demostraciones comerciales", "hero.meta3": "proyecto educativo", "hero.meta4": "proyecto personal", "hero.meta5": "herramienta en desarrollo", "hero.alt": "Fotico De Mi", "hero.fotoEtiqueta": "YO ESE", "hero.fotoPie": "diego · thc.dev", "hero.fotoLugar": "bucaramanga · colombia", "hero.tag1": "SK8ER", "hero.tag2": "CODE", "hero.tag3": "DEV", "hero.sticker1": "OHZI / CODE", "hero.sticker2": "NO LOGO · THC", "hero.sticker3": "BGA · 2026", "hero.visitante1": "visitante #", "hero.visitante2": "✕ bienvenido a mi esquina de internet", "proyectos.etiqueta": "// archivo de proyectos", "proyectos.titulo": "ELIGE UN MUNDO", "proyectos.texto": "Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.", "proyectos.filtro1": "TODO", "proyectos.filtro2": "NEGOCIOS", "proyectos.filtro3": "COMUNIDAD", "proyectos.filtro4": "PERSONALES", "proyectos.filtro5": "HERRAMIENTAS", "servicios.etiqueta": "// qué puedo hacer por tu negocio", "servicios.titulo": "QUÉ PUEDO CONTRATARTE PARA HACER", "servicios.texto": "Trabajo claro y a medida para negocios que necesitan verse bien y vender sin complicaciones. Elige lo que necesitas y lo conversamos.", "servicios.1numero": "01", "servicios.1titulo": "PÁGINAS PARA NEGOCIOS", "servicios.1texto": "Web para panaderías, restaurantes, barberías y tiendas: carta o catálogo, reservas, horarios, ubicación y pedidos por WhatsApp. Pensada para que el cliente entienda en segundos qué ofreces y cómo contactarte.", "servicios.2numero": "02", "servicios.2titulo": "CATÁLOGOS Y TIENDA LIGERA", "servicios.2texto": "Productos con fotos, precios, filtros y carrito. El pedido termina en un WhatsApp con todo escrito, sin pagos raros ni formularios infinitos.", "servicios.3numero": "03", "servicios.3titulo": "HERRAMIENTAS Y PÁGINAS A MEDIDA", "servicios.3texto": "Paneles sencillos, formularios, calendarios y reportes. Pueden funcionar sin internet y guardar la información en el computador cuando el negocio lo necesita.", "servicios.cta": "HABLAR DE UN PROYECTO ↗", "servicios.nota": "¿No encaja aquí? Cuéntame la idea igual.", "sobre.archivo": "archivo: sobre_mi.txt", "sobre.titulo": "DEV POR ELECCIÓN,|CONSTANTE POR NATURALEZA", "sobre.texto1": "Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recién graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaría estudiar ingeniería de sistemas dentro de muy poco... ya que llevo los últimos 5 años de mi vida programando por diversión.", "sobre.texto2": "Aunque todo esto se vea un poco raro, mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.", "sobre.punto1": "**01 /** Código limpio, y bien explicado.", "sobre.punto2": "**02 /** Estética cuidada, sin perder de vista lo que el negocio necesita.", "sobre.punto3": "**03 /** Escucho al negocio antes de abrir el editor.", "sobre.punto4": "**04 /** Si algo se ve raro, probablemente lo hice a propósito jeje.", "manifiesto.archivo": "manifiesto.txt", "manifiesto.nota": "// nota al margen", "manifiesto.titulo": "QUE SE VEA BIEN,|Y QUE SIRVA.", "manifiesto.texto": "Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.", "terminal.archivo": "thc.dev — terminal interactiva", "terminal.etiqueta": "Escribe un comando", "terminal.placeholder": "escribe help y dale Enter", "terminal.arranque1": "thc.dev terminal v3.0 // Esperando futuras actualizaciones", "terminal.arranque2": "Sistema listo. Escribe 'help' para ver los comandos.", "terminal.help": "comandos: help · proyectos · servicios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear", "terminal.quien1": "Diego Alejandro Tellez Tellez. Bucaramanga. Páginas web y herramientas digitales, estética Y2K underground y obseso del detalle.", "terminal.servicios1": "Puedo contratarme para: páginas de negocio, catálogos con pedido por WhatsApp y herramientas a medida.", "terminal.servicios2": "Cuéntame qué vendes y qué debe lograr la página. Escríbeme al correo o al WhatsApp de la sección contacto.", "terminal.quien2": "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.", "terminal.contacto1": "thczt.dev@gmail.com", "terminal.contacto2": "WhatsApp: +57 3203805194", "terminal.contacto3": "Discord: @thc_dev", "terminal.contacto4": "Instagram: Proximamente", "terminal.contacto5": "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.", "terminal.chiste": "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "terminal.sk81": "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "terminal.sk82": "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "terminal.contab1": "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "terminal.contab2": "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "terminal.contab3": "Abre su código en GitHub desde la tarjeta 📊.", "terminal.desconocido": "No reconocí '{cmd}'. Prueba 'help'.", "ui.sonidoOff": "♫ sonido: OFF", "ui.sonidoOn": "♫ sonido: ON", "modal.ficha": "proyecto", "modal.enConstruccion": "EN CONSTRUCCIÓN", "modal.anio": "año", "modal.abrirDemo": "ABRIR DEMO ↗", "modal.verCodigo": "VER CÓDIGO ↗", "card.demoCta": "VER DETALLES", "card.wipCta": "VER CÓDIGO Y ESTADO", "card.ficticia": "DEMO FICTICIA", "modal.avisoDemoTitulo": "Aviso", "modal.avisoDemo": "Negocio ficticio y datos de ejemplo: demo demostrativa.", "modal.paraQuien": "Para quién", "modal.queResuelve": "Qué resuelve", "modal.comoLoHace": "Cómo lo hace", "modal.hechoCon": "Hecho con", "modal.plataformas": "Plataformas", "modal.roadmap": "Roadmap", "contacto.etiqueta": "// línea abierta", "contacto.titulo": "¿TIENES ALGO EN MENTE?", "contacto.texto": "Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.", "contacto.correo": "thczt.dev@gmail.com", "contacto.mailto": "mailto:thczt.dev@gmail.com", "contacto.btn": "ESCRÍBEME ✉", "contacto.btnMailto": "mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev", "contacto.whatsapp": "+57 3203805194", "contacto.whatsappLink": "https://wa.me/573203805194", "contacto.discord": "@thc_dev", "contacto.instagram": "Proximamente", "contacto.sello": "PÁGINAS WEB A MEDIDA · BGA", "pie.inicio": "Diseñado y desarrollado por", "pie.nombre": "Diego Alejandro Tellez Tellez", "pie.sitio": "thc.dev", "pie.ciudad": "Bucaramanga", "pie.estilo": "estilo Y2K underground / sk8", "contabilidad.bajada": "App de escritorio local para llevar ingresos, gastos, proyectos, contactos y reportes. Sin internet.", "contabilidad.aviso": "Hoy funciona **únicamente en Linux**. Quiero sacar también una **versión nativa en Windows**, pero todavía no está lista: por eso se muestra aquí como proyecto en camino, no como una demo terminada.", "contabilidad.texto1": "Una app de escritorio para llevar el dinero de un negocio pequeño en un solo lugar: **ingresos, gastos, proyectos pendientes, clientes y reportes**. Todo se guarda en tu computador, sin depender de internet ni de cuentas en la nube.", "contabilidad.texto2": "Los montos se manejan en **peso colombiano** y la interfaz es oscura, con acento azul pastel y espacio de sobra para leer sin cansarse.", "contabilidad.paso1": "**Hoy:** funciona en Linux con sus seis áreas y los datos guardados en el computador.", "contabilidad.paso2": "**En camino:** una versión nativa en Windows, sin depender de WSL ni de una máquina virtual.", "contabilidad.paso3": "**Antes de darla por terminada:** probar la instalación y el respaldo de datos en ambos sistemas.", "contab.pasoRepo": "**Código abierto:** el proyecto está en GitHub; desde aquí puedes ver el avance y dejar una estrella.", "contab.volver": "← volver al hub", "contab.titulo": "THC Contabilidad", "contab.repoBoton": "VER CÓDIGO EN GITHUB ↗", "contab.repoLink": "https://github.com/thczt-dev/thc-contabilidad", "contab.chip1": "En construcción", "contab.chip2": "Solo Linux", "contab.chip3": "Sin internet", "contab.chip4": "Peso colombiano", "contab.chip5": "2026", "contab.alerta": "⚠ En construcción · no es una demo web", "contab.h2Para": "Para qué sirve", "contab.h2Modulos": "Módulos", "contab.tablaPestana": "Pestaña", "contab.tablaFuncion": "Función", "contab.mod1n": "Resumen", "contab.mod1d": "Indicadores del mes, balance, últimos movimientos, vencimientos y gráfico.", "contab.mod2n": "Movimientos", "contab.mod2d": "Ingresos y gastos con búsqueda, filtros, edición y borrado.", "contab.mod3n": "Proyectos", "contab.mod3d": "Cliente, estado, prioridad, fechas, presupuesto y vencimientos.", "contab.mod4n": "Calendario", "contab.mod4d": "Vista mensual, puntos de color, detalle por día y resumen del mes.", "contab.mod5n": "Contactos", "contab.mod5d": "Clientes y proveedores con NIT, teléfono, correo y dirección.", "contab.mod6n": "Reportes", "contab.mod6d": "Balances, resumen mensual, categorías y exportación CSV.", "contab.h2Calendario": "El calendario", "contab.cal1a": "Rejilla de 42 días (lunes a domingo) con navegación ◀ / ▶ y botón", "contab.cal1b": ". Cada día puede mostrar hasta cuatro indicadores:", "contab.calIngresos": "Ingresos", "contab.calGastos": "Gastos", "contab.calEntregas": "Entregas", "contab.calInicios": "Inicios", "contab.tooltip": "Al pasar el cursor aparece un tooltip con montos y proyectos; al hacer clic, un panel lateral muestra ingresos, gastos, neto, movimientos y proyectos de ese día. Abajo hay un resumen del mes.", "contab.h2Estado": "Estado y próximos pasos", "contab.pie": "thc.dev ✦ documentación de un proyecto en construcción"}</script>
+  <script id="thc-textos" type="application/json">{"hero.badge": "DESARROLLADOR ✕ SK8ER ✕ 100% LOCAL", "hero.kicker": "Hola, soy Diego", "hero.titulo1": "CONSTRUYO", "hero.titulo2": "LO QUE TU", "hero.titulo3": "REALMENTE NECESITAS", "hero.lead": "Soy de **Bucaramanga** y desarrollo páginas web y herramientas digitales para negocios. Me gusta construir cosas que se vean bien, funcionen de verdad y resuelvan necesidades concretas. También hago pequeños mundos que solo existen porque se me ocurrió construirlos.", "hero.btn1": "VER PROYECTOS ↓", "hero.btn2": "¿QUIÉN ES ESTE RANDOM? ✕", "hero.meta1": "proyectos y experimentos", "hero.meta2": "demostraciones comerciales", "hero.meta3": "proyecto educativo", "hero.meta4": "proyecto personal", "hero.meta5": "herramienta en desarrollo", "hero.alt": "Fotico De Mi", "hero.fotoEtiqueta": "YO ESE", "hero.fotoPie": "diego · thc.dev", "hero.fotoLugar": "bucaramanga · colombia", "hero.tag1": "SK8ER", "hero.tag2": "CODE", "hero.tag3": "DEV", "hero.sticker1": "OHZI / CODE", "hero.sticker2": "NO LOGO · THC", "hero.sticker3": "BGA · 2026", "hero.visitante1": "visitante #", "hero.visitante2": "✕ bienvenido a mi esquina de internet", "proyectos.etiqueta": "// archivo de proyectos", "proyectos.titulo": "ELIGE UN MUNDO", "proyectos.texto": "Seis demos abiertas. Cada tarjeta dice qué es, para quién sirve y qué problema resuelve. Sin tecnicismos innecesarios, que pereza.", "proyectos.filtro1": "TODO", "proyectos.filtro2": "NEGOCIOS", "proyectos.filtro3": "COMUNIDAD", "proyectos.filtro4": "PERSONALES", "proyectos.filtro5": "HERRAMIENTAS", "servicios.etiqueta": "// tarifas de referencia", "servicios.titulo": "QUÉ PUEDO CONSTRUIR PARA TI", "servicios.texto": "No todos los negocios necesitan lo mismo. Algunos necesitan una página para mostrar lo que hacen, otros un catálogo para vender y otros algo más personalizado. Yo puedo ayudarte a construirlo. Precios de referencia en pesos colombianos.", "tarifas.archivo": "tarifas.txt — catálogo abierto", "tarifas.tab1": "PÁGINAS WEB", "tarifas.tab2": "CATÁLOGOS Y COMERCIO", "tarifas.tab3": "SISTEMAS", "tarifas.tab4": "ADICIONALES", "tarifas.vacio": "Catálogo no disponible por ahora.", "tarifas.nota": "¿No ves lo que buscas?", "tarifas.notaCta": "CONSULTAR OTRA IDEA ↗", "tarifas.web": "Landing page básica::$70.000 COP::Página sencilla para presentar un negocio, proyecto o servicio, con información de contacto.||Landing page personalizada::$100.000 COP::Página con diseño personalizado, estructura visual propia y animaciones sutiles.||Página web de 3 secciones::$130.000 COP::Sitio con inicio, servicios y contacto.||Página web de 5 secciones::$180.000 COP::Sitio más completo con información, servicios, galería y contacto.||Página web empresarial::Desde $250.000 COP::Sitio personalizado para negocios que necesitan una presencia digital más completa.||Portafolio personal::$100.000 COP::Sitio para mostrar proyectos, habilidades, experiencia y formas de contacto.||Página para emprendimiento::$140.000 COP::Sitio para presentar una marca, sus productos o servicios y sus canales de contacto.", "tarifas.catalogos": "Menú digital con QR::$55.000 COP::Menú online para restaurantes, cafeterías y negocios de comida.||Catálogo básico::$85.000 COP::Catálogo digital para mostrar productos con imágenes, nombres y precios.||Catálogo por categorías::$110.000 COP::Productos organizados en categorías para facilitar la navegación.||Catálogo con filtros::$150.000 COP::Catálogo con opciones para filtrar y encontrar productos fácilmente.||Tienda virtual básica::$200.000 COP::Tienda online con productos y una estructura básica para recibir pedidos.||Carrito de compras::Adicional desde $50.000 COP::Funcionalidad para agregar y gestionar productos antes de realizar un pedido.||Pedidos por WhatsApp::Adicional desde $25.000 COP::Permite preparar pedidos y enviarlos directamente a WhatsApp.", "tarifas.sistemas": "Formulario personalizado::Desde $25.000 COP::Formularios para recopilar información, solicitudes o mensajes.||Sistema de reservas básico::Desde $100.000 COP::Permite que los clientes soliciten citas o reservas.||Sistema de reservas avanzado::Desde $180.000 COP::Sistema con funcionalidades adicionales para gestionar reservas.||Panel administrativo::Desde $150.000 COP::Interfaz para administrar información y contenido de un sitio.||Sistema de inventario::Desde $180.000 COP::Herramienta para registrar y gestionar productos y existencias.||Registro de clientes::Desde $130.000 COP::Sistema para almacenar y consultar información de clientes.||Automatizaciones sencillas::Desde $60.000 COP::Automatización de tareas repetitivas y procesos básicos.||Integración de API::Desde $70.000 COP::Conexión con servicios externos para ampliar las funcionalidades de un proyecto.", "tarifas.adicionales": "Rediseño de página web::Desde $60.000 COP::Actualizar la estructura visual de un sitio que ya existe.||Modificación de secciones::Desde $15.000 COP::Cambios puntuales en el contenido o el diseño.||Animaciones personalizadas::Desde $25.000 COP::Movimiento sutil para detalles específicos del sitio.||Integración de mapas::Desde $15.000 COP::Ubicación del negocio dentro de la página.||Integración de WhatsApp::Desde $10.000 COP::Botón de contacto que abre el chat con el mensaje listo.||Adaptación responsive::Desde $35.000 COP::Ajustes para que el sitio se vea bien en celular y tablet.||Carga de productos::$1.000 COP por producto::Por cada producto cargado en el catálogo.||Mantenimiento mensual::Desde $35.000 COP::Revisiones y ajustes periódicos del sitio.", "paquetes.etiqueta": "// paquetes listos para arrancar", "paquetes.titulo": "PAQUETES", "paquetes.badge": "RECOMENDADO", "paquetes.cta": "ELEGIR PAQUETE ↗", "paquetes.1": "STARTER::$90.000 COP::Una página de presentación.||Información del negocio.||Diseño adaptable a celulares.||Botón de contacto por WhatsApp.||Una ronda de ajustes.", "paquetes.2": "BUSINESS::$160.000 COP::Hasta 4 secciones.||Diseño personalizado.||Galería de imágenes.||Sección de servicios o tarifas.||Integración de WhatsApp.||Dos rondas de ajustes.", "paquetes.3": "PROFESSIONAL::$250.000 COP::Hasta 6 secciones.||Diseño personalizado.||Galería y catálogo básico.||Animaciones.||Formularios.||Integraciones sencillas.||Dos rondas de ajustes.", "solicitar.archivo": "presupuesto.txt — selección actual", "solicitar.titulo": "TU SELECCIÓN", "solicitar.vacio": "Toca AGREGAR en un servicio o elige un paquete para armar tu consulta.", "solicitar.agregar": "AGREGAR +", "solicitar.agregado": "AGREGADO ✓", "solicitar.agregadoPack": "EN TU SELECCIÓN ✓", "solicitar.consultar": "CONSULTAR ↗", "solicitar.quitar": "Quitar de la selección", "solicitar.enviar": "CONSULTAR SELECCIÓN ↗", "solicitar.otroCta": "CONSULTAR OTRA IDEA ↗", "solicitar.nota": "Sin compromiso: es solo un mensaje para conversar.", "solicitar.msjServicio": "Hola thc.dev ✦ Quiero consultar por {servicio} ({precio}). ¿Me cuentas qué incluye y los tiempos?", "solicitar.msjLista": "Hola thc.dev ✦ Quiero consultar por:", "solicitar.msjPie": "¿Me cuentas qué incluye cada uno y los tiempos?", "solicitar.msjLibre": "Hola thc.dev ✦ Quiero conversar de un proyecto web. ¿Cómo trabajas?", "condiciones.titulo": "CONDICIONES CLARAS", "condiciones.1": "Los precios son valores de referencia y pueden variar según la complejidad del proyecto.", "condiciones.2": "Se solicita un anticipo del 50% para comenzar.", "condiciones.3": "El 50% restante se paga antes de la entrega final.", "condiciones.4": "Dominio y hosting no están incluidos, salvo que se indique lo contrario.", "condiciones.5": "Las funcionalidades o modificaciones adicionales se cotizan por separado.", "condiciones.6": "Los tiempos de entrega se acuerdan según el alcance del proyecto.", "sobre.archivo": "archivo: sobre_mi.txt", "sobre.titulo": "DEV POR ELECCIÓN,|CONSTANTE POR NATURALEZA", "sobre.texto1": "Soy Diego Alejandro Tellez Tellez, un estudiante de 17 años recién graduado de 11° con hambre de comerse el mundo (estoy flaco pues), y me gustaría estudiar ingeniería de sistemas dentro de muy poco... ya que llevo los últimos 5 años de mi vida programando por diversión.", "sobre.texto2": "Aunque todo esto se vea un poco raro, mi objetivo es que una persona entre a una página y entienda en tres segundos qué ofreces, cómo pedirlo y dónde encontrarte. Si tu abuela no lo entiende, vuelvo a intentarlo.", "sobre.punto1": "**01 /** Código limpio, y bien explicado.", "sobre.punto2": "**02 /** Estética cuidada, sin perder de vista lo que el negocio necesita.", "sobre.punto3": "**03 /** Escucho al negocio antes de abrir el editor.", "sobre.punto4": "**04 /** Si algo se ve raro, probablemente lo hice a propósito jeje.", "manifiesto.archivo": "manifiesto.txt", "manifiesto.nota": "// nota al margen", "manifiesto.titulo": "QUE SE VEA BIEN,|Y QUE SIRVA.", "manifiesto.texto": "Que algo que hice sirva de verdad. Que se vea bonito, sí — pero sobre todo que funcione para alguien real.", "terminal.archivo": "thc.dev — terminal interactiva", "terminal.etiqueta": "Escribe un comando", "terminal.placeholder": "escribe help y dale Enter", "terminal.arranque1": "thc.dev terminal v3.0 // Esperando futuras actualizaciones", "terminal.arranque2": "Sistema listo. Escribe 'help' para ver los comandos.", "terminal.help": "comandos: help · proyectos · servicios · precios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear", "terminal.quien1": "Diego Alejandro Tellez Tellez. Bucaramanga. Páginas web y herramientas digitales, estética Y2K underground y obseso del detalle.", "terminal.servicios1": "Puedo contratarme para: páginas de negocio, catálogos con pedido por WhatsApp y herramientas a medida.", "terminal.servicios2": "Cuéntame qué vendes y qué debe lograr la página. Escríbeme al correo o al WhatsApp de la sección contacto.", "terminal.servicios3": "Tarifas de referencia, paquetes y presupuesto en la sección #servicios.", "terminal.quien2": "Hago páginas claras para negocios reales. Si tu abuela no lo entiende, vuelvo a intentarlo.", "terminal.contacto1": "thczt.dev@gmail.com", "terminal.contacto2": "WhatsApp: +57 3203805194", "terminal.contacto3": "Discord: @thc_dev", "terminal.contacto4": "Instagram: Proximamente", "terminal.contacto5": "Si es para un negocio: cuéntame qué vendes y qué debe lograr la página.", "terminal.chiste": "¿Por qué el dev sk8 no duerme? Porque el build siempre vuelve a la rampa. 🛹", "terminal.sk81": "Tabla, griptape, azul pastel y terminal. Estilo de los 2000, código de ahora.", "terminal.sk82": "Regla del garage: si se ve raro, mejor así. Si no se entiende, se arregla.", "terminal.contab1": "THC Contabilidad: una app para llevar tus ingresos, gastos y proyectos. EN CONSTRUCCIÓN.", "terminal.contab2": "Hoy solo para Linux. Quiero hacerla nativa en Windows también.", "terminal.contab3": "Abre su código en GitHub desde la tarjeta 📊.", "terminal.desconocido": "No reconocí '{cmd}'. Prueba 'help'.", "ui.sonidoOff": "♫ sonido: OFF", "ui.sonidoOn": "♫ sonido: ON", "modal.ficha": "proyecto", "modal.enConstruccion": "EN CONSTRUCCIÓN", "modal.anio": "año", "modal.abrirDemo": "ABRIR DEMO ↗", "modal.verCodigo": "VER CÓDIGO ↗", "card.demoCta": "VER DETALLES", "card.wipCta": "VER CÓDIGO Y ESTADO", "card.ficticia": "DEMO FICTICIA", "modal.avisoDemoTitulo": "Aviso", "modal.avisoDemo": "Negocio ficticio y datos de ejemplo: demo demostrativa.", "modal.paraQuien": "Para quién", "modal.queResuelve": "Qué resuelve", "modal.comoLoHace": "Cómo lo hace", "modal.hechoCon": "Hecho con", "modal.plataformas": "Plataformas", "modal.roadmap": "Roadmap", "contacto.etiqueta": "// línea abierta", "contacto.titulo": "¿TIENES ALGO EN MENTE?", "contacto.texto": "Una tienda, un restaurante, un colegio o una idea rara a las 3 a.m. Cuéntame qué haces y qué quieres que logre tu página. Lo hablamos en claro.", "contacto.correo": "thczt.dev@gmail.com", "contacto.mailto": "mailto:thczt.dev@gmail.com", "contacto.btn": "ESCRÍBEME ✉", "contacto.btnMailto": "mailto:thczt.dev@gmail.com?subject=Hola%20thc.dev", "contacto.whatsapp": "+57 3203805194", "contacto.whatsappLink": "https://wa.me/573203805194", "contacto.discord": "@thc_dev", "contacto.instagram": "Proximamente", "contacto.sello": "PÁGINAS WEB A MEDIDA · BGA", "pie.inicio": "Diseñado y desarrollado por", "pie.nombre": "Diego Alejandro Tellez Tellez", "pie.sitio": "thc.dev", "pie.ciudad": "Bucaramanga", "pie.estilo": "estilo Y2K underground / sk8", "contabilidad.bajada": "App de escritorio local para llevar ingresos, gastos, proyectos, contactos y reportes. Sin internet.", "contabilidad.aviso": "Hoy funciona **únicamente en Linux**. Quiero sacar también una **versión nativa en Windows**, pero todavía no está lista: por eso se muestra aquí como proyecto en camino, no como una demo terminada.", "contabilidad.texto1": "Una app de escritorio para llevar el dinero de un negocio pequeño en un solo lugar: **ingresos, gastos, proyectos pendientes, clientes y reportes**. Todo se guarda en tu computador, sin depender de internet ni de cuentas en la nube.", "contabilidad.texto2": "Los montos se manejan en **peso colombiano** y la interfaz es oscura, con acento azul pastel y espacio de sobra para leer sin cansarse.", "contabilidad.paso1": "**Hoy:** funciona en Linux con sus seis áreas y los datos guardados en el computador.", "contabilidad.paso2": "**En camino:** una versión nativa en Windows, sin depender de WSL ni de una máquina virtual.", "contabilidad.paso3": "**Antes de darla por terminada:** probar la instalación y el respaldo de datos en ambos sistemas.", "contab.pasoRepo": "**Código abierto:** el proyecto está en GitHub; desde aquí puedes ver el avance y dejar una estrella.", "contab.volver": "← volver al hub", "contab.titulo": "THC Contabilidad", "contab.repoBoton": "VER CÓDIGO EN GITHUB ↗", "contab.repoLink": "https://github.com/thczt-dev/thc-contabilidad", "contab.chip1": "En construcción", "contab.chip2": "Solo Linux", "contab.chip3": "Sin internet", "contab.chip4": "Peso colombiano", "contab.chip5": "2026", "contab.alerta": "⚠ En construcción · no es una demo web", "contab.h2Para": "Para qué sirve", "contab.h2Modulos": "Módulos", "contab.tablaPestana": "Pestaña", "contab.tablaFuncion": "Función", "contab.mod1n": "Resumen", "contab.mod1d": "Indicadores del mes, balance, últimos movimientos, vencimientos y gráfico.", "contab.mod2n": "Movimientos", "contab.mod2d": "Ingresos y gastos con búsqueda, filtros, edición y borrado.", "contab.mod3n": "Proyectos", "contab.mod3d": "Cliente, estado, prioridad, fechas, presupuesto y vencimientos.", "contab.mod4n": "Calendario", "contab.mod4d": "Vista mensual, puntos de color, detalle por día y resumen del mes.", "contab.mod5n": "Contactos", "contab.mod5d": "Clientes y proveedores con NIT, teléfono, correo y dirección.", "contab.mod6n": "Reportes", "contab.mod6d": "Balances, resumen mensual, categorías y exportación CSV.", "contab.h2Calendario": "El calendario", "contab.cal1a": "Rejilla de 42 días (lunes a domingo) con navegación ◀ / ▶ y botón", "contab.cal1b": ". Cada día puede mostrar hasta cuatro indicadores:", "contab.calIngresos": "Ingresos", "contab.calGastos": "Gastos", "contab.calEntregas": "Entregas", "contab.calInicios": "Inicios", "contab.tooltip": "Al pasar el cursor aparece un tooltip con montos y proyectos; al hacer clic, un panel lateral muestra ingresos, gastos, neto, movimientos y proyectos de ese día. Abajo hay un resumen del mes.", "contab.h2Estado": "Estado y próximos pasos", "contab.pie": "thc.dev ✦ documentación de un proyecto en construcción"}</script>
   <script>
     (function () {
       "use strict";
@@ -1097,6 +1206,176 @@
         });
       }
 
+      /* ---------- catálogo de servicios y presupuesto ---------- */
+      var CATS = ["web", "catalogos", "sistemas", "adicionales"];
+      var catalogo = {};
+      var paquetes = [];
+      var seleccion = [];
+
+      function parsearServicios(clave) {
+        return String(txt(clave, "")).split("||").map(function (bloque) {
+          var c = bloque.split("::");
+          return { name: (c[0] || "").trim(), price: (c[1] || "").trim(), desc: (c[2] || "").trim() };
+        }).filter(function (r) { return r.name && r.price; });
+      }
+
+      function parsearPaquete(clave) {
+        var c = String(txt(clave, "")).split("::");
+        return {
+          name: (c[0] || "").trim(),
+          price: (c[1] || "").trim(),
+          features: (c[2] || "").split("||").map(function (s) { return s.trim(); }).filter(Boolean)
+        };
+      }
+
+      function encontrar(clave) {
+        if (clave.indexOf("paquete:") === 0) return paquetes[Number(clave.slice(8))];
+        var partes = clave.split(":");
+        return (catalogo[partes[0]] || [])[Number(partes[1])];
+      }
+
+      function yaElegido(clave) {
+        return seleccion.some(function (s) { return s.key === clave; });
+      }
+
+      function waHref(mensaje) {
+        var base = txt("contacto.whatsappLink", "https://wa.me/573203805194");
+        return base + (base.indexOf("?") >= 0 ? "&" : "?") + "text=" + encodeURIComponent(mensaje);
+      }
+
+      function consultar(item) {
+        if (!item) return;
+        var msg = txt("solicitar.msjServicio", "Hola thc.dev ✦ Quiero consultar por {servicio} ({precio}). ¿Me cuentas qué incluye y los tiempos?")
+          .replace("{servicio}", item.name).replace("{precio}", item.price);
+        window.open(waHref(msg), "_blank", "noopener,noreferrer");
+        beep(760);
+      }
+
+      function renderTarifas() {
+        CATS.forEach(function (cat) {
+          catalogo[cat] = parsearServicios("tarifas." + cat);
+          var n = document.querySelector('[data-count-cat="' + cat + '"]');
+          if (n) n.textContent = String(catalogo[cat].length).padStart(2, "0");
+        });
+        var active = document.querySelector(".tarifa-tab.is-active");
+        mostrarCategoria(active ? active.dataset.cat : "web");
+      }
+
+      function mostrarCategoria(cat) {
+        var grid = document.getElementById("tarifaGrid");
+        var tab = document.querySelector('.tarifa-tab[data-cat="' + cat + '"]');
+        if (tab) grid.setAttribute("aria-label", tab.textContent.trim());
+        var items = catalogo[cat] || [];
+        if (!items.length) {
+          grid.innerHTML = '<p class="empty">' + esc(txt("tarifas.vacio", "Catálogo no disponible por ahora.")) + "</p>";
+          return;
+        }
+        grid.innerHTML = items.map(function (item, i) {
+          var key = cat + ":" + i;
+          var on = yaElegido(key);
+          return '<article class="tarifa-card">' +
+            '<div class="tarifa-card__top"><h4 class="tarifa-card__name">' + esc(item.name) + "</h4>" +
+            '<span class="tarifa-card__price">' + esc(item.price) + "</span></div>" +
+            (item.desc ? '<p class="tarifa-card__desc">' + esc(item.desc) + "</p>" : "") +
+            '<div class="tarifa-card__actions">' +
+              '<button class="tarifa-btn tarifa-btn--add' + (on ? " is-on" : "") + '" type="button" data-add="' + key + '" aria-pressed="' + on + '">' +
+                esc(txt(on ? "solicitar.agregado" : "solicitar.agregar", on ? "AGREGADO ✓" : "AGREGAR +")) + "</button>" +
+              '<button class="tarifa-btn" type="button" data-consultar="' + key + '">' + esc(txt("solicitar.consultar", "CONSULTAR ↗")) + "</button>" +
+            "</div></article>";
+        }).join("");
+      }
+
+      function renderPaquetes() {
+        paquetes = [parsearPaquete("paquetes.1"), parsearPaquete("paquetes.2"), parsearPaquete("paquetes.3")];
+        document.getElementById("paquetesGrid").innerHTML = paquetes.map(function (p, i) {
+          if (!p.name) return "";
+          var key = "paquete:" + i;
+          var on = yaElegido(key);
+          var destacado = i === 1;
+          return '<article class="paquete' + (destacado ? " paquete--destacado" : "") + '">' +
+            (destacado ? '<span class="paquete__badge">' + esc(txt("paquetes.badge", "RECOMENDADO")) + "</span>" : "") +
+            '<h4 class="paquete__name">' + esc(p.name) + "</h4>" +
+            '<p class="paquete__price">' + esc(p.price) + "</p>" +
+            '<ul class="paquete__features">' + p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>" +
+            '<div class="paquete__actions">' +
+              '<button class="btn btn--' + (destacado ? "primary" : "ghost") + '" type="button" data-add="' + key + '">' +
+                esc(txt(on ? "solicitar.agregadoPack" : "paquetes.cta", on ? "EN TU SELECCIÓN ✓" : "ELEGIR PAQUETE ↗")) + "</button>" +
+              '<button class="tarifa-btn" type="button" data-consultar="' + key + '">' + esc(txt("solicitar.consultar", "CONSULTAR ↗")) + "</button>" +
+            "</div></article>";
+        }).join("");
+      }
+
+      function renderSeleccion() {
+        var lista = document.getElementById("solicitudItems");
+        var vacio = document.getElementById("solicitudVacio");
+        var count = document.getElementById("solicitudCount");
+        var btn = document.getElementById("solicitudEnviar");
+        count.textContent = String(seleccion.length).padStart(2, "0");
+        vacio.hidden = seleccion.length > 0;
+        lista.innerHTML = seleccion.map(function (s, i) {
+          return "<li><span><b>" + esc(s.name) + "</b><small>" + esc(s.price) + "</small></span>" +
+            '<button class="solicitud__remove" type="button" data-remove="' + i + '" aria-label="' +
+            esc(txt("solicitar.quitar", "Quitar de la selección")) + '">✕</button></li>';
+        }).join("");
+        var mensaje = seleccion.length
+          ? txt("solicitar.msjLista", "Hola thc.dev ✦ Quiero consultar por:") + "\n" +
+            seleccion.map(function (s) { return "• " + s.name + " (" + s.price + ")"; }).join("\n") + "\n\n" +
+            txt("solicitar.msjPie", "¿Me cuentas qué incluye cada uno y los tiempos?")
+          : txt("solicitar.msjLibre", "Hola thc.dev ✦ Quiero conversar de un proyecto web. ¿Cómo trabajas?");
+        btn.href = waHref(mensaje);
+        btn.textContent = txt(seleccion.length ? "solicitar.enviar" : "solicitar.otroCta",
+          seleccion.length ? "CONSULTAR SELECCIÓN ↗" : "CONSULTAR OTRA IDEA ↗");
+      }
+
+      function renderCondiciones() {
+        var ul = document.getElementById("condicionesLista");
+        var html = "";
+        for (var i = 1; i <= 6; i++) {
+          var v = txt("condiciones." + i, "");
+          if (v) html += "<li>" + esc(v) + "</li>";
+        }
+        ul.innerHTML = html;
+      }
+
+      function refrescarServicios() {
+        renderTarifas();
+        renderPaquetes();
+        renderSeleccion();
+      }
+
+      document.getElementById("servicios").addEventListener("click", function (e) {
+        var tab = e.target.closest(".tarifa-tab");
+        if (tab) {
+          document.querySelectorAll(".tarifa-tab").forEach(function (b) {
+            var on = b === tab;
+            b.classList.toggle("is-active", on);
+            b.setAttribute("aria-selected", String(on));
+          });
+          mostrarCategoria(tab.dataset.cat);
+          beep(440);
+          return;
+        }
+        var anadir = e.target.closest("[data-add]");
+        if (anadir) {
+          var item = encontrar(anadir.dataset.add);
+          if (!item || yaElegido(anadir.dataset.add)) return;
+          seleccion.push({ key: anadir.dataset.add, name: item.name, price: item.price });
+          beep(680);
+          refrescarServicios();
+          return;
+        }
+        var cons = e.target.closest("[data-consultar]");
+        if (cons) { consultar(encontrar(cons.dataset.consultar)); return; }
+        var quitar = e.target.closest("[data-remove]");
+        if (quitar) {
+          seleccion.splice(Number(quitar.dataset.remove), 1);
+          refrescarServicios();
+        }
+      });
+
+      renderCondiciones();
+      refrescarServicios();
+
       function openModal(p) {
         if (!p) return;
         state.lastFocus = document.activeElement;
@@ -1209,7 +1488,7 @@
 
         switch (cmd) {
           case "help":
-            txtLineas("terminal.help", "comandos: help · proyectos · servicios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear");
+            txtLineas("terminal.help", "comandos: help · proyectos · servicios · precios · quien-soy · sobre-mi · contacto · chiste · sk8 · contabilidad · fecha · clear");
             break;
           case "proyectos":
             state.projects.forEach(function (p, i) {
@@ -1217,9 +1496,11 @@
                 (p.status === "wip" ? " [EN CONSTRUCCIÓN]" : ""));
             });
             break;
+          case "precios":
           case "servicios":
             txtLineas("terminal.servicios1", "Puedo contratarme para: páginas de negocio, catálogos con pedido por WhatsApp y herramientas a medida.");
             txtLineas("terminal.servicios2", "Cuéntame qué vendes y qué debe lograr la página. Escríbeme al correo o al WhatsApp de la sección contacto.");
+            txtLineas("terminal.servicios3", "Tarifas de referencia, paquetes y presupuesto en la sección #servicios.");
             break;
           case "quien-soy":
           case "sobre-mi":
