@@ -1,35 +1,38 @@
-# KDS │ Moda Streetwear ⚡⛓️
+# NKS │ Streetwear ⚡⛓️ — demo ficticia
 
-Página de ejemplo para la tienda de ropa urbana **KDS**, creada como pieza de portafolio para **thc.dev**.
+Landing page de ejemplo para una marca de ropa urbana inventada, creada como pieza de portafolio para **thc.dev**.
+
+> **Aviso:** NKS no es una tienda real. El nombre, el WhatsApp, el Instagram y el correo son datos de ejemplo. La compra cancelada por el interesado original no se usa: esta demo no representa a ese negocio ni a esa persona.
 
 **Desarrollador:** Diego Alejandro Tellez Tellez — Bucaramanga, Colombia  
-**IG de la marca:** [@kds.clothesco](https://www.instagram.com/kds.clothesco/)  
 **Tecnologías:** HTML5, CSS3 y JavaScript vanilla (sin frameworks ni dependencias)
+
+La carpeta sigue llamándose `kds.clothesco/` para no romper los enlaces publicados; todo el contenido visible usa la marca ficticia **NKS │ Streetwear**.
 
 ## Identidad visual
 
-El diseño se construyó a partir del feed real de [@kds.clothesco](https://www.instagram.com/kds.clothesco/):
+La estética es una interpretación libre de streetwear nacional, con:
 
 - **Color base:** negros cálidos (`#11110E`, `#171916`) y crema (`#EBE4E0`).
-- **Acento:** dorado/mostaza (`#E9B93F`, `#947A30`), en lugar de un neón, para igualar el tono de los rayos ⚡ del feed.
-- **Motivos:** ⚡ y ⛓️, presentes en la bio y en las portadas de los *highlights*.
-- **Wordmark:** `KDS│` con barra vertical, seguido de "MODA STREETWEAR".
-- **Voz de marca:** frases de la bio —"Nuevos en el mercado, veteranos en calidad", "Streetwear con sello nacional", "Personaliza tu estampado".
+- **Acento:** dorado/mostaza (`#E9B93F`, `#947A30`) en lugar de un neón, para acompañar los rayos ⚡.
+- **Motivos:** ⚡ y ⛓️, usados como gestos gráficos del falso *branding*.
+- **Wordmark:** `NKS│` con barra vertical, seguido de "MODA STREETWEAR".
+- **Voz de marca:** "Nuevos en el mercado, veteranos en calidad", "Streetwear con sello nacional" y "Personaliza tu estampado".
 
 ## Vista previa
 
-El proyecto es una *landing page* de una sola página con:
+La demo es una *landing page* de una sola página con:
 
-- Header sticky con menú responsive y carrito.
+- Aviso visible de **DEMO FICTICIA** y header sticky con menú responsive y carrito.
 - Hero con imagen destacada, estadísticas y llamadas a la acción.
-- Ticker animado con las frases de la bio.
+- Ticker animado con frases de la marca ficticia.
 - Catálogo de 8 productos con filtros por categoría.
-- Sección de **estampado personalizado** con CTA directo a WhatsApp.
+- Sección de **estampado personalizado** con CTA de ejemplo a WhatsApp.
 - Sección de drop/edición limitada.
-- Sobre la marca, frase de marca y formulario de suscripción.
-- Footer con Instagram real y créditos del desarrollador.
+- Sobre la marca, frase de marca y formulario de suscripción demostrativo.
+- Footer con datos falsos y créditos del desarrollador.
 
-**Contacto real de la marca:** WhatsApp [+57 310 705 6031](https://wa.me/573170576031) · Instagram [@kds.clothesco](https://www.instagram.com/kds.clothesco/)
+**Contactos de ejemplo:** WhatsApp `+57 300 000 0000` · Instagram `@nks.streetwear` · Correo `hola@nksstreetwear.example`. Ninguno pertenece a un negocio real.
 
 ## Funcionalidades en JavaScript
 
@@ -42,13 +45,13 @@ El proyecto es una *landing page* de una sola página con:
 | Animaciones de entrada con `IntersectionObserver` | `js/main.js` |
 | Resaltado del enlace activo del menú | `js/main.js` |
 
-> El carrito y el formulario son **demostrativos**: no guardan datos ni procesan pagos. Están pensados para mostrar lógica de front-end en el portafolio.
+> El carrito y el formulario son **demostrativos**: no guardan datos, no envían correos ni procesan pagos.
 
-## Cómo ejecutarlo
+## Cómo ejecutarla
 
 No requiere instalación. Puedes abrir `index.html` directamente en el navegador.
 
-Si prefieres servirlo localmente (recomendado):
+Si prefieres servirla localmente:
 
 ```bash
 cd "kds.clothesco"
@@ -61,17 +64,18 @@ Luego visita <http://localhost:8000>.
 
 ```
 kds.clothesco/
-├── index.html        # Estructura y contenido
+├── index.html        # Estructura, textos y aviso de demo
 ├── css/
 │   └── styles.css    # Diseño, responsive y animaciones
 ├── js/
 │   └── main.js       # Interacciones
+├── proyecto.json     # Ficha usada por el hub
 └── README.md
 ```
 
 ## Notas
 
 - Las imágenes se cargan desde Unsplash, por lo que se necesita conexión a internet para verlas. Si fallan, los contenedores tienen un degradado de respaldo.
-- **Las fotos de producto son provisionales**: reemplázalas por fotos reales de KDS cuando tu amigo te las pase. No se usaron imágenes del CDN de Instagram porque esos enlaces expiran.
+- Las fotos de producto son ilustrativas, no pertenecen a ninguna marca real.
 - Las fuentes (Anton e Inter) vienen de Google Fonts, con fuentes del sistema como alternativa.
-- El correo `hola@kdsclothesco.com` sigue siendo un ejemplo: confírmalo con la marca antes de publicar.
+- El dominio `.example` en el correo es reservado y no corresponde a un correo real.

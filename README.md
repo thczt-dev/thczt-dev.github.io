@@ -10,7 +10,7 @@ Portafolio de Diego (thc.dev): hub Y2K underground/sk8 con demos de negocios, pr
 - `ThcFoto.webp` — retrato de la portada (WebP optimizado).
 - `Ayni/`, `Carta Censurada/`, `Restaurante/`, `barberia/`, `kds.clothesco/` — demos.
 
-`Sabor & Punto` y `NAVAJA NEGRA` son negocios ficticios; sus datos son de ejemplo y solo demostrativos.
+`Sabor & Punto`, `NAVAJA NEGRA` y `NKS │ Streetwear` son marcas ficticias; sus datos son de ejemplo y solo demostrativos.
 
 El código de `THC Contabilidad` está en https://github.com/thczt-dev/thc-contabilidad
 

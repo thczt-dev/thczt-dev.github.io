@@ -2,7 +2,7 @@
 
 Sitio **multipágina** de demostración para un restaurante, creado como pieza del portafolio **thc.dev**.
 
-**Diseño propio y centrado:** paleta crema/terracota, tipografía editorial Fraunces, cabecera en píldora, retratos con arco, carta en tarjetas circulares y pedidos en un modal centrado. No comparte lenguaje visual con el proyecto KDS.
+**Diseño propio y centrado:** paleta crema/terracota, tipografía editorial Fraunces, cabecera en píldora, retratos con arco, carta en tarjetas circulares y pedidos en un modal centrado. No comparte lenguaje visual con el proyecto NKS.
 
 **Desarrollador:** Diego Alejandro Tellez Tellez — Bucaramanga, Colombia  
 **Tecnologías:** HTML5, CSS3 y JavaScript vanilla

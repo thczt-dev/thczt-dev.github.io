@@ -1,5 +1,5 @@
 /* =========================================================
-   KDS CLOTHES CO. — Interacciones
+   NKS │ STREETWEAR — Demo ficticia · Interacciones
    Autor: Diego Alejandro Tellez Tellez (thc.dev)
    JavaScript vanilla, sin dependencias.
    ========================================================= */

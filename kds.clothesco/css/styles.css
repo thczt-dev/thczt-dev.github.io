@@ -1,12 +1,12 @@
 /* =========================================================
-   KDS CLOTHES CO. — Estilos principales
+   NKS │ STREETWEAR — Demo ficticia · Estilos principales
    Autor: Diego Alejandro Tellez Tellez (thc.dev)
    ========================================================= */
 
 /* ---------- 1. Variables y reset ---------- */
 :root {
-  /* Paleta tomada del feed de @kds.clothesco: negros cálidos,
-     crema y el dorado de los rayos ⚡ de su identidad. */
+  /* Paleta de la demo ficticia NKS: negros cálidos,
+     crema y el dorado de los rayos ⚡ de la identidad de ejemplo. */
   --bg: #11110e;
   --bg-soft: #1a1815;
   --surface: #251f1c;
@@ -218,7 +218,19 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
-/* ---------- 3. Header ---------- */
+/* ---------- 3. Aviso de demo y cabecera ---------- */
+.demo-notice {
+  padding: 8px 20px;
+  text-align: center;
+  background: var(--accent);
+  color: #11110e;
+  border-bottom: 1px solid #000;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -258,7 +270,7 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
-/* Barra vertical del wordmark: KDS│ (como en la bio de Instagram) */
+/* Barra vertical del wordmark: NKS│ (como en la bio de Instagram) */
 .logo__bar {
   margin-left: 3px;
   color: var(--accent);
@@ -1394,6 +1406,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 640px) {
   .container { width: min(100% - 32px, var(--container)); }
+  .demo-notice { padding: 8px 14px; font-size: 0.62rem; line-height: 1.5; }
 
   .products { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .product-card h3 { font-size: 0.9rem; }
