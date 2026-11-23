@@ -1,6 +1,6 @@
 # thc.dev
 
-Portafolio de Diego (thc.dev): hub Y2K underground/sk8 con demos de negocios, proyectos personales y la app de contabilidad en construcción.
+Portafolio de Diego (thc.dev): hub Y2K underground/sk8 con demos de negocios, comunidades y la app de contabilidad en construcción.
 
 **Sitio en vivo:** https://thczt-dev.github.io
 
@@ -8,9 +8,9 @@ Portafolio de Diego (thc.dev): hub Y2K underground/sk8 con demos de negocios, pr
 
 - `index.html` — hub (textos ya horneados desde `textos.txt`).
 - `ThcFoto.webp` — retrato de la portada (WebP optimizado).
-- `Ayni/`, `Carta Censurada/`, `Restaurante/`, `barberia/`, `kds.clothesco/` — demos.
+- `Ayni/`, `Restaurante/`, `barberia/`, `kds.clothesco/`, `la-oveja-negra/` — demos (la última es privada).
 
-`Sabor & Punto`, `NAVAJA NEGRA` y `NKS │ Streetwear` son marcas ficticias; sus datos son de ejemplo y solo demostrativos.
+`Sabor & Punto`, `NAVAJA NEGRA`, `NKS │ Streetwear` y `La Oveja Negra` son marcas ficticias; sus datos son de ejemplo y solo demostrativos.
 
 El código de `THC Contabilidad` está en https://github.com/thczt-dev/thc-contabilidad
 
