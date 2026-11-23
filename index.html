@@ -513,7 +513,7 @@
       font: 400 .86rem/1 "VT323", monospace; letter-spacing: .12em;
       box-shadow: 2px 2px 0 rgba(0,0,0,.3);
     }
-    .photo-polaroid--hero { width: min(100%, 330px); transform: rotate(3deg); }
+    .photo-polaroid--hero { width: min(100%, 330px); transform: none; }
     .photo-polaroid--hero img { object-position: center 20%; }
     .sticker--photo { top: -16px; left: -18px; transform: rotate(-12deg); z-index: 3; }
     .photo-caption { margin: 0; color: var(--violet); font: 400 .95rem/1 "VT323", monospace; letter-spacing: .1em; }
@@ -844,8 +844,6 @@
 
         <div class="hero__portrait">
           <figure class="photo-polaroid photo-polaroid--hero">
-            <span class="photo-tape" aria-hidden="true">TH.C</span>
-            <span class="sticker sticker--photo" aria-hidden="true" data-texto="hero.fotoEtiqueta">YO ESE</span>
             <img src="ThcFoto.webp" alt="Fotico De Mi" data-texto-attr="alt|hero.alt" />
             <figcaption data-texto="hero.fotoPie">diego · thc.dev</figcaption>
           </figure>
@@ -854,12 +852,6 @@
         </div>
       </div>
 
-      <div class="hero__scrap" aria-hidden="true">
-        <span class="sticker sticker--one" data-texto="hero.sticker1">OHZI / CODE</span>
-        <span class="sticker sticker--two" data-texto="hero.sticker2">NO LOGO · THC</span>
-        <span class="sticker sticker--three" data-texto="hero.sticker3">BGA · 2026</span>
-      </div>
-      <div class="hero__counter"><span data-texto="hero.visitante1">visitante #</span><b id="visitCount">0001</b> <span data-texto="hero.visitante2">✕ bienvenido a mi esquina de internet</span></div>
     </section>
   <div class="checker" aria-hidden="true"></div>
 
