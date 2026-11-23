@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Oveja Negra - Pizzería artesanal con sabor auténtico. Pizzas hechas con amor, ingredientes frescos y el toque rebelde que nos hace únicos.">
+  <title>La Oveja Negra | Pizzería Artesanal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a href="#inicio" class="logo" aria-label="La Oveja Negra inicio">
+        <span class="logo-icon" aria-hidden="true">🐑</span>
+        <span class="logo-text">
+          <span class="logo-top">La Oveja</span>
+          <span class="logo-bottom">Negra</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#especialidades" class="nav-link">Especialidades</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link nav-cta">Pedir ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Pizzería artesanal</p>
+        <h1>El sabor que se <span class="highlight">sale del rebaño</span></h1>
+        <p class="hero-desc">
+          En <strong>La Oveja Negra</strong> hacemos pizzas con masa artesanal, ingredientes frescos
+          y una actitud rebelde. Porque lo diferente, sabe mejor.
+        </p>
+        <div class="hero-actions">
+          <a href="#especialidades" class="btn btn-primary">Ver el menú</a>
+          <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Artesanal</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+20</span>
+            <span class="stat-label">Recetas únicas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">🔥</span>
+            <span class="stat-label">Horno caliente</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="pizza-card">
+          <div class="pizza-badge">¡La favorita!</div>
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Pizza artesanal recién horneada con ingredientes frescos" class="pizza-img">
+          <div class="pizza-card-info">
+            <div>
+              <h3>Negra Especial</h3>
+              <p>La que rompe las reglas</p>
+            </div>
+            <span class="price">$14.900</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64 C240,120 480,120 720,88 C960,56 1200,8 1440,24 L1440,120 L0,120 Z" fill="#1a1a1a"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section class="section section-dark" id="especialidades">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Nuestro menú</p>
+        <h2>Especialidades de la <span class="highlight">casa</span></h2>
+        <p class="section-desc">Pizzas con personalidad propia. Elige tu favorita o atrévete a probar algo nuevo.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="menu-img-wrap">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80" alt="Pizza clásica con queso y pepperoni" loading="lazy">
+            <span class="menu-tag">Clásica</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-top">
+              <h3>La Clásica Rebelde</h3>
+              <span class="menu-price">$12.900</span>
+            </div>
+            <p>Salsa de tomate casera, mozzarella, pepperoni y orégano fresco. Simple, pero inolvidable.</p>
+          </div>
+        </article>
+
+        <article class="menu-card featured">
+          <div class="menu-img-wrap">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Pizza especial de la casa con ingredientes variados" loading="lazy">
+            <span class="menu-tag hot">★ Favorita</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-top">
+              <h3>Negra Especial</h3>
+              <span class="menu-price">$14.900</span>
+            </div>
+            <p>Nuestra creación estrella: mozzarella, jamón, champiñones, aceitunas y el toque secreto de la casa.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=700&q=80" alt="Pizza vegetariana con vegetales frescos" loading="lazy">
+            <span class="menu-tag green">Veggie</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-top">
+              <h3>Huerta Negra</h3>
+              <span class="menu-price">$13.500</span>
+            </div>
+            <p>Pimientos, champiñones, cebolla morada, tomate cherry y mozzarella sobre masa artesanal.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-img-wrap">
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=700&q=80" alt="Pizza de carnes con pepperoni y tocino" loading="lazy">
+            <span class="menu-tag">Carnívora</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-top">
+              <h3>Fuego Rojo</h3>
+              <span class="menu-price">$15.900</span>
+            </div>
+            <p>Pepperoni, tocino, carne molida, jalapeños y extra queso. Para los que no le temen al sabor.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section section-light" id="nosotros">
+    <div class="container about-grid">
+      <div class="about-images">
+        <img class="about-img-main" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80" alt="Preparación artesanal de pizza en la cocina" loading="lazy">
+        <div class="about-badge">
+          <span class="about-badge-big">Hecha</span>
+          <span>con amor y actitud</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow dark">Nuestra historia</p>
+        <h2>No seguimos la receta, <span class="highlight-red">la reinventamos</span></h2>
+        <p>
+          <strong>La Oveja Negra</strong> nació con una idea simple: hacer pizzas que se sientan diferentes.
+          Somos el lugar donde la tradición se mezcla con la rebeldía, donde cada masa se amasa a mano
+          y cada ingrediente se elige con cuidado.
+        </p>
+        <p>
+          Creemos que la buena comida une a las personas, y que siempre hay espacio para un toque distinto.
+          Aquí no solo vienes a comer: vienes a ser parte del rebaño más rebelde.
+        </p>
+        <div class="about-features">
+          <div class="feature">
+            <span class="feature-icon">🍕</span>
+            <div>
+              <h4>Masa artesanal</h4>
+              <p>Preparada cada día con paciencia y dedicación.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🌿</span>
+            <div>
+              <h4>Ingredientes frescos</h4>
+              <p>Seleccionamos lo mejor para cada pizza.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">❤️</span>
+            <div>
+              <h4>Hecho con pasión</h4>
+              <p>Cada pizza lleva nuestro toque único.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER CTA -->
+  <section class="banner">
+    <div class="container banner-inner">
+      <div>
+        <p class="eyebrow">¿Antojo de pizza?</p>
+        <h2>Tu próxima pizza favorita te está esperando</h2>
+      </div>
+      <a href="#contacto" class="btn btn-primary btn-lg">Quiero pedir</a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section section-dark" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Contacto</p>
+        <h2>Ven a conocernos o <span class="highlight">haz tu pedido</span></h2>
+        <p class="section-desc left">Estamos listos para atenderte con la mejor actitud y la pizza más rica.</p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h4>Ubicación</h4>
+              <p>Tu dirección aquí, Ciudad</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <h4>Horarios</h4>
+              <p>Lun - Dom: 12:00 PM - 10:00 PM</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h4>Teléfono / WhatsApp</h4>
+              <p>+56 9 1234 5678</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <h3>Envíanos un mensaje</h3>
+        <label class="field">
+          <span>Nombre</span>
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </label>
+        <label class="field">
+          <span>Teléfono</span>
+          <input type="tel" name="telefono" placeholder="Tu número de contacto">
+        </label>
+        <label class="field">
+          <span>Mensaje</span>
+          <textarea name="mensaje" rows="4" placeholder="¿Qué se te antoja hoy?" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+        <p class="form-note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <span class="logo-icon" aria-hidden="true">🐑</span>
+          <span class="logo-text">
+            <span class="logo-top">La Oveja</span>
+            <span class="logo-bottom">Negra</span>
+          </span>
+        </a>
+        <p>Pizzas artesanales con actitud. Diferentes por naturaleza.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#especialidades">Menú</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-link">IG</a>
+        <a href="#" aria-label="Facebook" class="social-link">FB</a>
+        <a href="#" aria-label="WhatsApp" class="social-link">WA</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 La Oveja Negra. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

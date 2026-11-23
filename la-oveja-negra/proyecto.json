@@ -1,0 +1,21 @@
+{
+  "name": "La Oveja Negra",
+  "description": "Pizzería artesanal con actitud rebelde: menú de especialidades, historia de la marca, contacto y una landing page cálida con paleta negro, amarillo y rojo.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JS",
+    "LANDING"
+  ],
+  "emoji": "🍕",
+  "category": "negocios",
+  "audience": "Pizzerías, restaurantes y negocios de comida que quieren mostrar su menú y recibir pedidos.",
+  "problem": "Que los clientes no conozcan el menú, la esencia del negocio ni cómo hacer un pedido rápido.",
+  "solution": "Una landing page atractiva con especialidades, historia, datos de contacto y formulario para pedidos o mensajes.",
+  "accent": "#F4C542",
+  "year": "2026",
+  "demo": true,
+  "notice": "Negocio ficticio y datos de ejemplo. Es una demo demostrativa, no una pizzería real.",
+  "private": true,
+  "password": "mimaso01"
+}
